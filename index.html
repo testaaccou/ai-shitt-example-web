@@ -77,7 +77,7 @@
 
       <div class="flex items-center justify-center gap-8 mt-6 border-b border-slate-200 text-sm font-semibold">
         <button onclick="switchTab('home')" id="tab-home" class="pb-3.5 border-b-2 border-transparent text-slate-500 hover:text-slate-900 transition">Home</button>
-        <button onclick="switchTab('products')" id="tab-products" class="pb-3.5 border-b-2 border-indigo-600 text-slate-900 transition">Products (<span id="product-count">3</span>)</button>
+        <button onclick="switchTab('products')" id="tab-products" class="pb-3.5 border-b-2 border-indigo-600 text-slate-900 transition">Products (<span id="product-count">13</span>)</button>
         <button onclick="switchTab('community')" id="tab-community" class="pb-3.5 border-b-2 border-transparent text-slate-500 hover:text-slate-900 transition">Community</button>
       </div>
     </div>
@@ -154,39 +154,95 @@
         category: "Crafts & ASMR", 
         image: "https://images.unsplash.com/photo-1584992236310-6edddc08a313?auto=format&fit=crop&w=800&q=80", 
         desc: "Complete AI system for viral rug tufting reels.", 
-        prompt: `RUG TUFTING VIDEOS — Master Prompt By Indiw
-
-Step 1 – Give the Master Prompt to Claude
-Copy the Master Prompt.
-Open a new Claude chat and paste it.
-Claude will instantly give you 5 random string art video ideas (subject + a one-line hook each).
-
-Step 2 – Confirm the ideas
-If the 5 ideas look good → say "OK".
-If not → say "I want different ideas", and Claude will give you a fresh set of 5.
-Once you say OK, Claude generates 5 full prompts (one for each idea).
-
-Step 3 – Copy the prompt set
-Copy the promopt.
-
-Step 4 – Go to Google Flow
-Open Google Flow.
-Paste the entire prompt you copied.` 
+        prompt: `RUG TUFTING VIDEOS — Master Prompt By Indiw\n\nStep 1 – Give the Master Prompt to Claude\nCopy the Master Prompt.\nOpen a new Claude chat and paste it.\nClaude will instantly give you 5 random string art video ideas (subject + a one-line hook each).\n\nStep 2 – Confirm the ideas\nIf the 5 ideas look good → say "OK".\nIf not → say "I want different ideas", and Claude will give you a fresh set of 5.\nOnce you say OK, Claude generates 5 full prompts (one for each idea).\n\nStep 3 – Copy the prompt set\nCopy the prompt.` 
       },
       { 
         title: "ANIMAL FEEDING VIDEOS", 
-        category: "Animals", 
+        category: "Animals & Wildlife", 
         image: "https://images.unsplash.com/photo-1564349683136-77e08dba1ef7?auto=format&fit=crop&w=800&q=80", 
         desc: "Viral animal feeding video workflow.", 
-        prompt: `ANIMAL FEEDING VIDEOS — Master Prompt By Indiw
-
-Step 1: Choose single or group animal feeding.
-Step 2: Select video duration (10s, 15s, or 30s).
-Step 3: Generate sequential cinematic video prompts with species-accurate feeding behavior.` 
+        prompt: `ANIMAL FEEDING VIDEOS — Master Prompt By Indiw\n\nStep 1: Choose single or group animal feeding.\nStep 2: Select video duration (10s, 15s, or 30s).\nStep 3: Generate sequential cinematic video prompts with species-accurate feeding behavior.` 
+      },
+      { 
+        title: "ANIMAL TEETH CLEANING VIDEOS", 
+        category: "Animals & Wildlife", 
+        image: "https://images.unsplash.com/photo-1546182990-dffeafbe841d?auto=format&fit=crop&w=800&q=80", 
+        desc: "Complete Indiw AI system for creating satisfying animal teeth cleaning videos.", 
+        prompt: `ANIMAL TEETH CLEANING VIDEOS — Master Prompt By Indiw\n\nGenerate 10 random wild animals for a satisfying dental cleaning reel. Once I pick one, use species-accurate dental anatomy to output 8 sequential image prompts.` 
+      },
+      { 
+        title: "TINY MACRO ANIMAL VIDEOS", 
+        category: "Animals & Wildlife", 
+        image: "https://images.unsplash.com/photo-1504450874802-0ba2bcd9b5ae?auto=format&fit=crop&w=800&q=80", 
+        desc: "Miniature animal ideas on human fingertips or everyday objects.", 
+        prompt: `TINY MACRO ANIMAL VIDEOS — Master Prompt By Indiw\n\nGenerate 10 unique ultra-tiny macro animal ideas resting on a human fingertip or natural leaf with full visual descriptions.` 
+      },
+      { 
+        title: "WILD BIRD VIDEOS", 
+        category: "Animals & Wildlife", 
+        image: "https://images.unsplash.com/photo-1444464666168-49d633b86797?auto=format&fit=crop&w=800&q=80", 
+        desc: "Ultra-realistic wild bird videos for Facebook Reels and TikTok.", 
+        prompt: `WILD BIRD VIDEOS — Master Prompt By Indiw\n\nProvide 10 rare and visually stunning wild bird species with matching natural habitats.` 
+      },
+      { 
+        title: "PETS NICHE (CATS & DOGS) VIDEOS", 
+        category: "Animals & Wildlife", 
+        image: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=800&q=80", 
+        desc: "Viral pet storytelling system with ElevenLabs Voice Changer consistency fix.", 
+        prompt: `PETS NICHE VIDEOS — Master Prompt By Indiw\n\nCreate a viral emotional or heartwarming story script starring a consistent cat or dog protagonist with ElevenLabs voice fixes.` 
+      },
+      { 
+        title: "FOOD MAKING VIDEOS", 
+        category: "Food & Recipes", 
+        image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80", 
+        desc: "Pick a country to get 10 popular dishes with step-by-step cooking prompts.", 
+        prompt: `FOOD MAKING VIDEOS — Master Prompt By Indiw\n\nAsk me to pick a country. Then list 10 iconic dishes from that cuisine. Generate step-by-step cooking image prompts.` 
+      },
+      { 
+        title: "ICE CREAM RECIPE VIDEOS", 
+        category: "Food & Recipes", 
+        image: "https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?auto=format&fit=crop&w=800&q=80", 
+        desc: "Homemade ice cream ideas with ASMR voiceover script.", 
+        prompt: `ICE CREAM RECIPE VIDEOS — Master Prompt By Indiw\n\nGenerate 5 fresh viral homemade artisan ice cream recipe ideas with ASMR voiceover scripts.` 
+      },
+      { 
+        title: "STRING ART VIDEOS", 
+        category: "Crafts & ASMR", 
+        image: "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=800&q=80", 
+        desc: "Mesmerizing geometric and portrait thread/string art time-lapse videos.", 
+        prompt: `STRING ART VIDEOS — Master Prompt By Indiw\n\nGive me 5 intricate portrait or geometric string art board ideas with time-lapse prompt sequences.` 
+      },
+      { 
+        title: "EPOXY RESIN TABLE MAKING VIDEOS", 
+        category: "Crafts & ASMR", 
+        image: "https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&w=800&q=80", 
+        desc: "Luxury wood-slab and glowing epoxy resin river table time-lapse Reels.", 
+        prompt: `EPOXY RESIN TABLE VIDEOS — Master Prompt By Indiw\n\nGenerate 5 luxury epoxy resin table concepts with workshop time-lapse prompts.` 
+      },
+      { 
+        title: "PLANT GROWING TIME-LAPSE VIDEOS", 
+        category: "Crafts & ASMR", 
+        image: "https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=800&q=80", 
+        desc: "Seed-to-harvest botanical growth time-lapse videos.", 
+        prompt: `PLANT TIME-LAPSE VIDEOS — Master Prompt By Indiw\n\nList 10 visually dramatic plants/fruits for a seed-to-bloom time-lapse sequence.` 
+      },
+      { 
+        title: "UNDERWATER DISCOVERY VIDEOS", 
+        category: "Animals & Wildlife", 
+        image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80", 
+        desc: "Deep-sea exploration and marine creature discovery prompt system.", 
+        prompt: `UNDERWATER DISCOVERY VIDEOS — Master Prompt By Indiw\n\nGenerate 10 mysterious deep-sea or coral reef underwater discovery scenes with ROV perspective.` 
+      },
+      { 
+        title: "CIRCUS ACROBATICS & MINI PREDATOR VIDEOS", 
+        category: "Animals & Wildlife", 
+        image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=800&q=80", 
+        desc: "Circus Acrobatics performance prompts and Mini Predator encounter guides.", 
+        prompt: `CIRCUS & PREDATOR VIDEOS — Master Prompt By Indiw\n\nChoose between Circus Acrobatics or Mini Predator micro-wildlife encounter for multi-shot video prompts.` 
       }
     ];
 
-    let products = JSON.parse(localStorage.getItem('indiw_vault_v5')) || defaultProducts;
+    let products = JSON.parse(localStorage.getItem('indiw_vault_v6')) || defaultProducts;
     let activeCategory = 'all';
     let currentProduct = null;
 
@@ -229,7 +285,7 @@ Step 3: Generate sequential cinematic video prompts with species-accurate feedin
         desc: document.getElementById('new-desc').value.trim() || 'Custom item.',
         prompt: document.getElementById('new-prompt').value.trim() || 'Custom prompt.'
       });
-      localStorage.setItem('indiw_vault_v5', JSON.stringify(products));
+      localStorage.setItem('indiw_vault_v6', JSON.stringify(products));
       closeAddModal();
       renderProducts();
     }
