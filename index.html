@@ -10,12 +10,12 @@
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
       background: radial-gradient(circle at top, #1e1b4b 0%, #0f172a 45%, #090d16 100%);
-      color: #0f172a;
+      color: #071842;
       min-height: 100vh;
     }
     .nas-shell {
       background: #ffffff;
-      box-shadow: 0 25px 60px -15px rgba(30, 27, 75, 0.7), 0 0 40px rgba(99, 102, 241, 0.15);
+      box-shadow: 0 25px 60px -15px rgba(71, 64, 51, 0.7), 0 0 40px rgba(99, 102, 21, 0.15);
     }
     .grad-blue-purple {
       background: linear-gradient(135deg, #2563eb 0%, #6366f1 50%, #9333ea 100%);
@@ -253,7 +253,7 @@
               ⚡ Indiw Master Prompt (Copy & Paste into Claude AI)
             </h4>
             <button onclick="copyPrompt()" id="copy-btn" class="text-xs px-3 py-1.5 rounded-lg grad-blue-purple text-white font-bold shadow-sm hover:opacity-95 transition">
-              Copy Indiw Prompt
+              Copy Prompt
             </button>
           </div>
           <pre id="modal-prompt" class="p-4 rounded-2xl bg-slate-900 text-indigo-100 text-xs whitespace-pre-wrap font-mono leading-relaxed border border-indigo-500/30"></pre>
@@ -262,7 +262,7 @@
         <!-- Modal Footer Buttons -->
         <div class="mt-6 pt-4 border-t border-slate-200 flex items-center justify-between gap-3">
           <button onclick="downloadIndiwPDF()" class="flex-1 py-3 px-5 rounded-xl grad-blue-purple text-white font-bold text-sm shadow-md hover:opacity-95 transition">
-            ⬇ Download Official Indiw PDF Guide
+            ⬇ Download PDF Guide
           </button>
           <button onclick="closeProductModal()" class="py-3 px-5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-sm transition">
             Close
@@ -279,10 +279,36 @@
         title: "RUG TUFTING VIDEOS",
         category: "Crafts & ASMR",
         image: "https://images.unsplash.com/photo-1584992236310-6edddc08a313?auto=format&fit=crop&w=800&q=80",
-        items: ["INDIW - GUIDE FOR RUG TUFTING VIDEOS.PDF (7 MB)", "INDIW - RUG TUFTING MASTER PROMPT.PDF (7 MB)"],
-        tools: "Claude AI • Google Veo • CapCut",
-        desc: "Complete Indiw AI system for viral satisfying rug tufting Reels. Generates 5 fresh rug tufting ideas per session with a 5-shot cinematic video prompt structure so your tufting frame, yarn colors, and studio setup stay locked across every cut.",
-        prompt: "Act as an expert AI Video Director for Grow With Indiw. Generate 5 fresh viral-worthy custom rug tufting design ideas. Once I pick a number, generate a 5-shot cinematic video prompt set with strict visual consistency (locked wooden tufting frame, matching yarn cones, workshop lighting, and ASMR close-up shearing/carving shots) optimized for Google Veo."
+        items: ["  GUIDE FOR RUG TUFTING VIDEOS.PDF (7 MB)", " RUG TUFTING MASTER PROMPT.PDF "],
+        tools: "Claude AI • Google Flow • Seedance 2.5",
+        prompt: "
+RUG TUFTING VIDEOS - Master Prompt By DAII
+        <img
+        src="rugtuft.jpg"> 
+          RUG TUFTING VIDEOS  — Full Workflow Guide<br> 
+<br>
+<b>Step 1 — Give the Master Prompt to Claude</b> <br>
+         Copy the Master Prompt.<br>
+         Open a new Claude chat and paste it.<br>
+         Claude will instantly give you 5 random string art video ideas (subject + a one-line hook each).<br>
+<strong> Step 2 — Confirm the ideas </strong> <br>
+         If the 5 ideas look good → say "OK".<br>
+         If not → say "I want different ideas", and Claude will give you a fresh set of 5.<br>
+         Once you say OK, Claude generates 5 full prompts (one for each idea).<br>
+<b> Step 3 — Copy the prompt set</b> <br>
+         Copy the promopt.<br>
+<b>Step 4 — Go to Google Flow</b> <br>
+          Open Google Flow.<br>
+          Paste the entire prompt you copied.<br>
+<b> Step 5 — Download</b> <br>
+          Download all 5 generated videos.<br>
+<br> <b>Step 6 — Upload to your page </b><br>
+          Upload the videos to your page one by one.
+
+           
+        class="w-full h-full object-cover object-center"
+      />
+
       },
       {
         title: "ANIMAL FEEDING VIDEOS",
