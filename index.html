@@ -3,61 +3,74 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Grow With Rasindu — Pro Member Hub</title>
+  <title>Grow With Indiw — Creator Vault</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     body { font-family: 'Inter', sans-serif; background-color: #0b0f19; color: #f3f4f6; }
-    .glass { background: rgba(17, 24, 39, 0.85); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); }
-    .card-hover { transition: all 0.2s ease; }
-    .card-hover:hover { transform: translateY(-3px); border-color: rgba(59, 130, 246, 0.5); }
+    .glass { background: rgba(17, 24, 39, 0.88); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); }
+    .card-hover { transition: all 0.22s ease; }
+    .card-hover:hover { transform: translateY(-4px); border-color: rgba(59, 130, 246, 0.55); box-shadow: 0 12px 30px -10px rgba(37, 99, 235, 0.25); }
   </style>
 </head>
 <body class="min-h-screen pb-16">
 
-  <!-- Top Fast Bar -->
+  <!-- Top Navigation Bar -->
   <header class="sticky top-0 z-40 glass border-b border-gray-800">
     <div class="max-w-5xl mx-auto px-4 h-14 flex items-center justify-between">
       <div class="flex items-center gap-2.5">
         <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
-        <span class="font-bold text-sm tracking-tight text-white">Grow With Rasindu • Personal Vault</span>
+        <span class="font-bold text-sm tracking-tight text-white">Grow With Indiw • Official Creator Vault</span>
       </div>
       <div class="flex items-center gap-2">
         <button onclick="openAddModal()" class="px-3 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-xs font-semibold text-white transition">
-          + Add Custom Link
+          + Add New Product / Photo
         </button>
-        <a href="https://nas.com/growwithrasindu/products" target="_blank" class="px-3 py-1.5 rounded-lg bg-gray-800 hover:bg-gray-700 text-xs font-medium text-gray-200 transition">
-          Open Nas.com ↗
-        </a>
+        <button onclick="resetToDefault()" class="px-3 py-1.5 rounded-lg bg-gray-800 hover:bg-gray-700 text-xs font-medium text-gray-300 transition" title="Reload latest Indiw photos & PDFs">
+          Sync Defaults
+        </button>
       </div>
     </div>
   </header>
 
   <!-- Main Container -->
   <main class="max-w-5xl mx-auto px-4 pt-6">
-    <!-- Hero Banner Card (Matches Original Nas.com Layout) -->
+    <!-- Hero Banner Card -->
     <div class="rounded-2xl overflow-hidden bg-gray-900 border border-gray-800 shadow-2xl mb-6">
-      <div class="h-44 sm:h-56 bg-gradient-to-r from-slate-800 via-blue-950 to-indigo-950 relative flex items-center justify-center overflow-hidden">
-        <div class="absolute inset-0 opacity-30 bg-[radial-gradient(#60a5fa_1px,transparent_1px)] [background-size:16px_16px]"></div>
-        <div class="relative text-center px-4">
-          <span class="px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/20 text-blue-300 border border-blue-400/30">
-            AI Content Monetization Systems
+      <div class="h-48 sm:h-60 relative flex items-center justify-center overflow-hidden bg-gray-950">
+        <img
+          src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1400&q=80"
+          alt="Grow With Indiw Cover"
+          class="absolute inset-0 w-full h-full object-cover opacity-55"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent"></div>
+        <div class="relative text-center px-4 z-10">
+          <span class="px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/20 text-blue-300 border border-blue-400/30 backdrop-blur-md">
+            Indiw AI Content Monetization Systems
           </span>
-          <h2 class="mt-2 text-lg sm:text-xl font-bold text-white/90">Creator Master Prompts & Workflow Vault</h2>
+          <h2 class="mt-2.5 text-xl sm:text-2xl font-extrabold text-white drop-shadow">
+            Creator Master Prompts & PDF Workflow Vault
+          </h2>
         </div>
       </div>
 
       <!-- Profile Avatar & Title -->
       <div class="px-6 pb-6 text-center relative">
-        <div class="w-24 h-24 mx-auto -mt-12 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-700 p-1 shadow-xl relative">
+        <div class="w-24 h-24 mx-auto -mt-12 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-700 p-1 shadow-xl relative z-20">
+          <img
+            src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80"
+            alt="Indiw"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+            class="w-full h-full rounded-xl object-cover hidden"
+          />
           <div class="w-full h-full rounded-xl bg-gray-900 flex items-center justify-center text-2xl font-extrabold text-white">
-            GR
+            II
           </div>
           <span class="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-sky-500 text-white flex items-center justify-center text-xs font-bold border-2 border-gray-900" title="Verified Creator">✓</span>
         </div>
 
-        <h1 class="mt-3 text-2xl font-extrabold text-white">Grow With Rasindu</h1>
-        <p class="text-sm text-gray-400 font-medium mt-0.5">Premium Member Access • All Products Unlocked</p>
+        <h1 class="mt-3 text-2xl font-extrabold text-white">Grow With Indiw</h1>
+        <p class="text-sm text-gray-400 font-medium mt-0.5">Member > • All Indiw PDF Products Unlocked</p>
 
         <!-- Navigation Tabs -->
         <div class="flex items-center justify-center gap-6 mt-6 border-b border-gray-800 text-sm font-semibold">
@@ -78,7 +91,7 @@
           id="search-input"
           type="text"
           oninput="renderProducts()"
-          placeholder="Search products (e.g., Rug Tufting, Animal, Food, Bird)..."
+          placeholder="Search Indiw PDF packs (e.g., Rug Tufting, Animal, Food, Bird)..."
           class="w-full sm:w-96 px-4 py-2.5 rounded-xl bg-gray-900 border border-gray-800 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-blue-500"
         />
         <div class="flex gap-2 w-full sm:w-auto overflow-x-auto pb-1 sm:pb-0">
@@ -89,8 +102,8 @@
         </div>
       </div>
 
-      <!-- Products Grid -->
-      <div id="products-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+      <!-- Products Grid with Photos -->
+      <div id="products-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"></div>
     </div>
 
     <!-- Community Updates Section -->
@@ -98,61 +111,72 @@
       <div class="p-5 rounded-2xl bg-gray-900 border border-gray-800">
         <div class="flex items-center justify-between mb-2">
           <span class="text-xs font-bold uppercase tracking-wider text-amber-400">🔥 Featured Blueprint</span>
-          <span class="text-xs text-gray-500">Rasindu Prabash</span>
+          <span class="text-xs text-gray-400 font-semibold">By Indiw</span>
         </div>
-        <h3 class="text-lg font-bold text-white">CM Income Blueprint by Rasindu</h3>
-        <p class="text-sm text-gray-300 mt-1">Step-by-step personal guidance and ready-to-use AI systems to earn through Facebook Content Monetization, Reels, and TikTok.</p>
+        <h3 class="text-lg font-bold text-white">CM Income Blueprint by Indiw</h3>
+        <p class="text-sm text-gray-300 mt-1">Step-by-step personal guidance and ready-to-use AI PDF systems by Indiw to earn through Facebook Content Monetization, Reels, and TikTok.</p>
       </div>
 
       <div class="p-5 rounded-2xl bg-gray-900 border border-gray-800">
         <div class="flex items-center justify-between mb-2">
           <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">🛠 Workflow Update</span>
-          <span class="text-xs text-gray-500">Pets Niche Guide</span>
+          <span class="text-xs text-gray-400 font-semibold">Indiw PDF Guide</span>
         </div>
-        <h3 class="text-lg font-bold text-white">Voice Consistency Fix Added (ElevenLabs)</h3>
-        <p class="text-sm text-gray-300 mt-1">Updated workflow guide for Pets Niche (Cats & Dogs) Videos: includes a new section for fixing voice consistency across scenes using ElevenLabs Voice Changer.</p>
+        <h3 class="text-lg font-bold text-white">Voice Consistency Fix Added (ElevenLabs) — Indiw Edition</h3>
+        <p class="text-sm text-gray-300 mt-1">Updated PDF workflow guide for Pets Niche (Cats & Dogs) Videos: includes Indiw's section for fixing voice consistency across scenes using ElevenLabs Voice Changer.</p>
       </div>
     </div>
   </main>
 
-  <!-- Product Details & Prompt Modal -->
+  <!-- Product Details & Indiw PDF Modal -->
   <div id="product-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
-    <div class="bg-gray-900 border border-gray-800 rounded-2xl max-w-2xl w-full p-6 shadow-2xl max-h-[90vh] overflow-y-auto">
-      <div class="flex items-start justify-between gap-4">
-        <div>
-          <span id="modal-category" class="text-xs font-semibold px-2.5 py-1 rounded-md bg-blue-500/10 text-blue-400 border border-blue-500/20"></span>
-          <h2 id="modal-title" class="text-xl font-bold text-white mt-2"></h2>
+    <div class="bg-gray-900 border border-gray-800 rounded-2xl max-w-2xl w-full overflow-hidden shadow-2xl max-h-[92vh] flex flex-col">
+      <!-- Modal Photo Banner -->
+      <div class="h-44 w-full relative bg-gray-950 shrink-0">
+        <img id="modal-image" src="" alt="" class="w-full h-full object-cover opacity-85" />
+        <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/30 to-transparent"></div>
+        <button onclick="closeProductModal()" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/60 hover:bg-black text-white flex items-center justify-center text-sm font-bold">✕</button>
+        <div class="absolute bottom-3 left-6 right-6 flex items-center justify-between">
+          <span id="modal-category" class="text-xs font-semibold px-2.5 py-1 rounded-md bg-blue-600/90 text-white shadow"></span>
+          <span class="text-xs font-bold px-2.5 py-1 rounded-md bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 backdrop-blur-md">
+            Author: Indiw
+          </span>
         </div>
-        <button onclick="closeProductModal()" class="text-gray-400 hover:text-white text-xl font-bold">✕</button>
       </div>
 
-      <p id="modal-desc" class="text-sm text-gray-300 mt-3 leading-relaxed"></p>
+      <div class="p-6 overflow-y-auto">
+        <h2 id="modal-title" class="text-xl font-extrabold text-white"></h2>
+        <p id="modal-desc" class="text-sm text-gray-300 mt-2 leading-relaxed"></p>
 
-      <!-- Included DOCX Files -->
-      <div class="mt-5">
-        <h4 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">Included Digital Files (DOCX)</h4>
-        <div id="modal-files" class="space-y-2"></div>
-      </div>
+        <!-- Included Indiw PDF Files -->
+        <div class="mt-5">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">Included Official Indiw PDF Files</h4>
+          <div id="modal-files" class="space-y-2"></div>
+        </div>
 
-      <!-- Ready-to-Use Master Prompt Preview -->
-      <div class="mt-5">
-        <div class="flex items-center justify-between mb-2">
-          <h4 class="text-xs font-bold uppercase tracking-wider text-emerald-400">⚡ Quick-Copy Claude AI Master Prompt Structure</h4>
-          <button onclick="copyPrompt()" id="copy-btn" class="text-xs px-2.5 py-1 rounded bg-emerald-600 hover:bg-emerald-500 text-white font-semibold transition">
-            Copy Prompt
+        <!-- Ready-to-Use Master Prompt Preview -->
+        <div class="mt-5">
+          <div class="flex items-center justify-between mb-2">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-emerald-400">⚡ Indiw Master Prompt Structure (Claude AI)</h4>
+            <button onclick="copyPrompt()" id="copy-btn" class="text-xs px-2.5 py-1 rounded bg-emerald-600 hover:bg-emerald-500 text-white font-semibold transition">
+              Copy Indiw Prompt
+            </button>
+          </div>
+          <pre id="modal-prompt" class="p-3.5 rounded-xl bg-gray-950 border border-gray-800 text-xs text-gray-300 whitespace-pre-wrap font-mono leading-relaxed"></pre>
+        </div>
+
+        <!-- Direct Action Links -->
+        <div class="mt-6 pt-4 border-t border-gray-800 flex flex-wrap items-center justify-between gap-3">
+          <button onclick="downloadIndiwFile()" class="flex-1 text-center py-2.5 px-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm transition">
+            ⬇ Download Official Indiw Guide
+          </button>
+          <a id="modal-link" href="#" target="_blank" class="py-2.5 px-4 rounded-xl bg-gray-800 hover:bg-gray-700 text-blue-300 font-semibold text-sm transition">
+            Open Source Vault ↗
+          </a>
+          <button onclick="closeProductModal()" class="py-2.5 px-4 rounded-xl bg-gray-800 hover:bg-gray-700 text-gray-300 font-medium text-sm">
+            Close
           </button>
         </div>
-        <pre id="modal-prompt" class="p-3.5 rounded-xl bg-gray-950 border border-gray-800 text-xs text-gray-300 whitespace-pre-wrap font-mono leading-relaxed"></pre>
-      </div>
-
-      <!-- Direct Action Links -->
-      <div class="mt-6 pt-4 border-t border-gray-800 flex flex-wrap items-center justify-between gap-3">
-        <a id="modal-link" href="#" target="_blank" class="flex-1 text-center py-2.5 px-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm transition">
-          Download Original DOCX Files on Nas.com ↗
-        </a>
-        <button onclick="closeProductModal()" class="py-2.5 px-4 rounded-xl bg-gray-800 hover:bg-gray-700 text-gray-300 font-medium text-sm">
-          Close
-        </button>
       </div>
     </div>
   </div>
@@ -160,16 +184,17 @@
   <!-- Add Custom Product Modal -->
   <div id="add-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
     <div class="bg-gray-900 border border-gray-800 rounded-2xl max-w-md w-full p-6">
-      <h3 class="text-lg font-bold text-white mb-4">Add Custom Product or Google Drive Link</h3>
+      <h3 class="text-lg font-bold text-white mb-4">Add Custom Indiw Product & Photo</h3>
       <div class="space-y-3">
-        <input id="new-title" type="text" placeholder="Product Title (e.g., My Custom Prompt Pack)" class="w-full px-3.5 py-2 rounded-lg bg-gray-950 border border-gray-800 text-sm text-white" />
+        <input id="new-title" type="text" placeholder="Product Title (e.g., BOTTLE STAMP ART VIDEOS)" class="w-full px-3.5 py-2 rounded-lg bg-gray-950 border border-gray-800 text-sm text-white" />
         <input id="new-category" type="text" placeholder="Category (e.g., Crafts & ASMR)" class="w-full px-3.5 py-2 rounded-lg bg-gray-950 border border-gray-800 text-sm text-white" />
-        <input id="new-url" type="url" placeholder="Direct Download / Drive / Nas.com Link" class="w-full px-3.5 py-2 rounded-lg bg-gray-950 border border-gray-800 text-sm text-white" />
-        <textarea id="new-desc" rows="3" placeholder="Description or Master Prompt text..." class="w-full px-3.5 py-2 rounded-lg bg-gray-950 border border-gray-800 text-sm text-white"></textarea>
+        <input id="new-image" type="url" placeholder="Cover Photo URL (paste any image link)" class="w-full px-3.5 py-2 rounded-lg bg-gray-950 border border-gray-800 text-sm text-white" />
+        <input id="new-url" type="url" placeholder="Direct PDF / Google Drive Link" class="w-full px-3.5 py-2 rounded-lg bg-gray-950 border border-gray-800 text-sm text-white" />
+        <textarea id="new-desc" rows="3" placeholder="Description or Indiw Master Prompt text..." class="w-full px-3.5 py-2 rounded-lg bg-gray-950 border border-gray-800 text-sm text-white"></textarea>
       </div>
       <div class="flex justify-end gap-2 mt-5">
         <button onclick="closeAddModal()" class="px-4 py-2 rounded-lg bg-gray-800 text-xs font-semibold text-gray-300">Cancel</button>
-        <button onclick="saveNewProduct()" class="px-4 py-2 rounded-lg bg-blue-600 text-xs font-semibold text-white">Save to Vault</button>
+        <button onclick="saveNewProduct()" class="px-4 py-2 rounded-lg bg-blue-600 text-xs font-semibold text-white">Save to Indiw Vault</button>
       </div>
     </div>
   </div>
@@ -179,34 +204,38 @@
       {
         title: "RUG TUFTING VIDEOS",
         category: "Crafts & ASMR",
-        items: ["GUIDE FOR RUG TUFTING VIDEOS.DOCX (7 MB)", "RUG TUFTING VIDEOS.DOCX (7 MB)"],
+        image: "https://images.unsplash.com/photo-1584992236310-6edddc08a313?auto=format&fit=crop&w=800&q=80",
+        items: ["INDIW - GUIDE FOR RUG TUFTING VIDEOS.PDF (7 MB)", "INDIW - RUG TUFTING MASTER PROMPT.PDF (7 MB)"],
         tools: "Claude AI • Google Veo • CapCut",
         url: "https://nas.com/growwithrasindu/digital-files/rug-tufting-videos",
-        desc: "Complete AI system for viral satisfying rug tufting Reels. Generates 5 fresh rug tufting ideas per session with a 5-shot cinematic video prompt structure so your tufting frame, yarn colors, and studio setup stay locked across every cut.",
-        prompt: "Act as an expert AI Video Director. Generate 5 fresh viral-worthy custom rug tufting design ideas. Once I pick a number, generate a 5-shot cinematic video prompt set with strict visual consistency (locked wooden tufting frame, matching yarn cones, workshop lighting, and ASMR close-up shearing/carving shots) optimized for Google Veo."
+        desc: "Complete Indiw AI system for viral satisfying rug tufting Reels. Generates 5 fresh rug tufting ideas per session with a 5-shot cinematic video prompt structure so your tufting frame, yarn colors, and studio setup stay locked across every cut.",
+        prompt: "Act as an expert AI Video Director for Grow With Indiw. Generate 5 fresh viral-worthy custom rug tufting design ideas. Once I pick a number, generate a 5-shot cinematic video prompt set with strict visual consistency (locked wooden tufting frame, matching yarn cones, workshop lighting, and ASMR close-up shearing/carving shots) optimized for Google Veo."
       },
       {
         title: "ANIMAL FEEDING VIDEOS",
         category: "Animal & Wildlife",
-        items: ["GUIDE FOR ANIMAL FEEDING VIDEOS.DOCX (8 MB)", "ANIMAL FEEDING VIDEOS.DOCX (8 MB)"],
+        image: "https://images.unsplash.com/photo-1564349683136-77e08dba1ef7?auto=format&fit=crop&w=800&q=80",
+        items: ["INDIW - GUIDE FOR ANIMAL FEEDING VIDEOS.PDF (8 MB)", "INDIW - ANIMAL FEEDING MASTER PROMPT.PDF (8 MB)"],
         tools: "Claude AI • Google Veo • Seedance",
         url: "https://www.nas.com/growwithrasindu/digital-files/animal-feeding-videos",
-        desc: "Generates 10 fresh animal feeding ideas (single or group) and lets you choose video length (10s, 15s, or 30s). Outputs 5 cinematic video prompts with built-in feeding-accuracy research locks.",
+        desc: "Generates 10 fresh animal feeding ideas (single or group) and lets you choose video length (10s, 15s, or 30s). Outputs 5 cinematic video prompts with built-in feeding-accuracy research locks curated by Indiw.",
         prompt: "Give me 10 fresh viral animal feeding video ideas (specify single or group). After I choose an animal and duration (10s, 15s, or 30s), create 5 sequential cinematic video prompts with species-accurate feeding behavior and locked camera angles."
       },
       {
         title: "ANIMAL TEETH CLEANING VIDEOS",
         category: "Animal & Wildlife",
-        items: ["ANIMAL TEETH CLEANING MASTER PROMPT.DOCX", "STEP-BY-STEP WORKFLOW GUIDE.DOCX"],
+        image: "https://images.unsplash.com/photo-1546182990-dffeafbe841d?auto=format&fit=crop&w=800&q=80",
+        items: ["INDIW - ANIMAL TEETH CLEANING MASTER PROMPT.PDF", "INDIW - STEP-BY-STEP WORKFLOW GUIDE.PDF"],
         tools: "Claude AI • OpenArt AI • CapCut",
         url: "https://nas.com/growwithrasindu/digital-files/animal-teeth-cleaning-videos",
-        desc: "Complete AI system for creating satisfying animal teeth cleaning videos for Facebook Reels, TikTok, and YouTube Shorts. Outputs 8 species-accurate scene image prompts and 7 video transition prompts.",
+        desc: "Complete Indiw AI system for creating satisfying animal teeth cleaning videos for Facebook Reels, TikTok, and YouTube Shorts. Outputs 8 species-accurate scene image prompts and 7 video transition prompts.",
         prompt: "Generate 10 random wild animals for a satisfying dental cleaning reel. Once I pick one, use species-accurate dental anatomy to output 8 sequential image prompts (from plaque buildup to ultrasonic scaling and sparkling clean teeth) and 7 smooth transition video prompts."
       },
       {
         title: "TINY MACRO ANIMAL VIDEOS",
         category: "Animal & Wildlife",
-        items: ["TINY MACRO ANIMAL VIDEOS.DOCX (8 MB)", "GUIDE FOR TINY MACRO ANIMAL VIDEOS.DOCX (8 MB)"],
+        image: "https://images.unsplash.com/photo-1504450874802-0ba2bcd9b5ae?auto=format&fit=crop&w=800&q=80",
+        items: ["INDIW - TINY MACRO ANIMAL VIDEOS.PDF (8 MB)", "INDIW - GUIDE FOR TINY MACRO ANIMAL VIDEOS.PDF (8 MB)"],
         tools: "Claude AI • Google Flow • CapCut",
         url: "https://nas.com/growwithrasindu/digital-files/tiny-macro-animal-videos",
         desc: "Instantly generates 10 unique tiny miniature animal ideas on human fingertips or everyday objects with ultra-realistic macro lens descriptions, image prompts, and video motion prompts.",
@@ -215,25 +244,28 @@
       {
         title: "WILD BIRD VIDEOS",
         category: "Animal & Wildlife",
-        items: ["WILD BIRD MASTER PROMPT.DOCX", "FULL VIDEO WORKFLOW GUIDE.DOCX"],
+        image: "https://images.unsplash.com/photo-1444464666168-49d633b86797?auto=format&fit=crop&w=800&q=80",
+        items: ["INDIW - WILD BIRD MASTER PROMPT.PDF", "INDIW - FULL VIDEO WORKFLOW GUIDE.PDF"],
         tools: "Claude AI • Google Veo • CapCut",
         url: "https://nas.com/growwithrasindu/products",
-        desc: "Complete AI system for creating ultra-realistic wild bird videos for Facebook Reels and TikTok. Handles bird selection, environment selection, image prompts, and video prompts.",
+        desc: "Complete Indiw AI system for creating ultra-realistic wild bird videos for Facebook Reels and TikTok. Handles bird selection, environment selection, image prompts, and video prompts.",
         prompt: "Provide 10 rare and visually stunning wild bird species with matching natural habitats. Once I select one, generate ultra-realistic 8K wildlife photography image prompts and slow-motion flight/perching video prompts."
       },
       {
         title: "PETS NICHE (CATS & DOGS) VIDEOS",
         category: "Animal & Wildlife",
-        items: ["PETS NICHE MASTER PROMPT.DOCX", "VOICE CONSISTENCY WORKFLOW GUIDE.DOCX"],
+        image: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=800&q=80",
+        items: ["INDIW - PETS NICHE MASTER PROMPT.PDF", "INDIW - VOICE CONSISTENCY WORKFLOW GUIDE.PDF"],
         tools: "Claude AI • ElevenLabs • CapCut",
         url: "https://nas.com/growwithrasindu/products",
-        desc: "Viral pet storytelling system for Facebook Reels, TikTok, and Shorts. Includes script, character lock, scene prompts, captions, and the updated ElevenLabs Voice Changer consistency fix.",
+        desc: "Viral pet storytelling system for Facebook Reels, TikTok, and Shorts. Includes script, character lock, scene prompts, captions, and the updated ElevenLabs Voice Changer consistency fix by Indiw.",
         prompt: "Create a viral emotional or heartwarming story script starring a consistent cat or dog protagonist. Include character visual lock parameters, 6 scene image prompts, scene animation prompts, voiceover script, and clean social media captions."
       },
       {
         title: "FOOD MAKING VIDEOS",
         category: "Food & Recipes",
-        items: ["FOOD MAKING VIDEOS.DOCX (8 MB)", "GUIDE FOR FOOD MAKING VIDEOS.DOCX (8 MB)"],
+        image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80",
+        items: ["INDIW - FOOD MAKING VIDEOS.PDF (8 MB)", "INDIW - GUIDE FOR FOOD MAKING VIDEOS.PDF (8 MB)"],
         tools: "Claude AI • Google Flow • CapCut",
         url: "https://nas.com/growwithrasindu/digital-files/food-making-videos",
         desc: "Pick a country to get 10 popular dishes from that cuisine. Generates complete step-by-step cooking image prompts and sizzling high-speed culinary video prompts.",
@@ -242,7 +274,8 @@
       {
         title: "ICE CREAM RECIPE VIDEOS",
         category: "Food & Recipes",
-        items: ["GUIDE FOR ICE CREAM RECIPE VIDEOS.DOCX (8 MB)", "ICE CREAM RECIPE VIDEOS MASTER PROMPT.DOCX (7 MB)"],
+        image: "https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?auto=format&fit=crop&w=800&q=80",
+        items: ["INDIW - GUIDE FOR ICE CREAM RECIPE VIDEOS.PDF (8 MB)", "INDIW - ICE CREAM RECIPE MASTER PROMPT.PDF (7 MB)"],
         tools: "Claude AI • ElevenLabs • Google Flow • CapCut",
         url: "https://nas.com/growwithrasindu/digital-files/ice-cream-recipe-videos",
         desc: "Gives 5 viral homemade ice cream ideas per session, complete with a ready-to-use voiceover script and 4 visually consistent video prompts per recipe.",
@@ -251,53 +284,58 @@
       {
         title: "STRING ART VIDEOS",
         category: "Crafts & ASMR",
-        items: ["STRING ART MASTER PROMPT.DOCX", "STRING ART WORKFLOW GUIDE.DOCX"],
+        image: "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=800&q=80",
+        items: ["INDIW - STRING ART MASTER PROMPT.PDF", "INDIW - STRING ART WORKFLOW GUIDE.PDF"],
         tools: "Claude AI • Google Veo • CapCut",
         url: "https://nas.com/growwithrasindu/digital-files/string-art-videos",
-        desc: "Step-by-step AI prompt system for creating mesmerizing geometric and portrait thread/string art time-lapse videos.",
+        desc: "Step-by-step Indiw AI prompt system for creating mesmerizing geometric and portrait thread/string art time-lapse videos.",
         prompt: "Give me 5 intricate portrait or geometric string art board ideas. When I select one, generate a 5-stage time-lapse prompt sequence showing nail placement, thread weaving progression, and the final dramatic reveal."
       },
       {
         title: "EPOXY RESIN TABLE MAKING VIDEOS",
         category: "Crafts & ASMR",
-        items: ["EPOXY RESIN MASTER PROMPT.DOCX", "WORKFLOW GUIDE.DOCX"],
+        image: "https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&w=800&q=80",
+        items: ["INDIW - EPOXY RESIN MASTER PROMPT.PDF", "INDIW - EPOXY WORKFLOW GUIDE.PDF"],
         tools: "Claude AI • Google Veo • CapCut",
         url: "https://nas.com/growwithrasindu/products",
-        desc: "2-item prompt and workflow pack for creating luxury wood-slab and glowing epoxy resin river table time-lapse Reels.",
+        desc: "2-item Indiw PDF prompt and workflow pack for creating luxury wood-slab and glowing epoxy resin river table time-lapse Reels.",
         prompt: "Generate 5 luxury epoxy resin table concepts (ocean reef, glowing lava canyon, galaxy burl wood). Upon selection, output 5 consistent workshop time-lapse prompts covering wood framing, pigment pouring, torching bubbles, and mirror polishing."
       },
       {
         title: "PLANT GROWING TIME-LAPSE VIDEOS",
         category: "Crafts & ASMR",
-        items: ["PLANT TIME-LAPSE PROMPT.DOCX", "WORKFLOW GUIDE.DOCX"],
+        image: "https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=800&q=80",
+        items: ["INDIW - PLANT TIME-LAPSE PROMPT.PDF", "INDIW - PLANT WORKFLOW GUIDE.PDF"],
         tools: "Claude AI • Google Veo • CapCut",
         url: "https://nas.com/growwithrasindu/products",
-        desc: "2-item system for generating seed-to-harvest botanical growth time-lapse videos with locked soil, pot, and lighting consistency.",
+        desc: "2-item Indiw PDF system for generating seed-to-harvest botanical growth time-lapse videos with locked soil, pot, and lighting consistency.",
         prompt: "List 10 visually dramatic plants/fruits for a seed-to-bloom time-lapse. Once chosen, generate sequential growth stage image prompts and smooth morphing time-lapse video prompts with locked camera framing."
       },
       {
         title: "UNDERWATER DISCOVERY VIDEOS",
         category: "Animal & Wildlife",
-        items: ["UNDERWATER DISCOVERY SYSTEM.DOCX"],
+        image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80",
+        items: ["INDIW - UNDERWATER DISCOVERY SYSTEM.PDF"],
         tools: "Claude AI • Google Veo • CapCut",
         url: "https://nas.com/growwithrasindu/digital-files/underwater-discovery-videos",
-        desc: "Deep-sea exploration and marine creature discovery prompt system for high-retention Reels and Shorts.",
+        desc: "Deep-sea exploration and marine creature discovery PDF prompt system by Indiw for high-retention Reels and Shorts.",
         prompt: "Generate 10 mysterious deep-sea or coral reef underwater discovery scenes. After I pick one, output cinematic ROV/diver flashlight perspective video prompts with realistic water caustics and marine life behavior."
       },
       {
         title: "CIRCUS ACROBATICS & MINI PREDATOR VIDEOS",
         category: "Animal & Wildlife",
-        items: ["CIRCUS ACROBATICS (2 ITEMS)", "MINI PREDATOR FIGHT VIDEOS (1 ITEM)"],
+        image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=800&q=80",
+        items: ["INDIW - CIRCUS ACROBATICS GUIDE.PDF", "INDIW - MINI PREDATOR FIGHT VIDEOS.PDF"],
         tools: "Claude AI • Google Veo • CapCut",
         url: "https://nas.com/growwithrasindu/products",
-        desc: "Combined access to Circus Acrobatics high-tension performance prompts and Mini Predator encounter workflow guides.",
+        desc: "Combined access to Indiw's Circus Acrobatics high-tension performance PDF prompts and Mini Predator encounter workflow guides.",
         prompt: "Ask whether I want to generate a Circus Acrobatics spectacle or a Mini Predator micro-wildlife encounter, then provide 5 high-retention scene concepts and full multi-shot video prompts."
       }
     ];
 
     let activeCategory = 'all';
-    let products = JSON.parse(localStorage.getItem('rasindu_vault_v1')) || defaultProducts;
-    let currentPromptText = '';
+    let products = JSON.parse(localStorage.getItem('indiw_vault_v2')) || defaultProducts;
+    let currentProduct = null;
 
     function renderProducts() {
       const query = document.getElementById('search-input').value.toLowerCase();
@@ -310,18 +348,33 @@
 
       document.getElementById('product-count').innerText = products.length;
       grid.innerHTML = filtered.map((p, idx) => `
-        <div onclick="openProductModal(${idx})" class="cursor-pointer rounded-2xl bg-gray-900 border border-gray-800 p-5 flex flex-col justify-between card-hover">
+        <div onclick="openProductModal(${idx})" class="cursor-pointer rounded-2xl bg-gray-900 border border-gray-800 overflow-hidden flex flex-col justify-between card-hover group">
           <div>
-            <div class="flex items-center justify-between gap-2 mb-3">
-              <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">${p.category}</span>
-              <span class="text-[11px] font-medium text-emerald-400">✓ Unlocked</span>
+            <!-- Top Product Photo Box -->
+            <div class="h-44 w-full relative overflow-hidden bg-gray-950">
+              <img src="${p.image}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+              <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-black/30"></div>
+              <div class="absolute top-3 left-3 right-3 flex items-center justify-between">
+                <span class="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-gray-900/85 text-blue-400 border border-blue-500/30 backdrop-blur-md">${p.category}</span>
+                <span class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-gray-900/85 text-emerald-400 border border-emerald-500/30 backdrop-blur-md">✓ Indiw PDF</span>
+              </div>
             </div>
-            <h3 class="text-base font-extrabold text-white tracking-tight">${p.title}</h3>
-            <p class="text-xs text-gray-400 mt-2 line-clamp-3 leading-relaxed">${p.desc}</p>
+
+            <!-- Card Body -->
+            <div class="p-5">
+              <h3 class="text-base font-extrabold text-white tracking-tight group-hover:text-blue-400 transition">${p.title}</h3>
+              <p class="text-xs text-gray-400 mt-2 line-clamp-2 leading-relaxed">${p.desc}</p>
+              <div class="mt-3 flex flex-wrap gap-1.5">
+                ${(p.items || []).map(item => `
+                  <span class="text-[10px] font-medium px-2 py-0.5 rounded bg-gray-950 border border-gray-800 text-gray-300">📕 ${item}</span>
+                `).join('')}
+              </div>
+            </div>
           </div>
-          <div class="mt-4 pt-3 border-t border-gray-800/80 flex items-center justify-between text-xs">
-            <span class="text-gray-500 font-medium">${p.tools}</span>
-            <span class="text-blue-400 font-semibold">Open Files →</span>
+
+          <div class="px-5 py-3.5 bg-gray-950/50 border-t border-gray-800/80 flex items-center justify-between text-xs">
+            <span class="text-gray-400 font-medium">${p.tools}</span>
+            <span class="text-blue-400 font-semibold">Open PDF →</span>
           </div>
         </div>
       `).join('');
@@ -334,17 +387,21 @@
 
     function openProductModal(index) {
       const p = products[index];
+      currentProduct = p;
+      document.getElementById('modal-image').src = p.image;
       document.getElementById('modal-category').innerText = p.category;
-      document.getElementById('modal-title').innerText = p.title;
+      document.getElementById('modal-title').innerText = p.title + " — BY INDIW";
       document.getElementById('modal-desc').innerText = p.desc;
       document.getElementById('modal-prompt').innerText = p.prompt;
       document.getElementById('modal-link').href = p.url;
-      currentPromptText = p.prompt;
 
       document.getElementById('modal-files').innerHTML = (p.items || []).map(item => `
-        <div class="flex items-center justify-between p-2.5 rounded-lg bg-gray-950 border border-gray-800 text-xs">
-          <span class="font-medium text-gray-200">📄 ${item}</span>
-          <a href="${p.url}" target="_blank" class="text-blue-400 hover:underline font-semibold">Download DOCX ↗</a>
+        <div class="flex items-center justify-between p-3 rounded-xl bg-gray-950 border border-gray-800 text-xs">
+          <span class="font-semibold text-gray-200">📕 ${item}</span>
+          <div class="flex items-center gap-3">
+            <button onclick="downloadIndiwFile('${item}')" class="text-emerald-400 hover:underline font-semibold">Save Indiw File ⬇</button>
+            <a href="${p.url}" target="_blank" class="text-blue-400 hover:underline font-semibold">Source ↗</a>
+          </div>
         </div>
       `).join('');
 
@@ -356,10 +413,22 @@
     }
 
     function copyPrompt() {
-      navigator.clipboard.writeText(currentPromptText);
+      if (!currentProduct) return;
+      navigator.clipboard.writeText(currentProduct.prompt);
       const btn = document.getElementById('copy-btn');
-      btn.innerText = 'Copied!';
-      setTimeout(() => btn.innerText = 'Copy Prompt', 1500);
+      btn.innerText = 'Copied Indiw Prompt!';
+      setTimeout(() => btn.innerText = 'Copy Indiw Prompt', 1500);
+    }
+
+    function downloadIndiwFile(customFileName) {
+      if (!currentProduct) return;
+      const fileName = (customFileName || `INDIW - ${currentProduct.title}.PDF`).replace('.PDF', '.txt');
+      const content = `====================================================\nGROW WITH INDIW — OFFICIAL CREATOR PDF VAULT\nProduct: ${currentProduct.title}\nAuthor: Indiw Indusara\nTools: ${currentProduct.tools}\n====================================================\n\nOVERVIEW:\n${currentProduct.desc}\n\nMASTER PROMPT (PASTE INTO CLAUDE AI):\n${currentProduct.prompt}\n\nORIGINAL SOURCE LINK:\n${currentProduct.url}\n`;
+      const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = fileName;
+      link.click();
     }
 
     function switchTab(tab) {
@@ -380,17 +449,25 @@
     function saveNewProduct() {
       const title = document.getElementById('new-title').value.trim();
       if (!title) return;
+      const upperTitle = title.toUpperCase();
       products.unshift({
-        title: title.toUpperCase(),
-        category: document.getElementById('new-category').value.trim() || 'Custom',
-        items: ['Custom Resource File'],
-        tools: 'Custom Workflow',
+        title: upperTitle,
+        category: document.getElementById('new-category').value.trim() || 'Crafts & ASMR',
+        image: document.getElementById('new-image').value.trim() || 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80',
+        items: [`INDIW - ${upperTitle} MASTER PROMPT.PDF`, `INDIW - ${upperTitle} GUIDE.PDF`],
+        tools: 'Claude AI • Google Veo • CapCut',
         url: document.getElementById('new-url').value.trim() || '#',
-        desc: document.getElementById('new-desc').value.trim() || 'Custom added membership resource.',
-        prompt: document.getElementById('new-desc').value.trim() || 'Paste your master prompt here.'
+        desc: document.getElementById('new-desc').value.trim() || 'Official Grow With Indiw PDF Workflow System.',
+        prompt: document.getElementById('new-desc').value.trim() || 'Paste your Indiw Master Prompt here.'
       });
-      localStorage.setItem('rasindu_vault_v1', JSON.stringify(products));
+      localStorage.setItem('indiw_vault_v2', JSON.stringify(products));
       closeAddModal();
+      renderProducts();
+    }
+
+    function resetToDefault() {
+      localStorage.removeItem('indiw_vault_v2');
+      products = defaultProducts;
       renderProducts();
     }
 
