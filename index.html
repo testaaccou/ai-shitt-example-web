@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grow With Rasindu — Pro Member Hub</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; background-color: #0b0f19; color: #f3f4f6; }
+    .glass { background: rgba(17, 24, 39, 0.85); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); }
+    .card-hover { transition: all 0.2s ease; }
+    .card-hover:hover { transform: translateY(-3px); border-color: rgba(59, 130, 246, 0.5); }
+  </style>
+</head>
+<body class="min-h-screen pb-16">
+
+  <!-- Top Fast Bar -->
+  <header class="sticky top-0 z-40 glass border-b border-gray-800">
+    <div class="max-w-5xl mx-auto px-4 h-14 flex items-center justify-between">
+      <div class="flex items-center gap-2.5">
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span class="font-bold text-sm tracking-tight text-white">Grow With Rasindu • Personal Vault</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <button onclick="openAddModal()" class="px-3 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-xs font-semibold text-white transition">
+          + Add Custom Link
+        </button>
+        <a href="https://nas.com/growwithrasindu/products" target="_blank" class="px-3 py-1.5 rounded-lg bg-gray-800 hover:bg-gray-700 text-xs font-medium text-gray-200 transition">
+          Open Nas.com ↗
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-5xl mx-auto px-4 pt-6">
+    <!-- Hero Banner Card (Matches Original Nas.com Layout) -->
+    <div class="rounded-2xl overflow-hidden bg-gray-900 border border-gray-800 shadow-2xl mb-6">
+      <div class="h-44 sm:h-56 bg-gradient-to-r from-slate-800 via-blue-950 to-indigo-950 relative flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 opacity-30 bg-[radial-gradient(#60a5fa_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="relative text-center px-4">
+          <span class="px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/20 text-blue-300 border border-blue-400/30">
+            AI Content Monetization Systems
+          </span>
+          <h2 class="mt-2 text-lg sm:text-xl font-bold text-white/90">Creator Master Prompts & Workflow Vault</h2>
+        </div>
+      </div>
+
+      <!-- Profile Avatar & Title -->
+      <div class="px-6 pb-6 text-center relative">
+        <div class="w-24 h-24 mx-auto -mt-12 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-700 p-1 shadow-xl relative">
+          <div class="w-full h-full rounded-xl bg-gray-900 flex items-center justify-center text-2xl font-extrabold text-white">
+            GR
+          </div>
+          <span class="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-sky-500 text-white flex items-center justify-center text-xs font-bold border-2 border-gray-900" title="Verified Creator">✓</span>
+        </div>
+
+        <h1 class="mt-3 text-2xl font-extrabold text-white">Grow With Rasindu</h1>
+        <p class="text-sm text-gray-400 font-medium mt-0.5">Premium Member Access • All Products Unlocked</p>
+
+        <!-- Navigation Tabs -->
+        <div class="flex items-center justify-center gap-6 mt-6 border-b border-gray-800 text-sm font-semibold">
+          <button onclick="switchTab('products')" id="tab-products" class="pb-3 border-b-2 border-white text-white transition">
+            Products (<span id="product-count">13</span>)
+          </button>
+          <button onclick="switchTab('community')" id="tab-community" class="pb-3 border-b-2 border-transparent text-gray-400 hover:text-gray-200 transition">
+            Community Updates
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Search & Filter Bar -->
+    <div id="products-section">
+      <div class="flex flex-col sm:flex-row gap-3 justify-between items-center mb-6">
+        <input
+          id="search-input"
+          type="text"
+          oninput="renderProducts()"
+          placeholder="Search products (e.g., Rug Tufting, Animal, Food, Bird)..."
+          class="w-full sm:w-96 px-4 py-2.5 rounded-xl bg-gray-900 border border-gray-800 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-blue-500"
+        />
+        <div class="flex gap-2 w-full sm:w-auto overflow-x-auto pb-1 sm:pb-0">
+          <button onclick="filterCategory('all')" class="px-3 py-1.5 rounded-lg bg-gray-800 hover:bg-gray-700 text-xs font-semibold text-white">All</button>
+          <button onclick="filterCategory('Animal & Wildlife')" class="px-3 py-1.5 rounded-lg bg-gray-900 border border-gray-800 hover:border-gray-700 text-xs font-medium text-gray-300">Animals & Wildlife</button>
+          <button onclick="filterCategory('Crafts & ASMR')" class="px-3 py-1.5 rounded-lg bg-gray-900 border border-gray-800 hover:border-gray-700 text-xs font-medium text-gray-300">Crafts & Satisfying</button>
+          <button onclick="filterCategory('Food & Recipes')" class="px-3 py-1.5 rounded-lg bg-gray-900 border border-gray-800 hover:border-gray-700 text-xs font-medium text-gray-300">Food & Cooking</button>
+        </div>
+      </div>
+
+      <!-- Products Grid -->
+      <div id="products-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+    </div>
+
+    <!-- Community Updates Section -->
+    <div id="community-section" class="hidden space-y-4">
+      <div class="p-5 rounded-2xl bg-gray-900 border border-gray-800">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-bold uppercase tracking-wider text-amber-400">🔥 Featured Blueprint</span>
+          <span class="text-xs text-gray-500">Rasindu Prabash</span>
+        </div>
+        <h3 class="text-lg font-bold text-white">CM Income Blueprint by Rasindu</h3>
+        <p class="text-sm text-gray-300 mt-1">Step-by-step personal guidance and ready-to-use AI systems to earn through Facebook Content Monetization, Reels, and TikTok.</p>
+      </div>
+
+      <div class="p-5 rounded-2xl bg-gray-900 border border-gray-800">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">🛠 Workflow Update</span>
+          <span class="text-xs text-gray-500">Pets Niche Guide</span>
+        </div>
+        <h3 class="text-lg font-bold text-white">Voice Consistency Fix Added (ElevenLabs)</h3>
+        <p class="text-sm text-gray-300 mt-1">Updated workflow guide for Pets Niche (Cats & Dogs) Videos: includes a new section for fixing voice consistency across scenes using ElevenLabs Voice Changer.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Product Details & Prompt Modal -->
+  <div id="product-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-gray-900 border border-gray-800 rounded-2xl max-w-2xl w-full p-6 shadow-2xl max-h-[90vh] overflow-y-auto">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <span id="modal-category" class="text-xs font-semibold px-2.5 py-1 rounded-md bg-blue-500/10 text-blue-400 border border-blue-500/20"></span>
+          <h2 id="modal-title" class="text-xl font-bold text-white mt-2"></h2>
+        </div>
+        <button onclick="closeProductModal()" class="text-gray-400 hover:text-white text-xl font-bold">✕</button>
+      </div>
+
+      <p id="modal-desc" class="text-sm text-gray-300 mt-3 leading-relaxed"></p>
+
+      <!-- Included DOCX Files -->
+      <div class="mt-5">
+        <h4 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">Included Digital Files (DOCX)</h4>
+        <div id="modal-files" class="space-y-2"></div>
+      </div>
+
+      <!-- Ready-to-Use Master Prompt Preview -->
+      <div class="mt-5">
+        <div class="flex items-center justify-between mb-2">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-emerald-400">⚡ Quick-Copy Claude AI Master Prompt Structure</h4>
+          <button onclick="copyPrompt()" id="copy-btn" class="text-xs px-2.5 py-1 rounded bg-emerald-600 hover:bg-emerald-500 text-white font-semibold transition">
+            Copy Prompt
+          </button>
+        </div>
+        <pre id="modal-prompt" class="p-3.5 rounded-xl bg-gray-950 border border-gray-800 text-xs text-gray-300 whitespace-pre-wrap font-mono leading-relaxed"></pre>
+      </div>
+
+      <!-- Direct Action Links -->
+      <div class="mt-6 pt-4 border-t border-gray-800 flex flex-wrap items-center justify-between gap-3">
+        <a id="modal-link" href="#" target="_blank" class="flex-1 text-center py-2.5 px-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm transition">
+          Download Original DOCX Files on Nas.com ↗
+        </a>
+        <button onclick="closeProductModal()" class="py-2.5 px-4 rounded-xl bg-gray-800 hover:bg-gray-700 text-gray-300 font-medium text-sm">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Custom Product Modal -->
+  <div id="add-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-gray-900 border border-gray-800 rounded-2xl max-w-md w-full p-6">
+      <h3 class="text-lg font-bold text-white mb-4">Add Custom Product or Google Drive Link</h3>
+      <div class="space-y-3">
+        <input id="new-title" type="text" placeholder="Product Title (e.g., My Custom Prompt Pack)" class="w-full px-3.5 py-2 rounded-lg bg-gray-950 border border-gray-800 text-sm text-white" />
+        <input id="new-category" type="text" placeholder="Category (e.g., Crafts & ASMR)" class="w-full px-3.5 py-2 rounded-lg bg-gray-950 border border-gray-800 text-sm text-white" />
+        <input id="new-url" type="url" placeholder="Direct Download / Drive / Nas.com Link" class="w-full px-3.5 py-2 rounded-lg bg-gray-950 border border-gray-800 text-sm text-white" />
+        <textarea id="new-desc" rows="3" placeholder="Description or Master Prompt text..." class="w-full px-3.5 py-2 rounded-lg bg-gray-950 border border-gray-800 text-sm text-white"></textarea>
+      </div>
+      <div class="flex justify-end gap-2 mt-5">
+        <button onclick="closeAddModal()" class="px-4 py-2 rounded-lg bg-gray-800 text-xs font-semibold text-gray-300">Cancel</button>
+        <button onclick="saveNewProduct()" class="px-4 py-2 rounded-lg bg-blue-600 text-xs font-semibold text-white">Save to Vault</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const defaultProducts = [
+      {
+        title: "RUG TUFTING VIDEOS",
+        category: "Crafts & ASMR",
+        items: ["GUIDE FOR RUG TUFTING VIDEOS.DOCX (7 MB)", "RUG TUFTING VIDEOS.DOCX (7 MB)"],
+        tools: "Claude AI • Google Veo • CapCut",
+        url: "https://nas.com/growwithrasindu/digital-files/rug-tufting-videos",
+        desc: "Complete AI system for viral satisfying rug tufting Reels. Generates 5 fresh rug tufting ideas per session with a 5-shot cinematic video prompt structure so your tufting frame, yarn colors, and studio setup stay locked across every cut.",
+        prompt: "Act as an expert AI Video Director. Generate 5 fresh viral-worthy custom rug tufting design ideas. Once I pick a number, generate a 5-shot cinematic video prompt set with strict visual consistency (locked wooden tufting frame, matching yarn cones, workshop lighting, and ASMR close-up shearing/carving shots) optimized for Google Veo."
+      },
+      {
+        title: "ANIMAL FEEDING VIDEOS",
+        category: "Animal & Wildlife",
+        items: ["GUIDE FOR ANIMAL FEEDING VIDEOS.DOCX (8 MB)", "ANIMAL FEEDING VIDEOS.DOCX (8 MB)"],
+        tools: "Claude AI • Google Veo • Seedance",
+        url: "https://www.nas.com/growwithrasindu/digital-files/animal-feeding-videos",
+        desc: "Generates 10 fresh animal feeding ideas (single or group) and lets you choose video length (10s, 15s, or 30s). Outputs 5 cinematic video prompts with built-in feeding-accuracy research locks.",
+        prompt: "Give me 10 fresh viral animal feeding video ideas (specify single or group). After I choose an animal and duration (10s, 15s, or 30s), create 5 sequential cinematic video prompts with species-accurate feeding behavior and locked camera angles."
+      },
+      {
+        title: "ANIMAL TEETH CLEANING VIDEOS",
+        category: "Animal & Wildlife",
+        items: ["ANIMAL TEETH CLEANING MASTER PROMPT.DOCX", "STEP-BY-STEP WORKFLOW GUIDE.DOCX"],
+        tools: "Claude AI • OpenArt AI • CapCut",
+        url: "https://nas.com/growwithrasindu/digital-files/animal-teeth-cleaning-videos",
+        desc: "Complete AI system for creating satisfying animal teeth cleaning videos for Facebook Reels, TikTok, and YouTube Shorts. Outputs 8 species-accurate scene image prompts and 7 video transition prompts.",
+        prompt: "Generate 10 random wild animals for a satisfying dental cleaning reel. Once I pick one, use species-accurate dental anatomy to output 8 sequential image prompts (from plaque buildup to ultrasonic scaling and sparkling clean teeth) and 7 smooth transition video prompts."
+      },
+      {
+        title: "TINY MACRO ANIMAL VIDEOS",
+        category: "Animal & Wildlife",
+        items: ["TINY MACRO ANIMAL VIDEOS.DOCX (8 MB)", "GUIDE FOR TINY MACRO ANIMAL VIDEOS.DOCX (8 MB)"],
+        tools: "Claude AI • Google Flow • CapCut",
+        url: "https://nas.com/growwithrasindu/digital-files/tiny-macro-animal-videos",
+        desc: "Instantly generates 10 unique tiny miniature animal ideas on human fingertips or everyday objects with ultra-realistic macro lens descriptions, image prompts, and video motion prompts.",
+        prompt: "Generate 10 unique ultra-tiny macro animal ideas resting on a human fingertip or natural leaf with full visual descriptions. When I select a number, provide a hyper-detailed macro photography image prompt (85mm macro lens, shallow depth of field) and a matching subtle motion video prompt."
+      },
+      {
+        title: "WILD BIRD VIDEOS",
+        category: "Animal & Wildlife",
+        items: ["WILD BIRD MASTER PROMPT.DOCX", "FULL VIDEO WORKFLOW GUIDE.DOCX"],
+        tools: "Claude AI • Google Veo • CapCut",
+        url: "https://nas.com/growwithrasindu/products",
+        desc: "Complete AI system for creating ultra-realistic wild bird videos for Facebook Reels and TikTok. Handles bird selection, environment selection, image prompts, and video prompts.",
+        prompt: "Provide 10 rare and visually stunning wild bird species with matching natural habitats. Once I select one, generate ultra-realistic 8K wildlife photography image prompts and slow-motion flight/perching video prompts."
+      },
+      {
+        title: "PETS NICHE (CATS & DOGS) VIDEOS",
+        category: "Animal & Wildlife",
+        items: ["PETS NICHE MASTER PROMPT.DOCX", "VOICE CONSISTENCY WORKFLOW GUIDE.DOCX"],
+        tools: "Claude AI • ElevenLabs • CapCut",
+        url: "https://nas.com/growwithrasindu/products",
+        desc: "Viral pet storytelling system for Facebook Reels, TikTok, and Shorts. Includes script, character lock, scene prompts, captions, and the updated ElevenLabs Voice Changer consistency fix.",
+        prompt: "Create a viral emotional or heartwarming story script starring a consistent cat or dog protagonist. Include character visual lock parameters, 6 scene image prompts, scene animation prompts, voiceover script, and clean social media captions."
+      },
+      {
+        title: "FOOD MAKING VIDEOS",
+        category: "Food & Recipes",
+        items: ["FOOD MAKING VIDEOS.DOCX (8 MB)", "GUIDE FOR FOOD MAKING VIDEOS.DOCX (8 MB)"],
+        tools: "Claude AI • Google Flow • CapCut",
+        url: "https://nas.com/growwithrasindu/digital-files/food-making-videos",
+        desc: "Pick a country to get 10 popular dishes from that cuisine. Generates complete step-by-step cooking image prompts and sizzling high-speed culinary video prompts.",
+        prompt: "Ask me to pick a country. Then list 10 iconic dishes from that cuisine. Once I choose a dish, generate step-by-step overhead and macro cooking image prompts and video motion prompts from raw ingredients to final plating."
+      },
+      {
+        title: "ICE CREAM RECIPE VIDEOS",
+        category: "Food & Recipes",
+        items: ["GUIDE FOR ICE CREAM RECIPE VIDEOS.DOCX (8 MB)", "ICE CREAM RECIPE VIDEOS MASTER PROMPT.DOCX (7 MB)"],
+        tools: "Claude AI • ElevenLabs • Google Flow • CapCut",
+        url: "https://nas.com/growwithrasindu/digital-files/ice-cream-recipe-videos",
+        desc: "Gives 5 viral homemade ice cream ideas per session, complete with a ready-to-use voiceover script and 4 visually consistent video prompts per recipe.",
+        prompt: "Generate 5 fresh viral homemade artisan ice cream recipe ideas. When I pick one, provide a concise ASMR voiceover script and 4 sequential video prompts with locked kitchen counter lighting and creamy texture physics."
+      },
+      {
+        title: "STRING ART VIDEOS",
+        category: "Crafts & ASMR",
+        items: ["STRING ART MASTER PROMPT.DOCX", "STRING ART WORKFLOW GUIDE.DOCX"],
+        tools: "Claude AI • Google Veo • CapCut",
+        url: "https://nas.com/growwithrasindu/digital-files/string-art-videos",
+        desc: "Step-by-step AI prompt system for creating mesmerizing geometric and portrait thread/string art time-lapse videos.",
+        prompt: "Give me 5 intricate portrait or geometric string art board ideas. When I select one, generate a 5-stage time-lapse prompt sequence showing nail placement, thread weaving progression, and the final dramatic reveal."
+      },
+      {
+        title: "EPOXY RESIN TABLE MAKING VIDEOS",
+        category: "Crafts & ASMR",
+        items: ["EPOXY RESIN MASTER PROMPT.DOCX", "WORKFLOW GUIDE.DOCX"],
+        tools: "Claude AI • Google Veo • CapCut",
+        url: "https://nas.com/growwithrasindu/products",
+        desc: "2-item prompt and workflow pack for creating luxury wood-slab and glowing epoxy resin river table time-lapse Reels.",
+        prompt: "Generate 5 luxury epoxy resin table concepts (ocean reef, glowing lava canyon, galaxy burl wood). Upon selection, output 5 consistent workshop time-lapse prompts covering wood framing, pigment pouring, torching bubbles, and mirror polishing."
+      },
+      {
+        title: "PLANT GROWING TIME-LAPSE VIDEOS",
+        category: "Crafts & ASMR",
+        items: ["PLANT TIME-LAPSE PROMPT.DOCX", "WORKFLOW GUIDE.DOCX"],
+        tools: "Claude AI • Google Veo • CapCut",
+        url: "https://nas.com/growwithrasindu/products",
+        desc: "2-item system for generating seed-to-harvest botanical growth time-lapse videos with locked soil, pot, and lighting consistency.",
+        prompt: "List 10 visually dramatic plants/fruits for a seed-to-bloom time-lapse. Once chosen, generate sequential growth stage image prompts and smooth morphing time-lapse video prompts with locked camera framing."
+      },
+      {
+        title: "UNDERWATER DISCOVERY VIDEOS",
+        category: "Animal & Wildlife",
+        items: ["UNDERWATER DISCOVERY SYSTEM.DOCX"],
+        tools: "Claude AI • Google Veo • CapCut",
+        url: "https://nas.com/growwithrasindu/digital-files/underwater-discovery-videos",
+        desc: "Deep-sea exploration and marine creature discovery prompt system for high-retention Reels and Shorts.",
+        prompt: "Generate 10 mysterious deep-sea or coral reef underwater discovery scenes. After I pick one, output cinematic ROV/diver flashlight perspective video prompts with realistic water caustics and marine life behavior."
+      },
+      {
+        title: "CIRCUS ACROBATICS & MINI PREDATOR VIDEOS",
+        category: "Animal & Wildlife",
+        items: ["CIRCUS ACROBATICS (2 ITEMS)", "MINI PREDATOR FIGHT VIDEOS (1 ITEM)"],
+        tools: "Claude AI • Google Veo • CapCut",
+        url: "https://nas.com/growwithrasindu/products",
+        desc: "Combined access to Circus Acrobatics high-tension performance prompts and Mini Predator encounter workflow guides.",
+        prompt: "Ask whether I want to generate a Circus Acrobatics spectacle or a Mini Predator micro-wildlife encounter, then provide 5 high-retention scene concepts and full multi-shot video prompts."
+      }
+    ];
+
+    let activeCategory = 'all';
+    let products = JSON.parse(localStorage.getItem('rasindu_vault_v1')) || defaultProducts;
+    let currentPromptText = '';
+
+    function renderProducts() {
+      const query = document.getElementById('search-input').value.toLowerCase();
+      const grid = document.getElementById('products-grid');
+      const filtered = products.filter(p => {
+        const matchesCat = activeCategory === 'all' || p.category === activeCategory;
+        const matchesQuery = p.title.toLowerCase().includes(query) || p.desc.toLowerCase().includes(query) || p.tools.toLowerCase().includes(query);
+        return matchesCat && matchesQuery;
+      });
+
+      document.getElementById('product-count').innerText = products.length;
+      grid.innerHTML = filtered.map((p, idx) => `
+        <div onclick="openProductModal(${idx})" class="cursor-pointer rounded-2xl bg-gray-900 border border-gray-800 p-5 flex flex-col justify-between card-hover">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">${p.category}</span>
+              <span class="text-[11px] font-medium text-emerald-400">✓ Unlocked</span>
+            </div>
+            <h3 class="text-base font-extrabold text-white tracking-tight">${p.title}</h3>
+            <p class="text-xs text-gray-400 mt-2 line-clamp-3 leading-relaxed">${p.desc}</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-gray-800/80 flex items-center justify-between text-xs">
+            <span class="text-gray-500 font-medium">${p.tools}</span>
+            <span class="text-blue-400 font-semibold">Open Files →</span>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function filterCategory(cat) {
+      activeCategory = cat;
+      renderProducts();
+    }
+
+    function openProductModal(index) {
+      const p = products[index];
+      document.getElementById('modal-category').innerText = p.category;
+      document.getElementById('modal-title').innerText = p.title;
+      document.getElementById('modal-desc').innerText = p.desc;
+      document.getElementById('modal-prompt').innerText = p.prompt;
+      document.getElementById('modal-link').href = p.url;
+      currentPromptText = p.prompt;
+
+      document.getElementById('modal-files').innerHTML = (p.items || []).map(item => `
+        <div class="flex items-center justify-between p-2.5 rounded-lg bg-gray-950 border border-gray-800 text-xs">
+          <span class="font-medium text-gray-200">📄 ${item}</span>
+          <a href="${p.url}" target="_blank" class="text-blue-400 hover:underline font-semibold">Download DOCX ↗</a>
+        </div>
+      `).join('');
+
+      document.getElementById('product-modal').classList.remove('hidden');
+    }
+
+    function closeProductModal() {
+      document.getElementById('product-modal').classList.add('hidden');
+    }
+
+    function copyPrompt() {
+      navigator.clipboard.writeText(currentPromptText);
+      const btn = document.getElementById('copy-btn');
+      btn.innerText = 'Copied!';
+      setTimeout(() => btn.innerText = 'Copy Prompt', 1500);
+    }
+
+    function switchTab(tab) {
+      const isProducts = tab === 'products';
+      document.getElementById('products-section').classList.toggle('hidden', !isProducts);
+      document.getElementById('community-section').classList.toggle('hidden', isProducts);
+      document.getElementById('tab-products').className = isProducts
+        ? 'pb-3 border-b-2 border-white text-white transition'
+        : 'pb-3 border-b-2 border-transparent text-gray-400 hover:text-gray-200 transition';
+      document.getElementById('tab-community').className = !isProducts
+        ? 'pb-3 border-b-2 border-white text-white transition'
+        : 'pb-3 border-b-2 border-transparent text-gray-400 hover:text-gray-200 transition';
+    }
+
+    function openAddModal() { document.getElementById('add-modal').classList.remove('hidden'); }
+    function closeAddModal() { document.getElementById('add-modal').classList.add('hidden'); }
+
+    function saveNewProduct() {
+      const title = document.getElementById('new-title').value.trim();
+      if (!title) return;
+      products.unshift({
+        title: title.toUpperCase(),
+        category: document.getElementById('new-category').value.trim() || 'Custom',
+        items: ['Custom Resource File'],
+        tools: 'Custom Workflow',
+        url: document.getElementById('new-url').value.trim() || '#',
+        desc: document.getElementById('new-desc').value.trim() || 'Custom added membership resource.',
+        prompt: document.getElementById('new-desc').value.trim() || 'Paste your master prompt here.'
+      });
+      localStorage.setItem('rasindu_vault_v1', JSON.stringify(products));
+      closeAddModal();
+      renderProducts();
+    }
+
+    renderProducts();
+  </script>
+</body>
+</html>
