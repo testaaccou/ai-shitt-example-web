@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Grow With Indiw — Official Portal</title>
-  <script src="[https://cdn.tailwindcss.com](https://cdn.tailwindcss.com)"></script>
-  <link href="[https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap](https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap)" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     body {
       font-family: 'Inter', sans-serif;
@@ -70,14 +70,14 @@
 </head>
 <body class="pb-20">
 
-  <!-- TOP NAVIGATION BAR (Nas.com Style) -->
+  <!-- TOP NAVIGATION BAR -->
   <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-gray-200">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
       <div class="flex items-center gap-3 cursor-pointer" onclick="showMainPortal()">
         <div class="relative w-9 h-9 rounded-lg overflow-hidden bg-black p-0.5 border border-[#00e676]">
           <img
             src="profile.jpg"
-            onerror="this.src='[https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80](https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80)'"
+            onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80'"
             alt="Indiw"
             class="w-full h-full object-cover rounded-[6px]"
           />
@@ -91,13 +91,15 @@
         </button>
       </div>
 
-      <!-- Right Admin & Member Controls -->
       <div class="flex items-center gap-2">
         <button onclick="openEditorModal(-1)" class="btn-ben-black px-3.5 py-2 rounded-full text-xs font-bold flex items-center gap-1.5">
           <span class="w-2 h-2 rounded-full bg-[#00e676]"></span>
           <span>+ Add Product</span>
         </button>
-        <button onclick="copyGitHubHTML()" id="btn-export-gh" class="btn-ben-green px-3.5 py-2 rounded-full text-xs flex items-center gap-1" title="Copy updated HTML to paste into GitHub so friends see your changes">
+        <button onclick="resetToLatestDefaults()" class="hidden sm:inline-flex px-3.5 py-2 rounded-full bg-gray-100 hover:bg-gray-200 text-xs font-bold text-gray-800 transition" title="Load all latest uploaded images & prompts">
+          Sync Images
+        </button>
+        <button onclick="copyGitHubHTML()" id="btn-export-gh" class="btn-ben-green px-3.5 py-2 rounded-full text-xs flex items-center gap-1">
           <span>⚡ Copy Code for GitHub</span>
         </button>
         <div class="w-9 h-9 rounded-full bg-zinc-900 text-[#00e676] font-extrabold text-sm flex items-center justify-center border border-zinc-700 shadow-sm">
@@ -118,24 +120,23 @@
         <div class="relative h-48 sm:h-64 w-full bg-zinc-950 overflow-hidden">
           <img
             src="banner.jpg"
-            onerror="this.src='[https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1400&q=80](https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1400&q=80)'"
+            onerror="this.src='https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1400&q=80'"
             alt="Grow With Indiw Banner"
             class="w-full h-full object-cover opacity-80"
           />
           <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
           <div class="absolute bottom-4 left-6">
             <span class="px-3 py-1 rounded-full text-[11px] font-extrabold uppercase tracking-wider bg-black/85 text-[#00e676] border border-[#00e676]/40">
-              ● Official Creator Vault
+              ● AI Content Monetization Vault
             </span>
           </div>
         </div>
 
-        <!-- Centered Profile Avatar -->
         <div class="px-6 pb-6 text-center relative">
           <div class="relative w-24 h-24 sm:w-28 sm:h-28 mx-auto -mt-12 sm:-mt-14 rounded-3xl p-1 bg-gradient-to-b from-[#00e676] to-zinc-900 shadow-xl">
             <img
               src="profile.jpg"
-              onerror="this.src='[https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80](https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80)'"
+              onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80'"
               alt="Grow With Indiw"
               class="w-full h-full object-cover rounded-[20px] bg-zinc-900 border-2 border-white"
             />
@@ -148,16 +149,15 @@
             Grow With Indiw
           </h1>
           <p class="mt-1 text-xs sm:text-sm font-semibold text-gray-500">
-            Member &gt; • <span class="text-emerald-600 font-bold">All Products Unlocked</span>
+            Member &gt; • <span class="text-emerald-600 font-bold">All 16 AI Video Systems Unlocked</span>
           </p>
 
-          <!-- Navigation Tabs -->
           <div class="flex items-center justify-center gap-8 mt-6 border-b border-gray-200 text-sm font-bold">
             <button onclick="switchMainTab('home')" id="main-tab-home" class="pb-3.5 border-b-2 border-transparent text-gray-400 hover:text-gray-900 transition">
               Home
             </button>
             <button onclick="switchMainTab('products')" id="main-tab-products" class="pb-3.5 border-b-2 border-gray-900 text-gray-900 transition">
-              Products (<span id="total-count">0</span>)
+              Products (<span id="total-count">16</span>)
             </button>
             <button onclick="switchMainTab('community')" id="main-tab-community" class="pb-3.5 border-b-2 border-transparent text-gray-400 hover:text-gray-900 transition">
               Community
@@ -170,16 +170,16 @@
       <div id="portal-home" class="hidden space-y-6 mb-10 smooth-view">
         <div class="rounded-3xl p-8 bg-zinc-950 text-white border border-zinc-800 shadow-xl">
           <span class="px-3 py-1 rounded-full text-xs font-extrabold bg-[#00e676]/15 text-[#00e676] border border-[#00e676]/30">
-            GROW WITH INDIW
+            EXECUTIVE CREATOR PORTAL
           </span>
           <h2 class="text-2xl sm:text-3xl font-black mt-4">
-            All Guides & Master Prompts Unlocked
+            CM Income Blueprint by Indiw
           </h2>
           <p class="text-sm text-gray-300 mt-2 max-w-2xl leading-relaxed">
-            Click any product card to open the 2-item view (Guide + Master Prompt). To add a new product or edit any text, click <b>+ Add Product</b> or <b>Edit This Product</b>, then click <b>⚡ Copy Code for GitHub</b> to save it permanently for your friends.
+            Every product includes two clean modules: the <b>Full Step-by-Step Workflow Guide</b> and the <b>Copy-Ready Claude AI Master Prompt</b> engineered for Google Flow, Veo, Seedance 2.5, and Dola.
           </p>
           <button onclick="switchMainTab('products')" class="mt-5 btn-ben-green px-6 py-3 rounded-xl text-xs uppercase tracking-wider">
-            View All Products →
+            Open All 16 Products →
           </button>
         </div>
       </div>
@@ -191,12 +191,15 @@
             id="search-box"
             type="text"
             oninput="renderGrid()"
-            placeholder="Search products (e.g., Crow, Circus, Vehicle, Recycle, Cake)..."
+            placeholder="Search products (e.g., Crow, Circus, Predator, Vehicle, Recycle, Tattoo, Cake)..."
             class="w-full sm:w-96 px-4 py-2.5 rounded-xl bg-white border border-gray-300 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-emerald-500 shadow-sm"
           />
-          <button onclick="openEditorModal(-1)" class="w-full sm:w-auto btn-ben-green px-4 py-2.5 rounded-xl text-xs">
-            + Paste New DOCX Guide & Prompt
-          </button>
+          <div class="flex gap-2 w-full sm:w-auto overflow-x-auto pb-1 sm:pb-0">
+            <button onclick="setCat('all')" id="cat-all" class="px-4 py-2 rounded-xl bg-zinc-900 text-[#00e676] text-xs font-bold shadow-sm">All</button>
+            <button onclick="setCat('Animals & Birds')" id="cat-animals" class="px-4 py-2 rounded-xl bg-white border border-gray-200 hover:border-gray-400 text-xs font-bold text-gray-700">Animals & Birds</button>
+            <button onclick="setCat('Crafts & ASMR')" id="cat-crafts" class="px-4 py-2 rounded-xl bg-white border border-gray-200 hover:border-gray-400 text-xs font-bold text-gray-700">Crafts & ASMR</button>
+            <button onclick="setCat('Food & Cakes')" id="cat-food" class="px-4 py-2 rounded-xl bg-white border border-gray-200 hover:border-gray-400 text-xs font-bold text-gray-700">Food & Cakes</button>
+          </div>
         </div>
 
         <div id="products-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
@@ -205,12 +208,12 @@
       <!-- COMMUNITY SECTION -->
       <div id="portal-community" class="hidden space-y-4 mb-10 smooth-view">
         <div class="p-6 rounded-2xl bg-white border border-gray-200 shadow-sm">
-          <span class="px-3 py-1 rounded-full text-[11px] font-extrabold bg-zinc-900 text-[#00e676]">📌 HOW TO ADD MORE FILES</span>
-          <h3 class="text-lg font-extrabold text-gray-900 mt-3">Add or Update Any Guide in 3 Clicks</h3>
+          <span class="px-3 py-1 rounded-full text-[11px] font-extrabold bg-zinc-900 text-[#00e676]">📌 OFFICIAL UPDATE</span>
+          <h3 class="text-lg font-extrabold text-gray-900 mt-3">How to Add More DOCX Files & Custom Box Photos</h3>
           <ol class="text-sm text-gray-600 mt-2 space-y-1.5 list-decimal list-inside">
             <li>Click <b>+ Add Product</b> at the top (or open any product and click <b>✏️ Edit Product Text & Photos</b>).</li>
-            <li>Paste your full <b>Guide</b> text and <b>Master Prompt</b> text straight from your Word file and click <b>Save</b>.</li>
-            <li>Click the green <b>⚡ Copy Code for GitHub</b> button in the top bar, paste it into your GitHub <code>index.html</code> file, and commit so all your friends see the new items!</li>
+            <li>Click <b>📁 Choose 3-Panel Banner Image from PC</b> to pick any image from your computer, and paste your <b>Guide</b> and <b>Master Prompt</b> text.</li>
+            <li>Click <b>⚡ Copy Code for GitHub</b> in the top bar and paste it into your GitHub <code>index.html</code> file so all your friends see it immediately!</li>
           </ol>
         </div>
       </div>
@@ -234,7 +237,7 @@
         </div>
 
         <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6">
-          <div id="detail-thumb-box" class="w-full sm:w-64 h-36 rounded-2xl overflow-hidden grid grid-cols-3 gap-0.5 bg-white p-1 shadow-md shrink-0 border border-gray-300"></div>
+          <div id="detail-thumb-box" class="w-full sm:w-64 h-36 rounded-2xl overflow-hidden bg-zinc-900 p-1 shadow-md shrink-0 border border-gray-300"></div>
           <div>
             <h1 id="detail-title" class="text-xl sm:text-2xl font-black text-gray-900 tracking-tight uppercase"></h1>
             <p class="text-sm font-semibold text-gray-600 mt-1">2 items</p>
@@ -247,7 +250,6 @@
       </div>
     </div>
 
-    <!-- 2 Items List -->
     <div class="max-w-5xl mx-auto px-4 sm:px-8 pt-8">
       <div class="space-y-4">
         <!-- Item 1: GUIDE -->
@@ -321,13 +323,12 @@
         <div class="w-28 h-28 sm:w-32 sm:h-32 mx-auto rounded-full overflow-hidden border-4 border-[#00e676] shadow-lg bg-zinc-900">
           <img
             src="profile.jpg"
-            onerror="this.src='[https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80](https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80)'"
+            onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80'"
             alt="Grow With Indiw"
             class="w-full h-full object-cover"
           />
         </div>
 
-        <!-- GROW WITH INDIW Heading -->
         <div class="text-center mt-5">
           <h4 class="text-base sm:text-lg font-black tracking-wide uppercase text-gray-900">
             GROW WITH INDIW
@@ -336,8 +337,8 @@
           <div id="doc-sub-badge" class="text-lg sm:text-xl font-black uppercase text-[#10b981] mt-1"></div>
         </div>
 
-        <!-- 3-Panel Preview Banner -->
-        <div id="doc-3panel-strip" class="mt-6 h-44 sm:h-56 w-full rounded-2xl overflow-hidden grid grid-cols-3 gap-1 bg-gray-200 p-1 border border-gray-300 shadow-sm"></div>
+        <!-- 3-Panel Preview Banner Inside Document -->
+        <div id="doc-3panel-strip" class="mt-6 h-44 sm:h-56 w-full rounded-2xl overflow-hidden bg-zinc-900 p-1 border border-gray-300 shadow-sm"></div>
 
         <!-- Clean Formatted Guide or Master Prompt -->
         <pre id="doc-body-content" class="mt-8 p-5 rounded-2xl bg-gray-50 border border-gray-200 text-xs sm:text-sm leading-relaxed text-gray-900 whitespace-pre-wrap font-sans"></pre>
@@ -346,7 +347,7 @@
   </div>
 
   <!-- ========================================================= -->
-  <!-- VISUAL EDITOR MODAL (Add or Edit Any Product Easily)      -->
+  <!-- VISUAL EDITOR MODAL (With Direct PC Image Picker)         -->
   <!-- ========================================================= -->
   <div id="editor-modal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6">
     <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[92vh] flex flex-col overflow-hidden shadow-2xl border border-gray-200 smooth-view">
@@ -358,30 +359,33 @@
       </div>
 
       <div class="p-6 overflow-y-auto space-y-4">
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
           <div>
             <label class="block text-xs font-extrabold uppercase text-gray-700 mb-1">Product Title</label>
             <input id="edit-title" type="text" placeholder="e.g., CROW BEHAVIOR VIDEOS" class="w-full px-3.5 py-2 rounded-xl bg-gray-100 border border-gray-300 text-sm font-bold" />
           </div>
           <div>
             <label class="block text-xs font-extrabold uppercase text-gray-700 mb-1">Category</label>
-            <input id="edit-cat" type="text" placeholder="e.g., Animals & Birds" class="w-full px-3.5 py-2 rounded-xl bg-gray-100 border border-gray-300 text-sm" />
+            <input id="edit-cat" type="text" placeholder="Animals & Birds" class="w-full px-3.5 py-2 rounded-xl bg-gray-100 border border-gray-300 text-sm" />
+          </div>
+          <div>
+            <label class="block text-xs font-extrabold uppercase text-gray-700 mb-1">Tools Stack</label>
+            <input id="edit-tools" type="text" placeholder="Claude AI • Google Flow" class="w-full px-3.5 py-2 rounded-xl bg-gray-100 border border-gray-300 text-sm" />
           </div>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
-          <div>
-            <label class="block text-[11px] font-bold text-gray-600 mb-1">Photo 1 URL / File</label>
-            <input id="edit-img1" type="text" placeholder="image1.jpg or https://..." class="w-full px-3 py-1.5 rounded-lg bg-gray-100 border border-gray-300 text-xs" />
+        <!-- Single 3-Panel Wide Image Upload / Filename -->
+        <div class="p-3.5 rounded-2xl bg-emerald-50/60 border border-emerald-200 space-y-2">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <label class="block text-xs font-extrabold uppercase text-emerald-900">
+              🖼 Box Cover Image (3-Panel Wide Image or Filename)
+            </label>
+            <label class="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-900 text-[#00e676] text-xs font-bold hover:bg-black transition">
+              <span>📁 Choose Image File from PC</span>
+              <input type="file" accept="image/*" onchange="handleBannerUpload(event)" class="hidden" />
+            </label>
           </div>
-          <div>
-            <label class="block text-[11px] font-bold text-gray-600 mb-1">Photo 2 URL / File</label>
-            <input id="edit-img2" type="text" placeholder="image2.jpg or https://..." class="w-full px-3 py-1.5 rounded-lg bg-gray-100 border border-gray-300 text-xs" />
-          </div>
-          <div>
-            <label class="block text-[11px] font-bold text-gray-600 mb-1">Photo 3 URL / File</label>
-            <input id="edit-img3" type="text" placeholder="image3.jpg or https://..." class="w-full px-3 py-1.5 rounded-lg bg-gray-100 border border-gray-300 text-xs" />
-          </div>
+          <input id="edit-banner" type="text" placeholder="Paste image filename (e.g., crow.png) or choose file from PC above..." class="w-full px-3 py-2 rounded-xl bg-white border border-gray-300 text-xs" />
         </div>
 
         <div>
@@ -395,7 +399,7 @@
           <label class="block text-xs font-extrabold uppercase text-gray-900 mb-1">
             ⚡ 2. Paste Full MASTER PROMPT Text (From your Master Prompt DOCX)
           </label>
-          <textarea id="edit-prompt" rows="8" placeholder="Paste the entire Master Prompt text here (quotes, symbols, and long text are 100% safe)..." class="w-full p-3.5 rounded-xl bg-zinc-950 text-[#00e676] border border-zinc-800 text-xs font-mono leading-relaxed"></textarea>
+          <textarea id="edit-prompt" rows="8" placeholder="Paste the entire Master Prompt text here..." class="w-full p-3.5 rounded-xl bg-zinc-950 text-[#00e676] border border-zinc-800 text-xs font-mono leading-relaxed"></textarea>
         </div>
       </div>
 
@@ -419,10 +423,12 @@
       {
         title: "CROW BEHAVIOR VIDEOS",
         category: "Animals & Birds",
+        tools: "Claude AI • Google Flow • Seedance 2.5",
+        banner: "Screenshot 2026-10-14 192234.png",
         images: [
-          "[https://images.unsplash.com/photo-1516233758813-a38d024919c5?auto=format&fit=crop&w=500&q=80](https://images.unsplash.com/photo-1516233758813-a38d024919c5?auto=format&fit=crop&w=500&q=80)",
-          "[https://images.unsplash.com/photo-1551085254-e96b210db58a?auto=format&fit=crop&w=500&q=80](https://images.unsplash.com/photo-1551085254-e96b210db58a?auto=format&fit=crop&w=500&q=80)",
-          "[https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=500&q=80](https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=500&q=80)"
+          "https://images.unsplash.com/photo-1516233758813-a38d024919c5?auto=format&fit=crop&w=500&q=80",
+          "https://images.unsplash.com/photo-1551085254-e96b210db58a?auto=format&fit=crop&w=500&q=80",
+          "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=500&q=80"
         ],
         guide: `🐦‍⬛ CROW CONTENT SYSTEM — WORKFLOW GUIDE
 
@@ -445,7 +451,7 @@ Claude checks what crows actually do before writing anything. It shows you a sho
 STEP 05 — Generate the Video
 If you chose Omni Flash 1.1:
 Go to Google Flow → labs.google/flow → Select Text to Video. Paste the prompt.
-• Model: Omni Flash 1.1 | Aspect ratio: 9:16 | Duration: 10 seconds | Resolution: 360p for draft.
+• Model: Omni Flash 1.1 | Aspect ratio: 9:16 | Duration: 10 seconds | Resolution: 360p for first try.
 If you chose Seedance 2.5:
 Paste the prompt as one block. Set 9:16 vertical, 15 seconds or 30 sec.
 
@@ -453,41 +459,55 @@ STEP 06 — Download and Post`,
         prompt: `You are a specialist AI video prompt engineer. Your only job is to produce production-ready text-to-video prompts for hyper-realistic crow footage that looks like unedited phone video, never like produced content. The audience is American, the format is vertical short-form.
 Follow this workflow EXACTLY. Do not skip steps. Do not write any prompts until Step 4.
 
+═══════════════════════════════════════════════════════════════
 STEP 1 — TRACK SELECTION
-Open by presenting this and nothing else:
-A) CROW GIFTS — A crow brings a person an object and sets it down. The person picks it up and examines it. The story is the person's reaction.
-B) CROW INTELLIGENCE — A crow solves a problem, uses a tool, or does something startlingly smart on its own. Usually no human in frame. The story is the fail, then the solve.
+═══════════════════════════════════════════════════════════════
+Open by presenting this and nothing else. No preamble, no explanation of what you do.
+  A) CROW GIFTS
+     A crow brings a person an object and sets it down. The person picks it up and examines it. The story is the person's reaction.
+  B) CROW INTELLIGENCE
+     A crow solves a problem, uses a tool, or does something startlingly smart on its own. Usually no human in frame. The story is the fail, then the solve.
 Then ask: "Which track?" and STOP. Wait for the user's reply.
 
+═══════════════════════════════════════════════════════════════
 STEP 2 — MODEL SELECTION
+═══════════════════════════════════════════════════════════════
 Once the track is chosen, ask exactly this and STOP:
-"Which model?
-1) Google Omni Flash 1.1
-2) Seedance 2.5"
-Wait for the user's reply.
+  "Which model?
+   1) Google Omni Flash 1.1
+   2) Seedance 2.5"
+Wait for the user's reply. Do not proceed until they answer.
 
+═══════════════════════════════════════════════════════════════
 STEP 3 — RESEARCH BEFORE WRITING (MANDATORY)
-Establish these five things in a short block (under 120 words) before the prompts:
-1. BEHAVIOUR — caching, anting, water displacement, tool use, traffic nut-cracking, mirror response, interspecies sharing, object play, gift-giving.
-2. MECHANICS — how the crow physically grips and positions its body.
-3. FAILURE MODE — what the crow tries first that does NOT work (required for Track B).
-4. SETTING — US region, season, and light.
-5. AUDIO ANCHOR — one distant sound that places the location.
+═══════════════════════════════════════════════════════════════
+Before writing a single prompt, establish what crows ACTUALLY do:
+  1. BEHAVIOUR — caching, anting, water displacement, tool use, traffic nut-cracking, mirror response, interspecies sharing, object play, gift-giving to regular feeders.
+  2. MECHANICS — how does the crow physically do it? What does it grip, with what, how does it position its body?
+  3. FAILURE MODE — what does the crow try first that does NOT work? (Track B requires this).
+  4. SETTING — which US region, season and light? Must be visually distinct across all 5.
+  5. AUDIO ANCHOR — one distant sound that places the location (lawnmower, snowplow, streetcar, cicadas, L train, surf).
 
+═══════════════════════════════════════════════════════════════
 STEP 4 — BEAT BUDGET (10 SECONDS)
-TRACK A (GIFTS): 0-2s waiting empty-handed | 2-5s crow arrives & sets object down | 5-10s person picks it up and examines it. It does not leave frame.
-TRACK B (INTELLIGENCE): 0-3s attempt that fails | 3-7s the solve | 7-10s the result.
+═══════════════════════════════════════════════════════════════
+  TRACK A — GIFTS: 0-2s person waiting empty-handed | 2-5s crow arrives with object, sets it down, steps back | 5-10s person picks it up and examines it. Always include: "It does not leave frame."
+  TRACK B — INTELLIGENCE: 0-3s the attempt that fails | 3-7s the solve | 7-10s the result.
 
+═══════════════════════════════════════════════════════════════
 STEP 5 — OUTPUT 5 PROMPTS
-Output 5 complete prompts formatted for the chosen model (Seedance 2.5 or Omni Flash 1.1) with AUDIO and AESTHETIC blocks, a US-native caption (under 90 chars) for each, and a generation risk table at the end. Begin now with Step 1.`
+═══════════════════════════════════════════════════════════════
+Output 5 full prompts in the selected model format (Seedance 2.5 with AUDIO & AESTHETIC blocks, or Omni Flash 1.1 with Physics, Camera, Lighting and mood, Audio, and negative tail) plus a US-native Caption (under 90 chars) and a Generation Risk Table at the end. Begin now with Step 1.`
       },
       {
         title: "CIRCUS ACROBATICS VIDEOS",
         category: "Animals & Birds",
+        tools: "Claude AI • Seedance 2.5 • Dola",
+        banner: "nio_1790314480535_f7913a35-425a-4316-80f8-075ebdae23d8_GV_100.webp",
         images: [
-          "[https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=500&q=80](https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=500&q=80)",
-          "[https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=500&q=80](https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=500&q=80)",
-          "[https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=500&q=80](https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=500&q=80)"
+          "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=500&q=80",
+          "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=500&q=80",
+          "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=500&q=80"
         ],
         guide: `CIRCUS ACROBATICS VIDEOS — WORKFLOW GUIDE
 
@@ -508,8 +528,8 @@ You’ll receive 5 different video ideas. Reply “OK” to get full prompts and
 STEP 5 — Copy a video prompt
 Choose one concept. Copy its entire video-prompt code block. Keep the matching caption for posting.
 
-STEP 6 — Generate with Seedance
-Paste the video prompt into Seedance 2.5. Generate the video using the prompt’s vertical 9:16, 30-second format.
+STEP 6 — Generate with Seedance / Dola
+Paste the video prompt into Seedance 2.5 (or Dola). Generate the video using the prompt’s vertical 9:16, 30-second format.
 
 STEP 7 — Check the result
 Check that the actions happen in the correct order. Look for missing tricks, distorted bodies or incorrect landings.
@@ -519,13 +539,14 @@ Use the matching caption. Keep the natural crowd and arena audio. No added music
         prompt: `CIRCUS ACROBATICS MASTER PROMPT — THRILLING CONTINUOUS STUNT CHAINS
 
 ROLE AND OUTPUT
-You are my creative director and prompt writer for fictional AI circus and acrobatics videos aimed at American viewers. Create ideas, complete English video-generation prompts and English captions.
+You are my creative director and prompt writer for fictional AI circus and acrobatics videos aimed at American viewers. Create ideas, complete English video-generation prompts and English captions. Do not generate videos or images.
 Target generator: Seedance 2.5. Default duration: 30 seconds. Format: vertical 9:16.
 Visual style: photorealistic, raw handheld spectator smartphone footage, ONE continuous take, normal real-time speed, ambient arena sound only.
 
 THE CREATIVE TARGET
-The videos must deliver a thrilling, surprising chain of DIFFERENT circus actions (e.g., flaming-hoop passage → trampoline rebound and aerial trick → unexpected elephant-trunk landing → elephant toss → trampoline rebound → running-horse saddle landing).
-Begin with a dramatic event already happening in the first frame. Keep changing the action, apparatus, support, direction or landing target every 3–5 seconds.
+The videos must deliver a thrilling, surprising chain of DIFFERENT circus actions. The benchmark is:
+flaming-hoop passage → trampoline rebound and aerial trick → another rebound and different aerial trick → unexpected elephant-trunk landing → elephant toss → another trampoline rebound → running-horse landing.
+Begin with a dramatic event already happening. Keep changing the action, apparatus, support, direction or landing target every few seconds.
 
 INTERACTIVE WORKFLOW
 FIRST ACTIVATION — ASK ONLY:
@@ -533,21 +554,72 @@ FIRST ACTIVATION — ASK ONLY:
 1. Solo — one performer doing circus / acrobatics
 2. Team — multiple performers doing circus / acrobatics together
 Choose 1 or 2."
-Then STOP and wait.
+Then STOP.
 
 STEP 2 — EXACTLY FIVE IDEAS
-After category selection, generate 5 fresh ideas with Title, Opening Hook, Ordered Action Chain, Final Unexpected Landing, and Exact Cast/Apparatus. End with: "Would you like full 30-second video prompts and captions for all five ideas? Say OK."
+After category selection, generate 5 fresh ideas with:
+• Number and short English title
+• Brief explanation of the opening hook and surprising action
+• Concise ordered action chain
+• Final unexpected landing or catch
+• Exact performer count, animal species/count and main apparatus
+End with: "Would you like full 30-second video prompts and captions for all five ideas? Say OK. If you want to change an idea, tell me its number."
 
 STEP 3 — FULL OUTPUT AFTER APPROVAL
-For each approved concept, provide a 400–650 word standalone prompt with sections: VISUAL STYLE AND ENVIRONMENT, FIXED ARENA LAYOUT, CONTINUOUS ACTION — 30 SECONDS (timestamped beats), and CAMERA, AUDIO AND CONTINUITY, plus a short 8–18 word hook caption.`
+For each approved concept, provide a 400–650 word standalone prompt with sections: VISUAL STYLE AND ENVIRONMENT, FIXED ARENA LAYOUT, CONTINUOUS ACTION — 30 SECONDS (chronological timestamped beats), and CAMERA, AUDIO AND CONTINUITY, plus a short 8–18 word hook caption.`
+      },
+      {
+        title: "MINI PREDATOR FIGHT VIDEOS",
+        category: "Animals & Birds",
+        tools: "Claude AI • Dola AI • Sora",
+        banner: "nio_1774519813577_2c066807-951c-445d-873b-323df4945b0f_GV_100.webp",
+        images: [
+          "https://images.unsplash.com/photo-1504450874802-0ba2bcd9b5ae?auto=format&fit=crop&w=500&q=80",
+          "https://images.unsplash.com/photo-1546182990-dffeafbe841d?auto=format&fit=crop&w=500&q=80",
+          "https://images.unsplash.com/photo-1534567153574-2b12153a87f0?auto=format&fit=crop&w=500&q=80"
+        ],
+        guide: `MINI PREDATOR FIGHT VIDEOS — WORKFLOW GUIDE
+
+STEP 1 — Copy the Master Prompt
+Copy the full Master Prompt and paste it into Claude or ChatGPT.
+
+STEP 2 — Choose One Fight Combination
+Claude will immediately generate 10 epic fight combinations (e.g., 1. [Animal 1] 🆚 [Animal 2]). Copy any fight combination from the list and paste it back into the chat.
+
+STEP 3 — Generate Video in Dola / Sora
+Copy the complete 350–400 word single-paragraph prompt generated by Claude and paste it into Dola or Sora to generate your video.`,
+        prompt: `You are a Dola AI video prompt specialist focused on creating viral "Mini Predator Fight Videos" content.
+NICHE: Short dramatic wildlife predator fight videos filmed inside a clear transparent acrylic rectangular box enclosure with golden sand floor. These videos get millions of views on TikTok, Instagram Reels and YouTube Shorts.
+
+═══════════════════════════════════════
+WHEN I START - DO THIS FIRST:
+═══════════════════════════════════════
+Immediately generate a list of 10 epic fight combinations in this exact format:
+1. [Animal 1] 🆚 [Animal 2]
+2. [Animal 1] 🆚 [Animal 2]
+... up to 10.
+Choose combinations that are visually dramatic, size mismatched for extra tension, and naturally occurring rival species.
+After showing the list say: "Copy any fight combination from the list above and paste it to me - I will generate a detailed Sora prompt for it instantly."
+
+═══════════════════════════════════════
+WHEN I GIVE YOU A COMBINATION:
+═══════════════════════════════════════
+Generate a video prompt that is:
+- EXACTLY 350 to 400 words long
+- A single clean paragraph block with NO section headers, NO labels, NO bold text, NO bullet points. Pure flowing cinematic prose only.
+
+Always include these exact visual and audio locks in the prose:
+"A dramatic slightly elevated shot, camera positioned about 1.5 to 2 feet above, looking down at approximately 75 degree angle, shooting through the open top of a clear transparent acrylic rectangular box enclosure. The box is long and narrow, clearly rectangular in shape, with four straight transparent acrylic walls and a flat bottom... The box floor is covered with fine pale golden desert sand spread flat and even... Camera is completely static, no movement, no pan, no tilt, no zoom, no cuts throughout the entire video. Single locked-off continuous take from start to finish. Bright even natural lighting from directly above... Photorealistic 4K cinematic wildlife footage. No camera cuts, no transitions. No music. Only natural sounds - sand scattering, struggle and impact noises."`
       },
       {
         title: "MINIATURE VEHICLE ASSEMBLY VIDEOS",
         category: "Crafts & ASMR",
+        tools: "Claude AI • Google Flow (Omni Flash)",
+        banner: "nio_1784046017086_7429c908-b0d9-47c7-9691-904c1f0e725b_GV_100.webp",
         images: [
-          "[https://images.unsplash.com/photo-1581235720704-06d3acfcb36f?auto=format&fit=crop&w=500&q=80](https://images.unsplash.com/photo-1581235720704-06d3acfcb36f?auto=format&fit=crop&w=500&q=80)",
-          "[https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=500&q=80](https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=500&q=80)",
-          "[https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=500&q=80](https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=500&q=80)"
+          "https://images.unsplash.com/photo-1581235720704-06d3acfcb36f?auto=format&fit=crop&w=500&q=80",
+          "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=500&q=80",
+          "https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=500&q=80"
         ],
         guide: `MINIATURE VEHICLE ASSEMBLY — WORKFLOW GUIDE
 
@@ -568,32 +640,42 @@ Go to Google Flow → labs.google/flow → Select Text to Video. Paste the promp
 Click Generate and wait.
 
 STEP 05 — Check the Result
-Verify the car model is recognisable, hands wear clean black nitrile gloves, parts snap together cleanly, and the badge is visible in the final brush shot.
+✅ Is the car model correct and recognisable?
+✅ Are the hands natural — no extra fingers, no melting?
+✅ Do the parts snap together cleanly?
+✅ Is the badge/logo visible in the final brush shot?
+✅ Is the desk surface clean and consistent?
 
 STEP 06 — Download
 Once you have a clean clip, click Download and save.`,
-        prompt: `You are a Miniature Car ASMR Video Prompt Specialist. Follow this exact workflow every time this prompt is loaded.
-
+        prompt: `You are a Miniature Car ASMR Video Prompt Specialist.
+Follow this exact workflow every time this prompt is loaded.
+---
 STEP 1 — VEHICLE LIST
 Immediately generate a numbered list of 5 random vehicles. Each must be a different category (supercar, muscle car, luxury sedan, classic, off-road etc). No two vehicles from the same brand.
-Format:
+Format exactly like this:
 1. [Brand + Model] — [one line: era, color suggestion, key visual feature]
-...
+2. [Brand + Model] — [one line: era, color suggestion, key visual feature]
+3. [Brand + Model] — [one line: era, color suggestion, key visual feature]
+4. [Brand + Model] — [one line: era, color suggestion, key visual feature]
+5. [Brand + Model] — [one line: era, color suggestion, key visual feature]
 6. Custom — Type your own car model if none of the above match
 Wait for the user to select a number.
-
+---
 STEP 2 — GENERATE PROMPT
-Once user selects a number (or types a custom model), immediately output this exact prompt replacing the placeholders:
+Once user selects a number (or types a custom model), immediately generate the final video prompt below. Replace all placeholders with the selected vehicle's exact brand, model, color, and badge/logo name:
 
 Hyper-realistic, fast-cut ASMR macro video capturing the stop-motion assembly of a miniature [COLOR] [VEHICLE] scale model on a sleek modern white marble-top desk with a clean matte black surface mat underneath. Shot on an 85mm f/1.4 lens with ultra-shallow depth of field, clean bright overhead workshop lighting with subtle warm rim light from the left side. Hands wearing thin black nitrile gloves use precision tweezers to carefully lower a hyper-detailed miniature engine block into a bare polished metallic chassis frame — every bolt hole and casting line visible. A slim magnetic screwdriver tightens a 2mm hex screw into the engine mount with a satisfying micro-click. Chrome-spoke wheels with rubber tires snap onto axle pins one by one, followed by the suspension arms clicking cleanly into place. The steering column and rack assembly slides in with a soft metallic whisper. Body panels — hood, fenders, doors — lock seamlessly onto the frame with tactile snap sounds perfectly synced to each cut. Final shot: a soft Japanese calligraphy brush gently sweeps across the [NAME] badge on the hood, lifting the last dust particle as the camera slowly racks focus to the completed model. Fluid, perfectly timed stop-motion transitions throughout, every texture and micro-detail rendered in cinematic 4K macro clarity.`
       },
       {
         title: "RECYCLE CRAFTS VIDEOS",
         category: "Crafts & ASMR",
+        tools: "Claude AI • Google Flow / VEO • CapCut",
+        banner: "nio_1784384741093_ba5e1d9a-2e51-4d77-9ac3-c51b71165875_GV_100.webp",
         images: [
-          "[https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=500&q=80](https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=500&q=80)",
-          "[https://images.unsplash.com/photo-1452860606245-08befc0ff44b?auto=format&fit=crop&w=500&q=80](https://images.unsplash.com/photo-1452860606245-08befc0ff44b?auto=format&fit=crop&w=500&q=80)",
-          "[https://images.unsplash.com/photo-1584992236310-6edddc08a313?auto=format&fit=crop&w=500&q=80](https://images.unsplash.com/photo-1584992236310-6edddc08a313?auto=format&fit=crop&w=500&q=80)"
+          "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=500&q=80",
+          "https://images.unsplash.com/photo-1452860606245-08befc0ff44b?auto=format&fit=crop&w=500&q=80",
+          "https://images.unsplash.com/photo-1584992236310-6edddc08a313?auto=format&fit=crop&w=500&q=80"
         ],
         guide: `RECYCLE CRAFTS VIDEOS — WORKFLOW GUIDE
 
@@ -607,7 +689,8 @@ Open a new chat on claude.ai, paste the master prompt and send. Claude will repl
 2️⃣ Your Idea — Tell me your own idea and I will build a full prompt for it
 
 Step 3: Choose an Option
-Reply "1" for 5 random prompts or "2" to describe your own idea.
+Reply "1" — Claude generates 5 random prompts (mix of objects, scenes, events, funny, cute, creative).
+Reply "2" — Describe your idea and Claude builds a full prompt for it.
 
 Step 4: Check the Prompts
 Make sure each prompt has:
@@ -618,11 +701,11 @@ Make sure each prompt has:
 • Only waste/discarded items used
 
 Step 5: Generate Videos in Google Flow / VEO
-Copy each prompt one by one into Google Flow / VEO and generate.
+Copy each prompt one by one into Google Flow / VEO.
 
 Step 6: Download & Upload
-Download your clips and upload to Facebook Reels, TikTok, or YouTube Shorts with #ASMR #DIY #Crafts #Miniature #Satisfying #Recycle.`,
-        prompt: `You are an ASMR Craft Video Prompt Generator. You generate hyper-detailed, production-ready prompts for 10-second ASMR craft videos where adorable miniature creations are built entirely from discarded waste items on a clean white modern minimalist table.
+Download good videos → upload to your page with #ASMR #DIY #Crafts #Miniature #Satisfying #Recycle.`,
+        prompt: `You are an ASMR Craft Video Prompt Generator. You generate hyper-detailed, production-ready prompts for 10-second ASMR craft videos where adorable miniature creations are built entirely from discarded waste items on a clean white modern minimalist table. Every output must be visually stunning, cute, minimalist, and satisfying to watch.
 
 When the user pastes this prompt, respond ONLY with this message:
 "🎨 ASMR Craft Video Prompt Generator 🎨
@@ -633,49 +716,57 @@ Reply with the number 👇"
 Wait for the user to reply.
 
 ABSOLUTE PROMPT STRUCTURE RULES:
-1. MUSIC FIRST LOCK: Begin every prompt with: "A 10-second ASMR craft video WITH BACKGROUND MUSIC PLAYING FOR THE ENTIRE DURATION: a [MATCHING MUSIC STYLE] plays continuously from the first frame to the last frame, [MOOD], at a soft but clearly hearable volume — the music must never stop and must be present throughout the whole video. On top of the music, crisp amplified diegetic ASMR craft sounds play in the foreground, both layers audible together at all times."
-2. CAMERA AND VISUAL SPECS: Follow with: "Extreme macro lens footage, micro camera level detail, shallow depth of field with rack focus pulls onto each attachment point, raw unfiltered look, no color grading. Ultra close-up on a clean white modern minimalist table with soft even lighting creating a bright airy aesthetic. A pair of female hands with neat clean nails crafts [DESCRIPTION] from discarded [SPECIFIC WASTE ITEMS]. Every single piece is attached one at a time, shown individually in sharp focus, with its real sound clearly audible over the continuous background music:"
-3. STRICT 5-STEP TIMELINE:
+RULE 1 — MUSIC FIRST LOCK:
+Begin with: "A 10-second ASMR craft video WITH BACKGROUND MUSIC PLAYING FOR THE ENTIRE DURATION: a [MATCHING MUSIC STYLE] plays continuously from the first frame to the last frame, [MOOD], at a soft but clearly hearable volume — the music must never stop and must be present throughout the whole video. On top of the music, crisp amplified diegetic ASMR craft sounds play in the foreground, both layers audible together at all times."
+RULE 2 — CAMERA AND VISUAL SPECS:
+Follow with: "Extreme macro lens footage, micro camera level detail, shallow depth of field with rack focus pulls onto each attachment point, raw unfiltered look, no color grading. Ultra close-up on a clean white modern minimalist table with soft even lighting creating a bright airy aesthetic. A pair of female hands with neat clean nails crafts [DESCRIPTION] from discarded [SPECIFIC WASTE ITEMS]. Every single piece is attached one at a time, shown individually in sharp focus, with its real sound clearly audible over the continuous background music:"
+RULE 3 — STRICT 5-STEP TIMELINE:
 - Step 1 (0-2s): Base/foundation building ("while the background music plays")
 - Step 2 (2-4s): Main structure assembly ("music continuing underneath")
 - Step 3 (4-6s): Detail work and character/personality ("the [instrument] still playing")
-- Step 4 (6-8s): Final decorative elements ("the melody continuing")
+- Step 4 (6-8s): Final decorative elements and environment ("the melody continuing")
 - Step 5 (8-10s): Final reveal with extreme macro slow push-in/pan + gentle micro-interaction ("the background music gently closes")
-4. CONTINUITY LOCK: End with: "The background music is mandatory and continuous — it plays in every second of the video without pause. ASMR sounds: [LIST ALL SOUNDS] — synchronized with each action. The [CREATION] must remain visually identical across all steps; [EXACT COUNTS OF KEY PARTS]. No new objects appear. No talking."`
+RULE 4 — CONTINUITY LOCK:
+End with: "The background music is mandatory and continuous — it plays in every second of the video without pause. ASMR sounds: [LIST ALL SOUNDS] — synchronized with each action. The [CREATION] must remain visually identical across all steps; [EXACT COUNTS OF KEY PARTS]. No new objects appear. No talking."`
       },
       {
         title: "SECRET CAKE RECIPE VIDEOS",
         category: "Food & Cakes",
+        tools: "Claude AI • Google Flow • CapCut",
+        banner: "nio_1786589337892_b5c9623b-c9c0-4b75-920d-7d97bae8ac3e_GV_100.webp",
         images: [
-          "[https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=500&q=80](https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=500&q=80)",
-          "[https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=500&q=80](https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=500&q=80)",
-          "[https://images.unsplash.com/photo-1535141192574-5d4897c12636?auto=format&fit=crop&w=500&q=80](https://images.unsplash.com/photo-1535141192574-5d4897c12636?auto=format&fit=crop&w=500&q=80)"
+          "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=500&q=80",
+          "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=500&q=80",
+          "https://images.unsplash.com/photo-1535141192574-5d4897c12636?auto=format&fit=crop&w=500&q=80"
         ],
         guide: `SECRET CAKE RECIPE VIDEOS — WORKFLOW GUIDE
 
-Step 1 – Give the Master Prompt to Claude
-Copy the Master Prompt and paste it into a new Claude chat.
+Step 1 – Paste the Master Prompt into Claude
+Copy the Master Prompt and paste it into a new Claude AI chat.
 
 Step 2 – Pick Your Cake Idea
-Choose from the 5 viral secret cake concepts generated by Claude.
+Choose from the 5 viral secret cake concepts with glossy sauce/glaze pours generated by Claude.
 
 Step 3 – Generate Video Prompts in Google Flow / Veo
-Copy each sequential macro baking prompt into Google Flow (9:16 vertical) and download your clips.`,
+Copy each sequential macro baking & glaze-pour prompt into Google Flow (9:16 vertical) and download your clips.`,
         prompt: `You are an expert Culinary AI Prompt Engineer for GROW WITH INDIW.
-Generate 5 viral SECRET CAKE RECIPE video concepts. Once I select one, output a soothing voiceover script and 5 sequential macro video prompts (batter pour, oven rise, mirror glaze pour, and slice reveal) with locked kitchen lighting.`
+Generate 5 viral SECRET CAKE RECIPE video concepts featuring a dramatic spoon glaze/syrup pour over a sliced cake (e.g., Dark Chocolate Espresso Caramel Pour, Coconut Passionfruit Sponge Pour, Strawberry Cream Swirl Glaze Pour).
+Once I select one, output a soothing ASMR voiceover script and 5 sequential macro video prompts with locked kitchen counter lighting and realistic liquid viscosity physics.`
       },
       {
-        title: "RUG TUFTING VIDEOS",
+        title: "STRING ART VIDEOS",
         category: "Crafts & ASMR",
+        tools: "Claude AI • Google Flow • Veo",
+        banner: "nio_1786786308276_a368c583-06ee-4531-9f0c-568ca8ed503c_GV_100.webp",
         images: [
-          "[https://images.unsplash.com/photo-1584992236310-6edddc08a313?auto=format&fit=crop&w=500&q=80](https://images.unsplash.com/photo-1584992236310-6edddc08a313?auto=format&fit=crop&w=500&q=80)",
-          "[https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=500&q=80](https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=500&q=80)",
-          "[https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=500&q=80](https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=500&q=80)"
+          "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=500&q=80",
+          "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=500&q=80",
+          "https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=500&q=80"
         ],
-        guide: `RUG TUFTING VIDEOS — Full Workflow Guide
+        guide: `STRING ART VIDEOS — Full Workflow Guide
 
 Step 1 – Give the Master Prompt to Claude
-Copy the Master Prompt. Open a new Claude chat and paste it. Claude will instantly give you 5 random rug tufting video ideas (subject + a one-line hook each).
+Copy the Master Prompt. Open a new Claude chat and paste it. Claude will instantly give you 5 random string art video ideas (subject + a one-line hook each).
 
 Step 2 – Confirm the ideas
 If the 5 ideas look good → say "OK".
@@ -686,232 +777,129 @@ Step 3 – Copy the prompt set
 Copy the prompt.
 
 Step 4 – Go to Google Flow
-Open Google Flow. Paste the entire prompt you copied.
+Open Google Flow and paste the entire prompt you copied.
 
-Step 5 – Download
-Download all 5 generated videos.
+Step 5 – Download & Upload
+Download all 5 generated videos and upload them to your page.`,
+        prompt: `You are an expert String Art ASMR Video Director for GROW WITH INDIW.
+Give me 5 stunning framed 3D metallic/colorful thread STRING ART ideas (such as an Emerald Peacock, Iridescent Monarch Butterfly, or Ruby-Throated Hummingbird with Flower).
+Once I reply "OK", generate 5 complete multi-shot time-lapse prompts showing pin placement on a clean white framed board, vibrant thread weaving, pearl/gem accents, and hands hanging the finished wooden frame on a clean white wall.`
+      },
+      {
+        title: "TATTOO MAKING VIDEOS",
+        category: "Crafts & ASMR",
+        tools: "Claude AI • Google Flow • Seedance 2.5",
+        banner: "nio_1786356987556_52d6f525-6bd6-4db6-905a-511f65c99040_GV_100.webp",
+        images: [
+          "https://images.unsplash.com/photo-1598371839696-5c5bb00bdc28?auto=format&fit=crop&w=500&q=80",
+          "https://images.unsplash.com/photo-1565058379802-bbe93b2f703a?auto=format&fit=crop&w=500&q=80",
+          "https://images.unsplash.com/photo-1611501275019-9b5cda994e8d?auto=format&fit=crop&w=500&q=80"
+        ],
+        guide: `TATTOO MAKING VIDEOS — WORKFLOW GUIDE
 
-Step 6 – Upload to your page
-Upload the videos to your page one by one.`,
+Step 1 – Paste the Master Prompt into Claude
+Copy the Master Prompt and paste it into a new Claude chat.
+
+Step 2 – Pick Your 3D Color Tattoo Concept
+Select from the 5 hyper-realistic macro tattooing concepts generated by Claude.
+
+Step 3 – Generate in Google Flow / Seedance 2.5
+Paste the macro needle-shading and ink-wipe prompt into Google Flow or Seedance 2.5 (9:16 vertical) and download your clip.`,
+        prompt: `You are a Hyper-Realistic Macro Tattoo ASMR Video Prompt Specialist for GROW WITH INDIW.
+Immediately generate 5 vivid 3D color tattoo concepts (e.g., Vintage Brass Compass on World Map, Emerald Dragon Head, Vibrant Orange Koi Fish).
+Once I pick a number, generate a 4K macro close-up video prompt showing a tattoo artist wearing black nitrile gloves using a rotary cartridge needle to pack vibrant color ink into the skin, followed by a clean foam wipe revealing the crisp 3D finished tattoo.`
+      },
+      {
+        title: "RUG TUFTING VIDEOS",
+        category: "Crafts & ASMR",
+        tools: "Claude AI • Google Flow • Seedance 2.5",
+        banner: "",
+        images: [
+          "https://images.unsplash.com/photo-1584992236310-6edddc08a313?auto=format&fit=crop&w=500&q=80",
+          "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=500&q=80",
+          "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=500&q=80"
+        ],
+        guide: `RUG TUFTING VIDEOS — Full Workflow Guide
+
+Step 1 – Give the Master Prompt to Claude
+Copy the Master Prompt. Open a new Claude chat and paste it.
+
+Step 2 – Confirm the ideas
+Reply "OK" to generate 5 full multi-shot prompts.
+
+Step 3 – Generate in Google Flow
+Paste each prompt into Google Flow and download your videos.`,
         prompt: `Act as an expert AI Craft Video Director for GROW WITH INDIW.
-Give me 5 fresh viral custom RUG TUFTING design ideas (subject + one-line hook). Once I reply "OK", generate a 5-shot cinematic video prompt set with strict visual consistency (same wooden tufting frame, yarn cones, workshop lighting, and ASMR carving reveal) optimized for Google Flow and Seedance 2.5.`
-      }
-    ];
-    /*__PRODUCTS_END__*/
-
-    let products = JSON.parse(localStorage.getItem('indiw_vault_pro_v1')) || defaultProducts;
-    let activeProductIndex = 0;
-    let activeDocMode = 'guide';
-    let editingIndex = -1;
-
-    function render3PanelHTML(imgs) {
-      const list = (imgs && imgs.length === 3) ? imgs : [
-        "[https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=500&q=80](https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=500&q=80)",
-        "[https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=500&q=80](https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=500&q=80)",
-        "[https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=500&q=80](https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=500&q=80)"
-      ];
-      return list.map(url => `<img src="${url}" class="w-full h-full object-cover" alt="Frame" />`).join('');
-    }
-
-    function renderGrid() {
-      const q = document.getElementById('search-box').value.toLowerCase();
-      const grid = document.getElementById('products-grid');
-      document.getElementById('total-count').innerText = products.length;
-
-      const filtered = products.map((p, idx) => ({ ...p, idx })).filter(p =>
-        p.title.toLowerCase().includes(q) || (p.category && p.category.toLowerCase().includes(q))
-      );
-
-      grid.innerHTML = filtered.map(p => `
-        <div onclick="openProductDetail(${p.idx})" class="card-exec cursor-pointer rounded-3xl overflow-hidden flex flex-col justify-between group">
-          <div>
-            <div class="h-44 w-full grid grid-cols-3 gap-0.5 bg-zinc-900 p-1 relative overflow-hidden">
-              ${render3PanelHTML(p.images)}
-              <div class="absolute top-3 left-3">
-                <span class="px-2.5 py-1 rounded-full text-[10px] font-extrabold uppercase bg-black/85 text-[#00e676] border border-[#00e676]/40">
-                  ${p.category || 'Creator System'}
-                </span>
-              </div>
-              <div class="absolute bottom-2.5 right-3">
-                <span class="px-2.5 py-0.5 rounded-md text-[10px] font-bold bg-black/80 text-white">
-                  2 items
-                </span>
-              </div>
-            </div>
-            <div class="p-5">
-              <h3 class="text-base font-black text-gray-900 group-hover:text-emerald-600 transition uppercase tracking-tight">
-                ${p.title}
-              </h3>
-              <p class="text-xs font-medium text-gray-500 mt-1">
-                2 items • Guide + Master Prompt
-              </p>
-            </div>
-          </div>
-          <div class="px-5 py-3.5 bg-gray-50 border-t border-gray-100 flex items-center justify-between text-xs">
-            <span class="font-semibold text-gray-500">Grow With Indiw</span>
-            <span class="font-extrabold text-gray-900 group-hover:text-emerald-600 transition">Open →</span>
-          </div>
-        </div>
-      `).join('');
-    }
-
-    function switchMainTab(tab) {
-      ['home', 'products', 'community'].forEach(t => {
-        document.getElementById('portal-' + t).classList.toggle('hidden', t !== tab);
-        document.getElementById('main-tab-' + t).className = (t === tab)
-          ? 'pb-3.5 border-b-2 border-gray-900 text-gray-900 transition'
-          : 'pb-3.5 border-b-2 border-transparent text-gray-400 hover:text-gray-900 transition';
-      });
-    }
-
-    function openProductDetail(index) {
-      activeProductIndex = index;
-      const p = products[index];
-      document.getElementById('detail-thumb-box').innerHTML = render3PanelHTML(p.images);
-      document.getElementById('detail-title').innerText = p.title;
-      document.getElementById('row-guide-title').innerText = `GUIDE FOR ${p.title}`;
-      document.getElementById('row-prompt-title').innerText = `${p.title} MASTER PROMPT`;
-
-      document.getElementById('view-portal').classList.add('hidden');
-      document.getElementById('view-product-detail').classList.remove('hidden');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    function showMainPortal() {
-      document.getElementById('view-product-detail').classList.add('hidden');
-      document.getElementById('view-portal').classList.remove('hidden');
-    }
-
-    function openDocReader(mode) {
-      activeDocMode = mode;
-      const p = products[activeProductIndex];
-      document.getElementById('doc-main-title').innerText = p.title;
-      document.getElementById('doc-3panel-strip').innerHTML = render3PanelHTML(p.images);
-
-      if (mode === 'guide') {
-        document.getElementById('doc-sub-badge').innerText = '– GUIDE';
-        document.getElementById('doc-toolbar-label').innerText = `GUIDE FOR ${p.title}`;
-        document.getElementById('doc-body-content').innerText = p.guide || 'Click "Edit Text" above to paste your Guide.';
-      } else {
-        document.getElementById('doc-sub-badge').innerText = '– MASTER PROMPT';
-        document.getElementById('doc-toolbar-label').innerText = `${p.title} MASTER PROMPT`;
-        document.getElementById('doc-body-content').innerText = p.prompt || 'Click "Edit Text" above to paste your Master Prompt.';
-      }
-
-      document.getElementById('doc-modal').classList.remove('hidden');
-    }
-
-    function closeDocReader() {
-      document.getElementById('doc-modal').classList.add('hidden');
-    }
-
-    function copyDocText() {
-      const p = products[activeProductIndex];
-      const text = (activeDocMode === 'guide') ? p.guide : p.prompt;
-      navigator.clipboard.writeText(text || '');
-      const btn = document.getElementById('btn-copy-doc');
-      btn.innerText = '✓ Copied!';
-      setTimeout(() => btn.innerText = 'Copy Full Text', 1500);
-    }
-
-    // Visual Editor Functions
-    function openEditorModal(index) {
-      editingIndex = index;
-      const delBtn = document.getElementById('btn-delete-prod');
-      if (index >= 0 && products[index]) {
-        const p = products[index];
-        document.getElementById('editor-heading').innerText = `Edit: ${p.title}`;
-        document.getElementById('edit-title').value = p.title;
-        document.getElementById('edit-cat').value = p.category || '';
-        document.getElementById('edit-img1').value = (p.images && p.images[0]) || '';
-        document.getElementById('edit-img2').value = (p.images && p.images[1]) || '';
-        document.getElementById('edit-img3').value = (p.images && p.images[2]) || '';
-        document.getElementById('edit-guide').value = p.guide || '';
-        document.getElementById('edit-prompt').value = p.prompt || '';
-        delBtn.classList.remove('hidden');
-      } else {
-        document.getElementById('editor-heading').innerText = '+ Add New Product (Paste DOCX Content)';
-        document.getElementById('edit-title').value = '';
-        document.getElementById('edit-cat').value = 'Animals & Birds';
-        document.getElementById('edit-img1').value = '';
-        document.getElementById('edit-img2').value = '';
-        document.getElementById('edit-img3').value = '';
-        document.getElementById('edit-guide').value = '';
-        document.getElementById('edit-prompt').value = '';
-        delBtn.classList.add('hidden');
-      }
-      document.getElementById('editor-modal').classList.remove('hidden');
-    }
-
-    function closeEditorModal() {
-      document.getElementById('editor-modal').classList.add('hidden');
-    }
-
-    function saveEditorProduct() {
-      const title = document.getElementById('edit-title').value.trim().toUpperCase();
-      if (!title) { alert('Please enter a Product Title'); return; }
-      const cat = document.getElementById('edit-cat').value.trim() || 'Creator System';
-      const i1 = document.getElementById('edit-img1').value.trim() || '[https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=500&q=80](https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=500&q=80)';
-      const i2 = document.getElementById('edit-img2').value.trim() || i1;
-      const i3 = document.getElementById('edit-img3').value.trim() || i1;
-      const guide = document.getElementById('edit-guide').value;
-      const prompt = document.getElementById('edit-prompt').value;
-
-      const itemObj = { title, category: cat, images: [i1, i2, i3], guide, prompt };
-
-      if (editingIndex >= 0) {
-        products[editingIndex] = itemObj;
-        localStorage.setItem('indiw_vault_pro_v1', JSON.stringify(products));
-        closeEditorModal();
-        renderGrid();
-        openProductDetail(editingIndex);
-        if (!document.getElementById('doc-modal').classList.contains('hidden')) {
-          openDocReader(activeDocMode);
-        }
-      } else {
-        products.unshift(itemObj);
-        localStorage.setItem('indiw_vault_pro_v1', JSON.stringify(products));
-        closeEditorModal();
-        renderGrid();
-        showMainPortal();
-      }
-    }
-
-    function deleteProduct() {
-      if (editingIndex < 0) return;
-      products.splice(editingIndex, 1);
-      localStorage.setItem('indiw_vault_pro_v1', JSON.stringify(products));
-      closeEditorModal();
-      closeDocReader();
-      showMainPortal();
-      renderGrid();
-    }
-
-    // One-Click Export Complete HTML for GitHub (So Friends See Everything)
-    function copyGitHubHTML() {
-      closeDocReader();
-      closeEditorModal();
-      showMainPortal();
-      switchMainTab('products');
-      document.getElementById('search-box').value = '';
-      renderGrid();
-
-      const jsonString = JSON.stringify(products, null, 2);
-      const rawHTML = '<!DOCTYPE html>\n<html lang="en">\n' + document.documentElement.innerHTML + '\n</html>';
-      const updatedHTML = rawHTML.replace(
-        /\/\*__PRODUCTS_START__\*\/[\s\S]*?\/\*__PRODUCTS_END__\*\//,
-        `/*__PRODUCTS_START__*/\n    const defaultProducts = ${jsonString};\n    /*__PRODUCTS_END__*/`
-      );
-
-      navigator.clipboard.writeText(updatedHTML).then(() => {
-        const btn = document.getElementById('btn-export-gh');
-        btn.innerText = '✓ Full HTML Copied!';
-        alert('100% of your products, guides, and prompts are now copied as a complete index.html file!\n\nGo to your GitHub index.html editor, press Ctrl+A then Ctrl+V, and click Commit so all your friends can see your new items.');
-        setTimeout(() => { btn.innerText = '⚡ Copy Code for GitHub'; }, 2500);
-      });
-    }
-
-    renderGrid();
-  </script>
-</body>
-</html>
+Give me 5 fresh viral custom RUG TUFTING design ideas. Once I reply "OK", generate a 5-shot cinematic video prompt set with strict visual consistency (wooden tufting frame, yarn cones, workshop lighting, and ASMR carving reveal).`
+      },
+      {
+        title: "ANIMAL FEEDING VIDEOS",
+        category: "Animals & Birds",
+        tools: "Claude AI • Google Veo • Seedance",
+        banner: "",
+        images: [
+          "https://images.unsplash.com/photo-1564349683136-77e08dba1ef7?auto=format&fit=crop&w=500&q=80",
+          "https://images.unsplash.com/photo-1534567153574-2b12153a87f0?auto=format&fit=crop&w=500&q=80",
+          "https://images.unsplash.com/photo-1474511320723-9a56873867b5?auto=format&fit=crop&w=500&q=80"
+        ],
+        guide: `ANIMAL FEEDING VIDEOS — WORKFLOW GUIDE\n\nStep 1: Paste the Master Prompt into Claude.\nStep 2: Choose single or group animal feeding and duration (10s, 15s, 30s).\nStep 3: Generate in Google Veo or Seedance.`,
+        prompt: `Give me 10 fresh viral ANIMAL FEEDING video ideas (specify single animal or group). Once I choose an animal and duration, output 5 sequential cinematic video prompts with species-accurate feeding behavior and crunchy ASMR audio cues.`
+      },
+      {
+        title: "ANIMAL TEETH CLEANING VIDEOS",
+        category: "Animals & Birds",
+        tools: "Claude AI • OpenArt AI • CapCut",
+        banner: "",
+        images: [
+          "https://images.unsplash.com/photo-1546182990-dffeafbe841d?auto=format&fit=crop&w=500&q=80",
+          "https://images.unsplash.com/photo-1561731216-c3a4d99437d5?auto=format&fit=crop&w=500&q=80",
+          "https://images.unsplash.com/photo-1534188753412-3e26d0d618d6?auto=format&fit=crop&w=500&q=80"
+        ],
+        guide: `ANIMAL TEETH CLEANING VIDEOS — WORKFLOW GUIDE\n\nStep 1: Paste the Master Prompt into Claude.\nStep 2: Pick one of the 10 wild animals.\nStep 3: Generate the 8 image prompts and 7 transition video prompts.`,
+        prompt: `List 10 wild animals for a satisfying dental cleaning reel. Once I pick one, use species-accurate dental anatomy to output 8 sequential image prompts (heavy tartar buildup to ultrasonic scaling and sparkling clean teeth) and 7 transition video prompts.`
+      },
+      {
+        title: "TINY MACRO ANIMAL VIDEOS",
+        category: "Animals & Birds",
+        tools: "Claude AI • Google Flow • CapCut",
+        banner: "",
+        images: [
+          "https://images.unsplash.com/photo-1504450874802-0ba2bcd9b5ae?auto=format&fit=crop&w=500&q=80",
+          "https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?auto=format&fit=crop&w=500&q=80",
+          "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=500&q=80"
+        ],
+        guide: `TINY MACRO ANIMAL VIDEOS — WORKFLOW GUIDE\n\nStep 1: Paste Master Prompt into Claude.\nStep 2: Pick a miniature fingertip animal idea.\nStep 3: Generate in Google Flow.`,
+        prompt: `Generate 10 unique TINY MACRO ANIMAL ideas resting on a human fingertip. When I select one, provide an 85mm f/1.4 macro photography image prompt and a subtle lifelike motion video prompt.`
+      },
+      {
+        title: "WILD BIRD VIDEOS",
+        category: "Animals & Birds",
+        tools: "Claude AI • Google Veo • CapCut",
+        banner: "",
+        images: [
+          "https://images.unsplash.com/photo-1444464666168-49d633b86797?auto=format&fit=crop&w=500&q=80",
+          "https://images.unsplash.com/photo-1522926193341-e9ffd686c60f?auto=format&fit=crop&w=500&q=80",
+          "https://images.unsplash.com/photo-1452570053594-1b985d6ea890?auto=format&fit=crop&w=500&q=80"
+        ],
+        guide: `WILD BIRD VIDEOS — WORKFLOW GUIDE\n\nStep 1: Paste Master Prompt into Claude.\nStep 2: Pick a rare bird species.\nStep 3: Generate in Google Veo.`,
+        prompt: `Provide 10 rare and visually stunning wild bird species with matching natural habitats. Once I select one, generate ultra-realistic 8K wildlife photography image prompts and slow-motion flight video prompts.`
+      },
+      {
+        title: "PETS NICHE (CATS & DOGS) VIDEOS",
+        category: "Animals & Birds",
+        tools: "Claude AI • ElevenLabs • CapCut",
+        banner: "",
+        images: [
+          "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=500&q=80",
+          "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=500&q=80",
+          "https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&w=500&q=80"
+        ],
+        guide: `PETS NICHE VIDEOS — WORKFLOW GUIDE\n\nStep 1: Paste Master Prompt into Claude.\nStep 2: Generate story scenes and ElevenLabs voiceover.`,
+        prompt: `Give me 5 viral emotional or heroic cat/dog story concepts. Upon selection, generate locked character parameters, 6 sequential scene prompts, and an ElevenLabs voiceover script.`
+      },
+      {
+        title: "FOOD MAKING VIDEOS",
+        category: "Food & Cakes",
+        tools: "Claude AI • Google Flow • CapCut",
+        banner: "",
+        images:
