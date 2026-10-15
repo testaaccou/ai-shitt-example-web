@@ -3,93 +3,88 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Grow With Indiw — Official Portal</title>
+  <title>Grow With Indiw</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     :root {
-      --ben-green: #00e676;
-      --ben-green-dark: #10b981;
-      --exec-black: #0a0b0e;
+      --omnitrix-green: #00e676;
+      --omnitrix-dark: #10b981;
+      --exec-black: #090b0e;
     }
     body {
-      font-family: 'Inter', sans-serif;
-      background-color: #f8f9fa;
-      color: #0a0b0e;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #f4f5f7;
+      color: #090b0e;
       min-height: 100vh;
       overflow-x: hidden;
     }
-    /* Smooth Executive Animations */
-    .smooth-view {
-      animation: fadeSlideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    .fade-up {
+      animation: fadeUpAnim 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
-    @keyframes fadeSlideUp {
-      from { opacity: 0; transform: translateY(12px); }
+    @keyframes fadeUpAnim {
+      from { opacity: 0; transform: translateY(8px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    .card-exec {
-      transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
-      border: 1px solid #e5e7eb;
+    .product-box {
       background: #ffffff;
-    }
-    .card-exec:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 38px -12px rgba(0, 0, 0, 0.12), 0 0 0 1px #00e676;
-    }
-    .row-exec {
-      transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
       border: 1px solid #e5e7eb;
-      background: #ffffff;
+      transition: all 0.24s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .row-exec:hover {
-      border-color: #10b981;
-      background: #f9fafb;
-      transform: translateX(4px);
-      box-shadow: 0 10px 25px -10px rgba(16, 185, 129, 0.18);
-    }
-    /* Executive Black + Ben 10 Green Buttons */
-    .btn-ben-black {
-      background: linear-gradient(135deg, #0a0b0e 0%, #1f242d 100%);
-      color: #ffffff;
-      border: 1px solid #2e3440;
-      transition: all 0.22s ease;
-    }
-    .btn-ben-black:hover {
+    .product-box:hover {
+      transform: translateY(-4px);
       border-color: #00e676;
-      box-shadow: 0 0 20px rgba(0, 230, 118, 0.25);
-      transform: translateY(-1px);
+      box-shadow: 0 18px 34px -12px rgba(0, 0, 0, 0.12), 0 0 0 1px #00e676;
+    }
+    .item-row {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      transition: all 0.2s ease;
+    }
+    .item-row:hover {
+      border-color: #00e676;
+      background: #f9fafb;
+      transform: translateX(3px);
+    }
+    .btn-exec-black {
+      background: linear-gradient(135deg, #090b0e 0%, #1e232b 100%);
+      color: #ffffff;
+      border: 1px solid #2d333f;
+      transition: all 0.2s ease;
+    }
+    .btn-exec-black:hover {
+      border-color: #00e676;
+      box-shadow: 0 0 16px rgba(0, 230, 118, 0.28);
     }
     .btn-ben-green {
       background: linear-gradient(135deg, #00e676 0%, #10b981 100%);
-      color: #051b11;
+      color: #04160e;
       font-weight: 800;
-      transition: all 0.22s ease;
+      transition: all 0.2s ease;
     }
     .btn-ben-green:hover {
       filter: brightness(1.05);
-      box-shadow: 0 8px 22px -4px rgba(0, 230, 118, 0.45);
-      transform: translateY(-1px);
+      box-shadow: 0 8px 20px -4px rgba(0, 230, 118, 0.45);
     }
-    .nas-hero-grad {
-      background: linear-gradient(90deg, #d1d5db 0%, #e5e7eb 50%, #f3f4f6 100%);
+    .nas-detail-header {
+      background: linear-gradient(90deg, #d1d5db 0%, #e5e7eb 55%, #f3f4f6 100%);
     }
   </style>
 </head>
 <body class="pb-20">
 
-  <!-- TOP NAVIGATION BAR (Exact Nas.com Bar) -->
-  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-gray-200">
+  <!-- NAS.COM STYLE TOP HEADER BAR -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-gray-200">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-      <!-- Left: Mini Verified Avatar + Grow With Indiw + Hamburger -->
-      <div class="flex items-center gap-3 cursor-pointer" onclick="showMainPortal()">
-        <div class="relative w-9 h-9 rounded-lg overflow-hidden bg-black p-0.5 border border-emerald-500">
+      <div class="flex items-center gap-3 cursor-pointer" onclick="openMainPortal()">
+        <div class="relative w-9 h-9 rounded-lg overflow-hidden bg-black p-0.5 border border-[#00e676]">
           <img
             src="profile.jpg"
             onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80'"
             alt="Indiw"
             class="w-full h-full object-cover rounded-[6px]"
           />
-          <span class="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 rounded-full bg-emerald-500 text-black flex items-center justify-center text-[8px] font-black border border-white">✓</span>
+          <span class="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 rounded-full bg-[#00e676] text-black flex items-center justify-center text-[8px] font-black border border-white">✓</span>
         </div>
         <span class="font-extrabold text-sm sm:text-base tracking-tight text-gray-900">Grow With Indiw</span>
         <button class="p-1.5 rounded-lg hover:bg-gray-100 text-gray-500 transition">
@@ -99,16 +94,18 @@
         </button>
       </div>
 
-      <!-- Right: Add Item + My Purchases Pill + I Avatar -->
-      <div class="flex items-center gap-2.5">
-        <button onclick="openAddModal()" class="btn-ben-black px-3.5 py-2 rounded-full text-xs font-bold flex items-center gap-1.5">
+      <div class="flex items-center gap-2">
+        <button onclick="openProductEditor(-1)" class="btn-exec-black px-3.5 py-2 rounded-full text-xs font-bold flex items-center gap-1.5">
           <span class="w-2 h-2 rounded-full bg-[#00e676]"></span>
           <span>+ Add Product</span>
         </button>
-        <button onclick="showMainPortal()" class="hidden sm:inline-flex px-4 py-2 rounded-full bg-gray-100 hover:bg-gray-200 text-xs font-bold text-gray-800 transition">
+        <button onclick="syncDefaultCatalog()" class="hidden sm:inline-flex px-3.5 py-2 rounded-full bg-gray-100 hover:bg-gray-200 text-xs font-bold text-gray-800 transition">
           My Purchases
         </button>
-        <div class="w-9 h-9 rounded-full bg-gray-900 text-[#00e676] font-extrabold text-sm flex items-center justify-center border border-gray-700 shadow-sm">
+        <button onclick="exportFullGitHubCode()" id="btn-gh-copy" class="btn-ben-green px-3.5 py-2 rounded-full text-xs flex items-center gap-1">
+          <span>⚡ Save Code for GitHub</span>
+        </button>
+        <div class="w-9 h-9 rounded-full bg-zinc-900 text-[#00e676] font-extrabold text-sm flex items-center justify-center border border-zinc-700">
           I
         </div>
       </div>
@@ -116,30 +113,23 @@
   </header>
 
   <!-- ========================================================= -->
-  <!-- VIEW 1: MAIN PORTAL VIEW (All Products Grid + Hero)       -->
+  <!-- VIEW 1: MAIN PORTAL VIEW                                  -->
   <!-- ========================================================= -->
-  <div id="view-portal" class="smooth-view">
+  <div id="view-portal" class="fade-up">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 pt-6">
 
-      <!-- Main Hero Card -->
+      <!-- Main Nas.com Hero Card -->
       <div class="rounded-3xl overflow-hidden bg-white border border-gray-200 shadow-sm mb-8">
-        <!-- Banner -->
         <div class="relative h-48 sm:h-64 w-full bg-zinc-950 overflow-hidden">
           <img
             src="banner.jpg"
             onerror="this.src='https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1400&q=80'"
-            alt="Grow With Indiw Banner"
-            class="w-full h-full object-cover opacity-80"
+            alt="Grow With Indiw Cover"
+            class="w-full h-full object-cover opacity-85"
           />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
-          <div class="absolute bottom-4 left-6 right-6 flex items-center justify-between">
-            <span class="px-3 py-1 rounded-full text-[11px] font-extrabold uppercase tracking-wider bg-black/80 text-[#00e676] border border-[#00e676]/40 backdrop-blur-md">
-              ● AI Content Monetization Vault
-            </span>
-          </div>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent"></div>
         </div>
 
-        <!-- Centered Overlapping Profile Avatar -->
         <div class="px-6 pb-6 text-center relative">
           <div class="relative w-24 h-24 sm:w-28 sm:h-28 mx-auto -mt-12 sm:-mt-14 rounded-3xl p-1 bg-gradient-to-b from-[#00e676] to-zinc-900 shadow-xl">
             <img
@@ -157,79 +147,70 @@
             Grow With Indiw
           </h1>
           <p class="mt-1 text-xs sm:text-sm font-semibold text-gray-500">
-            Member &gt; • <span class="text-emerald-600 font-bold">All 15 AI Video Systems Unlocked</span>
+            Member &gt;
           </p>
 
-          <!-- Nas.com Tabs -->
+          <!-- Home | Products | Community Tabs -->
           <div class="flex items-center justify-center gap-8 mt-6 border-b border-gray-200 text-sm font-bold">
-            <button onclick="switchMainTab('home')" id="main-tab-home" class="pb-3.5 border-b-2 border-transparent text-gray-400 hover:text-gray-900 transition">
+            <button onclick="switchPortalTab('home')" id="tab-btn-home" class="pb-3.5 border-b-2 border-transparent text-gray-400 hover:text-gray-900 transition">
               Home
             </button>
-            <button onclick="switchMainTab('products')" id="main-tab-products" class="pb-3.5 border-b-2 border-gray-900 text-gray-900 transition">
-              Products (<span id="total-count">15</span>)
+            <button onclick="switchPortalTab('products')" id="tab-btn-products" class="pb-3.5 border-b-2 border-gray-900 text-gray-900 transition">
+              Products (<span id="count-badge">16</span>)
             </button>
-            <button onclick="switchMainTab('community')" id="main-tab-community" class="pb-3.5 border-b-2 border-transparent text-gray-400 hover:text-gray-900 transition">
+            <button onclick="switchPortalTab('community')" id="tab-btn-community" class="pb-3.5 border-b-2 border-transparent text-gray-400 hover:text-gray-900 transition">
               Community
             </button>
           </div>
         </div>
       </div>
 
-      <!-- HOME SECTION -->
-      <div id="portal-home" class="hidden space-y-6 mb-10 smooth-view">
-        <div class="rounded-3xl p-8 bg-zinc-950 text-white border border-zinc-800 shadow-xl relative overflow-hidden">
-          <div class="relative z-10 max-w-xl">
-            <span class="px-3 py-1 rounded-full text-xs font-extrabold bg-[#00e676]/15 text-[#00e676] border border-[#00e676]/30">
-              EXECUTIVE CREATOR PORTAL
-            </span>
-            <h2 class="text-2xl sm:text-3xl font-black mt-4 tracking-tight">
-              CM Income Blueprint by Indiw
-            </h2>
-            <p class="text-sm text-gray-300 mt-2 leading-relaxed">
-              Every product includes two clean modules: the **Full Step-by-Step Workflow Guide** and the **Copy-Ready Claude AI Master Prompt** engineered for Google Flow, Veo, and Seedance.
-            </p>
-            <button onclick="switchMainTab('products')" class="mt-5 btn-ben-green px-6 py-3 rounded-xl text-xs uppercase tracking-wider">
-              Open All 15 Products →
-            </button>
-          </div>
+      <!-- HOME TAB -->
+      <div id="tab-panel-home" class="hidden space-y-6 mb-10 fade-up">
+        <div class="rounded-3xl p-8 bg-zinc-950 text-white border border-zinc-800 shadow-xl">
+          <span class="px-3 py-1 rounded-full text-xs font-extrabold bg-[#00e676]/15 text-[#00e676] border border-[#00e676]/30">
+            GROW WITH INDIW OFFICIAL
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-black mt-4">
+            Complete AI Video Monetization Vault
+          </h2>
+          <p class="text-sm text-gray-300 mt-2 max-w-2xl leading-relaxed">
+            Every box in the Products tab includes the official 2-item Nas.com layout: the <b>Step-by-Step Workflow Guide</b> and the <b>Full Master Prompt</b>.
+          </p>
+          <button onclick="switchPortalTab('products')" class="mt-5 btn-ben-green px-6 py-3 rounded-xl text-xs uppercase tracking-wider">
+            Open Products Vault →
+          </button>
         </div>
       </div>
 
-      <!-- PRODUCTS SECTION -->
-      <div id="portal-products" class="smooth-view">
-        <!-- Search & Filter Bar -->
+      <!-- PRODUCTS TAB -->
+      <div id="tab-panel-products" class="fade-up">
         <div class="flex flex-col sm:flex-row gap-3 justify-between items-center mb-6">
-          <div class="relative w-full sm:w-80">
-            <input
-              id="search-box"
-              type="text"
-              oninput="renderGrid()"
-              placeholder="Search products (e.g., Crow, Cake, Rug, Bird)..."
-              class="w-full px-4 py-2.5 rounded-xl bg-white border border-gray-300 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-emerald-500 shadow-sm"
-            />
-          </div>
+          <input
+            id="search-input"
+            type="text"
+            oninput="renderProductCards()"
+            placeholder="Search products (Crow, Circus, Predator, Vehicle, Recycle, Tattoo, Cake)..."
+            class="w-full sm:w-96 px-4 py-2.5 rounded-xl bg-white border border-gray-300 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-emerald-500 shadow-sm"
+          />
           <div class="flex gap-2 w-full sm:w-auto overflow-x-auto pb-1 sm:pb-0">
-            <button onclick="setCat('all')" id="cat-all" class="px-4 py-2 rounded-xl bg-zinc-900 text-[#00e676] text-xs font-bold shadow-sm">All</button>
-            <button onclick="setCat('Animals & Birds')" id="cat-animals" class="px-4 py-2 rounded-xl bg-white border border-gray-200 hover:border-gray-400 text-xs font-bold text-gray-700">Animals & Birds</button>
-            <button onclick="setCat('Food & Cakes')" id="cat-food" class="px-4 py-2 rounded-xl bg-white border border-gray-200 hover:border-gray-400 text-xs font-bold text-gray-700">Food & Cakes</button>
-            <button onclick="setCat('Crafts & ASMR')" id="cat-crafts" class="px-4 py-2 rounded-xl bg-white border border-gray-200 hover:border-gray-400 text-xs font-bold text-gray-700">Crafts & ASMR</button>
+            <button onclick="filterByCategory('all')" id="filter-all" class="px-4 py-2 rounded-xl bg-zinc-900 text-[#00e676] text-xs font-bold shadow-sm">All</button>
+            <button onclick="filterByCategory('Animals & Birds')" id="filter-animals" class="px-4 py-2 rounded-xl bg-white border border-gray-200 hover:border-gray-400 text-xs font-bold text-gray-700">Animals & Birds</button>
+            <button onclick="filterByCategory('Crafts & ASMR')" id="filter-crafts" class="px-4 py-2 rounded-xl bg-white border border-gray-200 hover:border-gray-400 text-xs font-bold text-gray-700">Crafts & ASMR</button>
+            <button onclick="filterByCategory('Food & Cakes')" id="filter-food" class="px-4 py-2 rounded-xl bg-white border border-gray-200 hover:border-gray-400 text-xs font-bold text-gray-700">Food & Cakes</button>
           </div>
         </div>
 
-        <!-- Product Boxes Grid -->
         <div id="products-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
       </div>
 
-      <!-- COMMUNITY SECTION -->
-      <div id="portal-community" class="hidden space-y-4 mb-10 smooth-view">
+      <!-- COMMUNITY TAB -->
+      <div id="tab-panel-community" class="hidden space-y-4 mb-10 fade-up">
         <div class="p-6 rounded-2xl bg-white border border-gray-200 shadow-sm">
-          <div class="flex items-center justify-between mb-2">
-            <span class="px-3 py-1 rounded-full text-[11px] font-extrabold bg-zinc-900 text-[#00e676]">📌 OFFICIAL UPDATE</span>
-            <span class="text-xs font-bold text-gray-500">Grow With Indiw</span>
-          </div>
-          <h3 class="text-lg font-extrabold text-gray-900">New Crow Behavior & Secret Cake Recipe Systems Added</h3>
-          <p class="text-sm text-gray-600 mt-1">
-            All 15 niche systems are formatted with clean step-by-step guides and instant copyable Claude Master Prompts. Click any box in the Products tab to open the 2-item Nas.com view.
+          <span class="px-3 py-1 rounded-full text-[11px] font-extrabold bg-zinc-900 text-[#00e676]">📌 MEMBER PORTAL</span>
+          <h3 class="text-lg font-extrabold text-gray-900 mt-3">Adding New Purchased Items</h3>
+          <p class="text-sm text-gray-600 mt-1 leading-relaxed">
+            Whenever you purchase or create a new item, click <b>+ Add Product</b> in the top bar, pick your 3-panel cover photo, and paste the Guide and Master Prompt. Then click <b>⚡ Save Code for GitHub</b> and paste it into your GitHub <code>index.html</code> file so all your friends can access it.
           </p>
         </div>
       </div>
@@ -238,43 +219,39 @@
   </div>
 
   <!-- ========================================================= -->
-  <!-- VIEW 2: EXACT NAS.COM PRODUCT DETAIL PAGE (Screenshot 12) -->
+  <!-- VIEW 2: EXACT NAS.COM 2-ITEM PRODUCT PAGE                 -->
   <!-- ========================================================= -->
-  <div id="view-product-detail" class="hidden smooth-view">
-    <!-- Grey Gradient Hero Header (Exact Match to Screenshot 12) -->
-    <div class="nas-hero-grad border-b border-gray-200 py-8 sm:py-10 px-4 sm:px-8">
+  <div id="view-detail" class="hidden fade-up">
+    <div class="nas-detail-header border-b border-gray-200 py-8 sm:py-10 px-4 sm:px-8">
       <div class="max-w-5xl mx-auto">
-        <button onclick="showMainPortal()" class="mb-5 inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-black/80 hover:bg-black text-white text-xs font-bold transition">
-          <span>← Back to All Products</span>
-        </button>
+        <div class="flex items-center justify-between mb-5">
+          <button onclick="openMainPortal()" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-black/85 hover:bg-black text-white text-xs font-bold transition">
+            <span>← Back to Products</span>
+          </button>
+          <button onclick="openProductEditor(currentProductIdx)" class="btn-exec-black px-4 py-1.5 rounded-full text-xs font-bold">
+            ✏️ Edit Product / Photo
+          </button>
+        </div>
 
         <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6">
-          <!-- 3-Panel Split Thumbnail Box -->
-          <div id="detail-thumb-box" class="w-full sm:w-64 h-36 rounded-2xl overflow-hidden grid grid-cols-3 gap-0.5 bg-white p-1 shadow-md shrink-0 border border-gray-300">
-          </div>
+          <div id="detail-banner-box" class="w-full sm:w-64 h-36 rounded-2xl overflow-hidden bg-zinc-900 p-0.5 shadow-md shrink-0 border border-gray-300"></div>
           <div>
-            <h1 id="detail-title" class="text-xl sm:text-2xl font-black text-gray-900 tracking-tight uppercase"></h1>
+            <h1 id="detail-heading" class="text-xl sm:text-2xl font-black text-gray-900 tracking-tight uppercase"></h1>
             <p class="text-sm font-semibold text-gray-600 mt-1">2 items</p>
           </div>
         </div>
 
-        <!-- Content | About Tabs -->
         <div class="flex items-center gap-6 mt-8 -mb-8 sm:-mb-10 text-xs sm:text-sm font-bold">
-          <button onclick="switchDetailTab('content')" id="detail-tab-content" class="pb-3 border-b-2 border-[#10b981] text-gray-900">
-            Content
-          </button>
-          <button onclick="switchDetailTab('about')" id="detail-tab-about" class="pb-3 border-b-2 border-transparent text-gray-500 hover:text-gray-800">
-            About
-          </button>
+          <button class="pb-3 border-b-2 border-[#00e676] text-gray-900">Content</button>
+          <button onclick="openProductEditor(currentProductIdx)" class="pb-3 border-b-2 border-transparent text-gray-500 hover:text-gray-800">About</button>
         </div>
       </div>
     </div>
 
-    <!-- 2 Items List (Exact Match to Screenshot 12) -->
     <div class="max-w-5xl mx-auto px-4 sm:px-8 pt-8">
-      <div id="detail-content-list" class="space-y-4">
+      <div class="space-y-4">
         <!-- Row 1: GUIDE -->
-        <div onclick="openDocReader('guide')" class="row-exec cursor-pointer rounded-2xl p-4 sm:p-5 flex items-center justify-between">
+        <div onclick="openDocumentModal('guide')" class="item-row cursor-pointer rounded-2xl p-4 sm:p-5 flex items-center justify-between">
           <div class="flex items-center gap-4">
             <div class="w-12 h-12 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600 shrink-0">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -282,18 +259,15 @@
               </svg>
             </div>
             <div>
-              <h3 id="row-guide-title" class="text-xs sm:text-sm font-extrabold text-gray-900 uppercase tracking-tight"></h3>
-              <p class="text-[11px] font-semibold text-gray-400 mt-0.5">DOCX • 8 MB • Click to open Guide</p>
+              <h3 id="detail-guide-name" class="text-xs sm:text-sm font-extrabold text-gray-900 uppercase tracking-tight"></h3>
+              <p class="text-[11px] font-semibold text-gray-400 mt-0.5">DOCX • 8 MB</p>
             </div>
           </div>
-          <div class="flex items-center gap-2">
-            <span class="hidden sm:inline-block px-3 py-1 rounded-full bg-zinc-900 text-[#00e676] text-[11px] font-bold">Open Guide</span>
-            <span class="text-gray-400 font-bold text-lg px-2">⋮</span>
-          </div>
+          <span class="text-gray-400 font-bold text-lg px-2">⋮</span>
         </div>
 
         <!-- Row 2: MASTER PROMPT -->
-        <div onclick="openDocReader('prompt')" class="row-exec cursor-pointer rounded-2xl p-4 sm:p-5 flex items-center justify-between">
+        <div onclick="openDocumentModal('prompt')" class="item-row cursor-pointer rounded-2xl p-4 sm:p-5 flex items-center justify-between">
           <div class="flex items-center gap-4">
             <div class="w-12 h-12 rounded-xl bg-zinc-900 border border-zinc-700 flex items-center justify-center text-[#00e676] shrink-0">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -301,24 +275,14 @@
               </svg>
             </div>
             <div>
-              <h3 id="row-prompt-title" class="text-xs sm:text-sm font-extrabold text-gray-900 uppercase tracking-tight"></h3>
-              <p class="text-[11px] font-semibold text-gray-400 mt-0.5">DOCX • 7 MB • Click to open & copy Master Prompt</p>
+              <h3 id="detail-prompt-name" class="text-xs sm:text-sm font-extrabold text-gray-900 uppercase tracking-tight"></h3>
+              <p class="text-[11px] font-semibold text-gray-400 mt-0.5">DOCX • 7 MB</p>
             </div>
           </div>
-          <div class="flex items-center gap-2">
-            <span class="hidden sm:inline-block px-3 py-1 rounded-full btn-ben-green text-[11px] font-extrabold">Open Prompt</span>
-            <span class="text-gray-400 font-bold text-lg px-2">⋮</span>
-          </div>
+          <span class="text-gray-400 font-bold text-lg px-2">⋮</span>
         </div>
       </div>
 
-      <!-- About Tab Content -->
-      <div id="detail-about-box" class="hidden p-6 rounded-2xl bg-white border border-gray-200">
-        <h4 class="text-sm font-extrabold text-gray-900 uppercase">About This System</h4>
-        <p id="detail-about-text" class="text-sm text-gray-600 mt-2 leading-relaxed"></p>
-      </div>
-
-      <!-- Footer Brand -->
       <div class="mt-16 text-center">
         <p class="text-[11px] font-semibold text-gray-400 uppercase tracking-widest">Built with</p>
         <div class="mt-1 inline-flex items-center gap-1.5 font-black text-sm tracking-tight text-gray-900">
@@ -330,33 +294,30 @@
   </div>
 
   <!-- ========================================================= -->
-  <!-- VIEW 3: DOCUMENT READER MODAL (Exact Match Screenshot 13) -->
+  <!-- VIEW 3: GROW WITH INDIW DOCUMENT MODAL                    -->
   <!-- ========================================================= -->
   <div id="doc-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6">
-    <div class="bg-white rounded-3xl max-w-3xl w-full max-h-[92vh] flex flex-col overflow-hidden shadow-2xl border border-gray-300 smooth-view">
-
-      <!-- Top Sticky Toolbar -->
+    <div class="bg-white rounded-3xl max-w-3xl w-full max-h-[92vh] flex flex-col overflow-hidden shadow-2xl border border-gray-300 fade-up">
       <div class="px-5 py-3.5 bg-zinc-950 text-white flex items-center justify-between border-b border-zinc-800 shrink-0">
         <div class="flex items-center gap-2">
           <span class="w-2.5 h-2.5 rounded-full bg-[#00e676]"></span>
-          <span id="doc-toolbar-label" class="text-xs font-extrabold uppercase tracking-wider text-gray-200">GROW WITH INDIW DOCUMENT</span>
+          <span id="doc-header-label" class="text-xs font-extrabold uppercase tracking-wider text-gray-200"></span>
         </div>
         <div class="flex items-center gap-2">
-          <button onclick="copyDocText()" id="btn-copy-doc" class="btn-ben-green px-3.5 py-1.5 rounded-lg text-xs">
-            Copy Text
+          <button onclick="openProductEditor(currentProductIdx)" class="px-3 py-1.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-xs font-bold text-gray-200">
+            ✏️ Edit
           </button>
-          <button onclick="printDocPDF()" class="px-3.5 py-1.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-white text-xs font-bold transition">
-            ⬇ Save PDF
+          <button onclick="copyActiveDocument()" id="btn-copy-doc" class="btn-ben-green px-3.5 py-1.5 rounded-lg text-xs">
+            Copy Full Text
           </button>
-          <button onclick="closeDocReader()" class="ml-1 w-8 h-8 rounded-lg bg-zinc-800 hover:bg-red-600 text-white font-bold text-sm flex items-center justify-center transition">
+          <button onclick="closeDocumentModal()" class="ml-1 w-8 h-8 rounded-lg bg-zinc-800 hover:bg-red-600 text-white font-bold text-sm flex items-center justify-center transition">
             ✕
           </button>
         </div>
       </div>
 
-      <!-- Document Body (Matches Screenshot 13 Exactly) -->
-      <div id="doc-printable-area" class="p-6 sm:p-12 overflow-y-auto bg-white text-gray-900">
-        <!-- Centered Circular Profile Photo -->
+      <div class="p-6 sm:p-12 overflow-y-auto bg-white text-gray-900">
+        <!-- Circular Profile Photo -->
         <div class="w-28 h-28 sm:w-32 sm:h-32 mx-auto rounded-full overflow-hidden border-4 border-[#00e676] shadow-lg bg-zinc-900">
           <img
             src="profile.jpg"
@@ -371,533 +332,760 @@
           <h4 class="text-base sm:text-lg font-black tracking-wide uppercase text-gray-900">
             GROW WITH INDIW
           </h4>
-          <h2 id="doc-main-title" class="text-xl sm:text-2xl font-black tracking-tight uppercase text-gray-900 mt-4"></h2>
-          <div id="doc-sub-badge" class="text-lg sm:text-xl font-black uppercase text-[#10b981] mt-1"></div>
+          <h2 id="doc-product-title" class="text-xl sm:text-2xl font-black tracking-tight uppercase text-gray-900 mt-4"></h2>
+          <div id="doc-mode-subtitle" class="text-lg sm:text-xl font-black uppercase text-[#10b981] mt-1"></div>
         </div>
 
-        <!-- 3-Panel Visual Preview Banner Inside Document -->
-        <div id="doc-3panel-strip" class="mt-6 h-44 sm:h-56 w-full rounded-2xl overflow-hidden grid grid-cols-3 gap-1 bg-gray-200 p-1 border border-gray-300 shadow-sm">
-        </div>
+        <!-- 3-Panel Visual Banner Inside Document -->
+        <div id="doc-visual-strip" class="mt-6 h-44 sm:h-56 w-full rounded-2xl overflow-hidden bg-zinc-900 p-0.5 border border-gray-300 shadow-sm"></div>
 
-        <!-- Clean Formatted Content Area -->
-        <div id="doc-body-content" class="mt-8 text-sm sm:text-[15px] leading-relaxed text-gray-800 space-y-4">
-        </div>
+        <!-- Document Content -->
+        <pre id="doc-text-content" class="mt-8 p-5 rounded-2xl bg-gray-50 border border-gray-200 text-xs sm:text-sm leading-relaxed text-gray-900 whitespace-pre-wrap font-sans"></pre>
       </div>
     </div>
   </div>
 
   <!-- ========================================================= -->
-  <!-- ADD NEW PRODUCT MODAL                                     -->
+  <!-- PRODUCT EDITOR MODAL                                      -->
   <!-- ========================================================= -->
-  <div id="add-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
-    <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border border-gray-200 smooth-view">
-      <div class="flex items-center justify-between mb-4">
-        <h3 class="text-lg font-black text-gray-900">Add New Product</h3>
-        <button onclick="closeAddModal()" class="text-gray-400 hover:text-gray-900 font-bold">✕</button>
+  <div id="editor-modal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6">
+    <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[92vh] flex flex-col overflow-hidden shadow-2xl border border-gray-200 fade-up">
+      <div class="px-6 py-4 bg-zinc-950 text-white flex items-center justify-between">
+        <h3 id="editor-modal-title" class="text-sm sm:text-base font-black uppercase tracking-wide text-[#00e676]">
+          Add / Edit Product
+        </h3>
+        <button onclick="closeProductEditor()" class="text-gray-400 hover:text-white font-bold text-lg">✕</button>
       </div>
-      <div class="space-y-3">
-        <input id="add-title" type="text" placeholder="Product Title (e.g., SECRET CAKE RECIPE VIDEOS)" class="w-full px-3.5 py-2.5 rounded-xl bg-gray-100 border border-gray-300 text-sm font-semibold" />
-        <input id="add-cat" type="text" placeholder="Category (Animals & Birds, Food & Cakes, Crafts & ASMR)" class="w-full px-3.5 py-2.5 rounded-xl bg-gray-100 border border-gray-300 text-sm" />
-        <input id="add-img1" type="url" placeholder="Image 1 URL (Left frame)" class="w-full px-3.5 py-2 rounded-xl bg-gray-100 border border-gray-300 text-xs" />
-        <input id="add-img2" type="url" placeholder="Image 2 URL (Middle frame)" class="w-full px-3.5 py-2 rounded-xl bg-gray-100 border border-gray-300 text-xs" />
-        <input id="add-img3" type="url" placeholder="Image 3 URL (Right frame)" class="w-full px-3.5 py-2 rounded-xl bg-gray-100 border border-gray-300 text-xs" />
-        <textarea id="add-prompt" rows="4" placeholder="Paste the Master Prompt text here..." class="w-full px-3.5 py-2.5 rounded-xl bg-gray-100 border border-gray-300 text-xs font-mono"></textarea>
+
+      <div class="p-6 overflow-y-auto space-y-4">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div>
+            <label class="block text-xs font-extrabold uppercase text-gray-700 mb-1">Product Title</label>
+            <input id="inp-title" type="text" placeholder="e.g., CROW BEHAVIOR VIDEOS" class="w-full px-3.5 py-2 rounded-xl bg-gray-100 border border-gray-300 text-sm font-bold" />
+          </div>
+          <div>
+            <label class="block text-xs font-extrabold uppercase text-gray-700 mb-1">Category</label>
+            <input id="inp-cat" type="text" placeholder="Animals & Birds" class="w-full px-3.5 py-2 rounded-xl bg-gray-100 border border-gray-300 text-sm" />
+          </div>
+          <div>
+            <label class="block text-xs font-extrabold uppercase text-gray-700 mb-1">Tools Stack</label>
+            <input id="inp-tools" type="text" placeholder="Claude AI • Google Flow" class="w-full px-3.5 py-2 rounded-xl bg-gray-100 border border-gray-300 text-sm" />
+          </div>
+        </div>
+
+        <div class="p-3.5 rounded-2xl bg-emerald-50/70 border border-emerald-200 space-y-2">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <label class="block text-xs font-extrabold uppercase text-emerald-950">
+              🖼 Box Cover Photo (3-Panel Wide Image)
+            </label>
+            <label class="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-900 text-[#00e676] text-xs font-bold hover:bg-black transition">
+              <span>📁 Upload Photo from PC</span>
+              <input type="file" accept="image/*" onchange="encodeBannerFile(event)" class="hidden" />
+            </label>
+          </div>
+          <input id="inp-banner" type="text" placeholder="Image filename in GitHub or click Upload Photo from PC..." class="w-full px-3 py-2 rounded-xl bg-white border border-gray-300 text-xs" />
+        </div>
+
+        <div>
+          <label class="block text-xs font-extrabold uppercase text-emerald-700 mb-1">
+            📄 1. Full GUIDE Text
+          </label>
+          <textarea id="inp-guide" rows="6" placeholder="Paste full Guide text here..." class="w-full p-3.5 rounded-xl bg-gray-50 border border-gray-300 text-xs leading-relaxed"></textarea>
+        </div>
+
+        <div>
+          <label class="block text-xs font-extrabold uppercase text-gray-900 mb-1">
+            ⚡ 2. Full MASTER PROMPT Text
+          </label>
+          <textarea id="inp-prompt" rows="8" placeholder="Paste full Master Prompt text here..." class="w-full p-3.5 rounded-xl bg-zinc-950 text-[#00e676] border border-zinc-800 text-xs font-mono leading-relaxed"></textarea>
+        </div>
       </div>
-      <div class="flex justify-end gap-2 mt-5">
-        <button onclick="closeAddModal()" class="px-4 py-2 rounded-xl bg-gray-100 text-xs font-bold text-gray-700">Cancel</button>
-        <button onclick="saveNewProduct()" class="btn-ben-green px-5 py-2 rounded-xl text-xs">Save Product</button>
+
+      <div class="px-6 py-4 bg-gray-50 border-t border-gray-200 flex items-center justify-between">
+        <button onclick="removeCurrentProduct()" id="btn-del-item" class="hidden px-3.5 py-2 rounded-xl bg-red-100 hover:bg-red-200 text-red-700 text-xs font-bold">
+          Delete Product
+        </button>
+        <div class="flex items-center gap-2 ml-auto">
+          <button onclick="closeProductEditor()" class="px-4 py-2 rounded-xl bg-gray-200 text-xs font-bold text-gray-700">Cancel</button>
+          <button onclick="saveProductChanges()" class="btn-ben-green px-5 py-2.5 rounded-xl text-xs">
+            ✓ Save Product
+          </button>
+        </div>
       </div>
     </div>
   </div>
 
   <script>
-    // Helper to generate clean 6-step Guide HTML for any product
-    function buildCleanGuide(title, toolName, ideaType) {
-      return `
-        <div class="p-5 rounded-2xl bg-gray-50 border border-gray-200 space-y-4">
-          <div>
-            <h4 class="font-black text-gray-900">Step 1 – Give the Master Prompt to Claude</h4>
-            <p class="text-gray-600 mt-0.5">Copy the <b>${title} Master Prompt</b> from the second file. Open a new Claude AI chat and paste it. Claude will instantly give you fresh viral ${ideaType} ideas (subject + a one-line hook each).</p>
-          </div>
-          <div>
-            <h4 class="font-black text-gray-900">Step 2 – Confirm the Ideas</h4>
-            <p class="text-gray-600 mt-0.5">If the ideas look good → reply <b>"OK"</b>.<br>If you want new ones → reply <b>"I want different ideas"</b>, and Claude will generate a fresh batch.<br>Once you say OK, Claude generates the complete multi-shot prompts with locked visual consistency.</p>
-          </div>
-          <div>
-            <h4 class="font-black text-gray-900">Step 3 – Copy the Generated Prompt Set</h4>
-            <p class="text-gray-600 mt-0.5">Copy the full scene prompt set generated by Claude.</p>
-          </div>
-          <div>
-            <h4 class="font-black text-gray-900">Step 4 – Generate Video Clips in ${toolName}</h4>
-            <p class="text-gray-600 mt-0.5">Open <b>${toolName}</b> (or Google Veo / Seedance 2.5) and paste each scene prompt one by one in 9:16 vertical format.</p>
-          </div>
-          <div>
-            <h4 class="font-black text-gray-900">Step 5 – Download & Edit in CapCut</h4>
-            <p class="text-gray-600 mt-0.5">Download all generated video clips, place them in sequence in CapCut, and add subtle natural sound effects (ASMR).</p>
-          </div>
-          <div>
-            <h4 class="font-black text-gray-900">Step 6 – Upload to Your Page</h4>
-            <p class="text-gray-600 mt-0.5">Upload the finished Reel to your Facebook Page, TikTok, or YouTube Shorts with a clean caption.</p>
-          </div>
-        </div>
-      `;
-    }
-
-    const defaultProducts = [
+    /*__CATALOG_START__*/
+    const defaultCatalog = [
       {
         title: "CROW BEHAVIOR VIDEOS",
         category: "Animals & Birds",
+        tools: "Claude AI • Google Flow • Seedance 2.5",
+        banner: "Screenshot 2026-10-14 192234.png",
         images: [
           "https://images.unsplash.com/photo-1516233758813-a38d024919c5?auto=format&fit=crop&w=500&q=80",
           "https://images.unsplash.com/photo-1551085254-e96b210db58a?auto=format&fit=crop&w=500&q=80",
           "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=500&q=80"
         ],
-        tools: "Claude AI • Google Flow • Veo",
-        ideaType: "intelligent crow behavior & puzzle-solving",
-        prompt: `You are an expert AI Wildlife Video Director for GROW WITH INDIW.
+        guide: `🐦‍⬛ CROW CONTENT SYSTEM — WORKFLOW GUIDE
 
-WORKFLOW RULES:
-1. First, give me 5 viral CROW BEHAVIOR video ideas (e.g., crow trading shiny objects for food, crow solving a mirror test, crow helping a human, crow dropping nuts on a crosswalk). Include a 1-line hook for each.
-2. Wait for me to reply "OK" or pick a number.
-3. Once confirmed, generate 5 sequential cinematic video prompts (9:16 vertical, photorealistic 8K) with strict visual consistency:
-   - Same adult glossy black raven/crow, same environment lighting, same wooden balcony or outdoor fence setup across all 5 shots.
-   - Include natural head-tilts, beak manipulation, and realistic feather detail optimized for Google Flow and Veo.`
+STEP 01 — Paste the Master Prompt into Claude
+Copy the full master prompt. Go to claude.ai and open a new chat. Paste it and send. Claude will immediately ask you one question: which track?
+
+STEP 02 — Pick Your Track
+A) CROW GIFTS — a crow brings a person an object and sets it down. The person picks it up and looks at it. The story is the person's reaction.
+B) CROW INTELLIGENCE — a crow solves a problem or uses a tool. Usually no human in frame. The story is the fail, then the solve.
+Type A or B.
+
+STEP 03 — Pick Your Model
+1) Google Omni Flash 1.1 — inside Google Flow
+2) Seedance 2.5
+Type 1 or 2.
+
+STEP 04 — Claude Researches, Then Gives You 5 Prompts
+Claude checks what crows actually do before writing anything. It shows you a short research block — the behaviour, the mechanics, the failure mode, the setting, the audio anchor. Then you get 5 complete prompts, each with a caption, plus a risk table at the end.
+
+STEP 05 — Generate the Video
+If you chose Omni Flash 1.1:
+Go to Google Flow → labs.google/flow → Select Text to Video. Paste the prompt.
+• Model: Omni Flash 1.1 | Aspect ratio: 9:16 | Duration: 10 seconds | Resolution: 360p for the first try.
+If you chose Seedance 2.5:
+Paste the prompt as one block. Set 9:16 vertical, 15 seconds or 30 sec.
+
+STEP 06 — Download and Post`,
+        prompt: `You are a specialist AI video prompt engineer. Your only job is to produce production-ready text-to-video prompts for hyper-realistic crow footage that looks like unedited phone video, never like produced content. The audience is American, the format is vertical short-form.
+Follow this workflow EXACTLY. Do not skip steps. Do not write any prompts until Step 4.
+
+═══════════════════════════════════════════════════════════════
+STEP 1 — TRACK SELECTION
+═══════════════════════════════════════════════════════════════
+Open by presenting this and nothing else:
+  A) CROW GIFTS
+     A crow brings a person an object and sets it down. The person picks it up and examines it. The story is the person's reaction.
+  B) CROW INTELLIGENCE
+     A crow solves a problem, uses a tool, or does something startlingly smart on its own. Usually no human in frame. The story is the fail, then the solve.
+Then ask: "Which track?" and STOP. Wait for the user's reply.
+
+═══════════════════════════════════════════════════════════════
+STEP 2 — MODEL SELECTION
+═══════════════════════════════════════════════════════════════
+Once the track is chosen, ask exactly this and STOP:
+  "Which model?
+   1) Google Omni Flash 1.1
+   2) Seedance 2.5"
+Wait for the user's reply.
+
+═══════════════════════════════════════════════════════════════
+STEP 3 — RESEARCH BEFORE WRITING (MANDATORY)
+═══════════════════════════════════════════════════════════════
+Establish these five things in a short block (under 120 words) before the prompts:
+  1. BEHAVIOUR — caching, anting, water displacement, tool use, traffic nut-cracking, mirror response, interspecies sharing, object play, gift-giving.
+  2. MECHANICS — how the crow physically grips and positions its body.
+  3. FAILURE MODE — what the crow tries first that does NOT work (Track B requires this).
+  4. SETTING — US region, season and light.
+  5. AUDIO ANCHOR — one distant sound that places the location.
+
+═══════════════════════════════════════════════════════════════
+STEP 4 — BEAT BUDGET & OUTPUT 5 PROMPTS
+═══════════════════════════════════════════════════════════════
+  TRACK A — GIFTS: 0-2s waiting empty-handed | 2-5s crow arrives with object, sets it down, steps back | 5-10s person picks it up and examines it ("It does not leave frame.").
+  TRACK B — INTELLIGENCE: 0-3s attempt that fails | 3-7s the solve | 7-10s the result.
+Output 5 full prompts in the selected model format with captions and a generation risk table. Begin now with Step 1.`
       },
       {
-        title: "SECRET CAKE RECIPE VIDEOS",
-        category: "Food & Cakes",
-        images: [
-          "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=500&q=80",
-          "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=500&q=80",
-          "https://images.unsplash.com/photo-1535141192574-5d4897c12636?auto=format&fit=crop&w=500&q=80"
-        ],
-        tools: "Claude AI • Google Flow • CapCut",
-        ideaType: "viral secret cake recipe & satisfying frosting",
-        prompt: `You are an expert Culinary AI Prompt Engineer for GROW WITH INDIW.
-
-WORKFLOW RULES:
-1. First, generate 5 viral SECRET CAKE RECIPE video concepts (e.g., Molten Pistachio Kunafa Cake, Mirror-Glaze Galaxy Chocolate Dome, Three-Layer Caramel Tres Leches).
-2. Wait for my selection.
-3. Once I confirm, output:
-   - A short, soothing ASMR voiceover script.
-   - 5 sequential macro video prompts (batter pouring, oven rise time-lapse, glossy ganache pour, knife slice reveal) with locked kitchen counter lighting and studio lens consistency.`
-      },
-      {
-        title: "RUG TUFTING VIDEOS",
-        category: "Crafts & ASMR",
-        images: [
-          "https://images.unsplash.com/photo-1584992236310-6edddc08a313?auto=format&fit=crop&w=500&q=80",
-          "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=500&q=80",
-          "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=500&q=80"
-        ],
-        tools: "Claude AI • Google Flow • Seedance 2.5",
-        ideaType: "satisfying custom rug tufting",
-        prompt: `You are an expert AI Craft Video Director for GROW WITH INDIW.
-
-WORKFLOW RULES:
-1. Give me 5 random viral RUG TUFTING design ideas (subject + a one-line hook each).
-2. Wait for me to say "OK" or request different ideas.
-3. Once confirmed, generate a 5-shot cinematic video prompt set with strict visual consistency:
-   - Shot 1: Sketching the outline on stretched monk's cloth on a wooden tufting frame.
-   - Shot 2: Close-up ASMR electric tufting gun punching vibrant yarn along the lines.
-   - Shot 3: Applying backing glue evenly with a spatula.
-   - Shot 4: Satisfying electric clippers carving and beveling the 3D yarn edges.
-   - Shot 5: Final finished rug reveal laid on a clean studio floor.`
-      },
-      {
-        title: "STRING ART VIDEOS",
-        category: "Crafts & ASMR",
-        images: [
-          "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=500&q=80",
-          "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=500&q=80",
-          "https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=500&q=80"
-        ],
-        tools: "Claude AI • Google Flow • Veo",
-        ideaType: "portrait & geometric string art time-lapse",
-        prompt: `You are an expert AI Video Director for GROW WITH INDIW.
-
-WORKFLOW RULES:
-1. Instantly give me 5 random STRING ART video ideas (subject + a one-line hook each).
-2. If I say "OK", generate 5 full sequential time-lapse video prompts showing:
-   - Hammering micro-nails into a circular board, fast-motion thread weaving across the pins, density building up the portrait shadows, and the final hyper-detailed reveal.`
-      },
-      {
-        title: "ANIMAL FEEDING VIDEOS",
+        title: "CIRCUS ACROBATICS VIDEOS",
         category: "Animals & Birds",
-        images: [
-          "https://images.unsplash.com/photo-1564349683136-77e08dba1ef7?auto=format&fit=crop&w=500&q=80",
-          "https://images.unsplash.com/photo-1534567153574-2b12153a87f0?auto=format&fit=crop&w=500&q=80",
-          "https://images.unsplash.com/photo-1474511320723-9a56873867b5?auto=format&fit=crop&w=500&q=80"
-        ],
-        tools: "Claude AI • Google Veo • Seedance",
-        ideaType: "ASMR wildlife & exotic animal feeding",
-        prompt: `You are an expert Wildlife Prompt Director for GROW WITH INDIW.
-
-WORKFLOW RULES:
-1. Give me 10 fresh viral ANIMAL FEEDING video ideas (specify single animal or group).
-2. Ask me to choose an animal and duration (10s, 15s, or 30s).
-3. Output 5 sequential cinematic video prompts with species-accurate feeding behavior, crunchy ASMR audio cues, and locked camera angles.`
-      },
-      {
-        title: "ANIMAL TEETH CLEANING VIDEOS",
-        category: "Animals & Birds",
-        images: [
-          "https://images.unsplash.com/photo-1546182990-dffeafbe841d?auto=format&fit=crop&w=500&q=80",
-          "https://images.unsplash.com/photo-1561731216-c3a4d99437d5?auto=format&fit=crop&w=500&q=80",
-          "https://images.unsplash.com/photo-1534188753412-3e26d0d618d6?auto=format&fit=crop&w=500&q=80"
-        ],
-        tools: "Claude AI • OpenArt AI • CapCut",
-        ideaType: "satisfying wildlife dental cleaning",
-        prompt: `You are an expert AI Prompt Engineer for GROW WITH INDIW.
-
-WORKFLOW RULES:
-1. List 10 wild animals for a satisfying dental cleaning reel (e.g., Hippo, Lion, Crocodile, Grizzly Bear).
-2. Once I pick one, use species-accurate dental anatomy to output 8 sequential image prompts (heavy tartar buildup → ultrasonic scaling → water rinse → sparkling white teeth) and 7 smooth transition video prompts.`
-      },
-      {
-        title: "TINY MACRO ANIMAL VIDEOS",
-        category: "Animals & Birds",
-        images: [
-          "https://images.unsplash.com/photo-1504450874802-0ba2bcd9b5ae?auto=format&fit=crop&w=500&q=80",
-          "https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?auto=format&fit=crop&w=500&q=80",
-          "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=500&q=80"
-        ],
-        tools: "Claude AI • Google Flow • CapCut",
-        ideaType: "miniature fingertip macro animal",
-        prompt: `You are a Macro Wildlife AI Director for GROW WITH INDIW.
-
-WORKFLOW RULES:
-1. Generate 10 unique TINY MACRO ANIMAL ideas resting on a human fingertip (e.g., miniature baby chameleon, teacup white owl, tiny glass frog).
-2. When I select one, provide an 85mm f/1.4 macro photography image prompt and a subtle, lifelike micro-movement video prompt.`
-      },
-      {
-        title: "WILD BIRD VIDEOS",
-        category: "Animals & Birds",
-        images: [
-          "https://images.unsplash.com/photo-1444464666168-49d633b86797?auto=format&fit=crop&w=500&q=80",
-          "https://images.unsplash.com/photo-1522926193341-e9ffd686c60f?auto=format&fit=crop&w=500&q=80",
-          "https://images.unsplash.com/photo-1452570053594-1b985d6ea890?auto=format&fit=crop&w=500&q=80"
-        ],
-        tools: "Claude AI • Google Veo • CapCut",
-        ideaType: "rare 8K exotic wild bird",
-        prompt: `You are a National Geographic style AI Bird Director for GROW WITH INDIW.
-
-WORKFLOW RULES:
-1. Provide 10 rare and visually stunning wild bird species with matching natural habitats.
-2. Once I select one, generate ultra-realistic 8K telephoto wildlife image prompts and slow-motion feather/flight video prompts.`
-      },
-      {
-        title: "PETS NICHE (CATS & DOGS) VIDEOS",
-        category: "Animals & Birds",
-        images: [
-          "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=500&q=80",
-          "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=500&q=80",
-          "https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&w=500&q=80"
-        ],
-        tools: "Claude AI • ElevenLabs • CapCut",
-        ideaType: "emotional cat & dog storytelling",
-        prompt: `You are an AI Pet Storytelling Director for GROW WITH INDIW.
-
-WORKFLOW RULES:
-1. Give me 5 viral emotional or heroic cat/dog story concepts.
-2. Upon selection, generate a locked character description (exact fur pattern, collar, eye color), 6 sequential scene image prompts, animation prompts, and an ElevenLabs voiceover script.`
-      },
-      {
-        title: "FOOD MAKING VIDEOS",
-        category: "Food & Cakes",
-        images: [
-          "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=500&q=80",
-          "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=500&q=80",
-          "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=500&q=80"
-        ],
-        tools: "Claude AI • Google Flow • CapCut",
-        ideaType: "high-speed country street food & chef cooking",
-        prompt: `You are an AI Culinary Director for GROW WITH INDIW.
-
-WORKFLOW RULES:
-1. Ask me to pick a country, then list 10 iconic dishes from that cuisine.
-2. Once I choose a dish, generate 6 step-by-step macro cooking image and video motion prompts from raw ingredient prep to sizzling wok/grill action and final plating.`
-      },
-      {
-        title: "ICE CREAM RECIPE VIDEOS",
-        category: "Food & Cakes",
-        images: [
-          "https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?auto=format&fit=crop&w=500&q=80",
-          "https://images.unsplash.com/photo-1501443762994-82bd5dace89a?auto=format&fit=crop&w=500&q=80",
-          "https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=500&q=80"
-        ],
-        tools: "Claude AI • ElevenLabs • Google Flow",
-        ideaType: "artisan homemade rolled & scooped ice cream",
-        prompt: `You are an Artisan Dessert AI Director for GROW WITH INDIW.
-
-WORKFLOW RULES:
-1. Generate 5 fresh viral homemade ice cream recipe ideas (e.g., Fresh Mango Sticky Rice Gelato, Roasted Pistachio Gold Leaf Ice Cream).
-2. When I pick one, output an ASMR voiceover script and 4 sequential video prompts with locked kitchen lighting and creamy texture physics.`
-      },
-      {
-        title: "EPOXY RESIN TABLE MAKING VIDEOS",
-        category: "Crafts & ASMR",
-        images: [
-          "https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&w=500&q=80",
-          "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=500&q=80",
-          "https://images.unsplash.com/photo-1540518614846-7ede433c457?auto=format&fit=crop&w=500&q=80"
-        ],
-        tools: "Claude AI • Google Veo • CapCut",
-        ideaType: "luxury glowing epoxy river table build",
-        prompt: `You are a Luxury Woodworking AI Director for GROW WITH INDIW.
-
-WORKFLOW RULES:
-1. Generate 5 luxury epoxy resin table concepts (Ocean Reef Canyon, Volcanic Lava Burl, Emerald Forest River Table).
-2. Upon selection, output 5 consistent workshop time-lapse prompts: wood slab framing, metallic pigment pouring, torching air bubbles, CNC flattening, and mirror-gloss buffing.`
-      },
-      {
-        title: "PLANT GROWING TIME-LAPSE VIDEOS",
-        category: "Crafts & ASMR",
-        images: [
-          "https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=500&q=80",
-          "https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?auto=format&fit=crop&w=500&q=80",
-          "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=500&q=80"
-        ],
-        tools: "Claude AI • Google Flow • Veo",
-        ideaType: "seed-to-harvest botanical time-lapse",
-        prompt: `You are a Botanical Time-Lapse AI Director for GROW WITH INDIW.
-
-WORKFLOW RULES:
-1. List 10 visually dramatic plants or exotic fruits for a 30-day seed-to-harvest time-lapse.
-2. Once chosen, generate 5 sequential growth stage prompts (seed sprouting roots in cross-section soil, stem emergence, leaf unfolding, flowering, and ripe fruit harvest) with a locked tripod camera angle.`
-      },
-      {
-        title: "UNDERWATER DISCOVERY VIDEOS",
-        category: "Animals & Birds",
-        images: [
-          "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=500&q=80",
-          "https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=500&q=80",
-          "https://images.unsplash.com/photo-1583212292454-1fe6229603b7?auto=format&fit=crop&w=500&q=80"
-        ],
-        tools: "Claude AI • Google Veo • CapCut",
-        ideaType: "deep-sea ROV & bioluminescent marine discovery",
-        prompt: `You are a Deep-Sea Exploration AI Director for GROW WITH INDIW.
-
-WORKFLOW RULES:
-1. Generate 10 mysterious deep-sea Trench or Coral Reef discovery scenes.
-2. After I pick one, output 5 cinematic ROV spotlight perspective video prompts with realistic underwater particle caustics and bioluminescent creature movement.`
-      },
-      {
-        title: "CIRCUS ACROBATICS & MINI PREDATOR VIDEOS",
-        category: "Animals & Birds",
+        tools: "Claude AI • Seedance 2.5 • Dola",
+        banner: "nio_1790314480535_f7913a35-425a-4316-80f8-075ebdae23d8_GV_100.webp",
         images: [
           "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=500&q=80",
           "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=500&q=80",
           "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=500&q=80"
         ],
-        tools: "Claude AI • Google Flow • Seedance",
-        ideaType: "high-tension acrobatics & micro-predator encounter",
-        prompt: `You are an Action & Wildlife AI Director for GROW WITH INDIW.
+        guide: `CIRCUS ACROBATICS VIDEOS — WORKFLOW GUIDE
 
-WORKFLOW RULES:
-1. Ask whether I want to generate a High-Tension Circus Acrobatics spectacle or a Mini Predator micro-wildlife encounter.
-2. Provide 5 high-retention concepts and generate 5 multi-angle slow-motion video prompts.`
+STEP 1 — Open ChatGPT or Claude AI
+Start a new chat.
+
+STEP 2 — Paste the master prompt
+Copy the entire master prompt. Paste it into the chat and send.
+
+STEP 3 — Select your video type
+The AI asks which type you want. Reply with the number:
+1 = Solo — one performer
+2 = Team — multiple performers
+
+STEP 4 — Review the ideas
+You’ll receive 5 different video ideas. Reply “OK” to get full prompts and captions for all five.
+
+STEP 5 — Copy a video prompt
+Choose one concept. Copy its entire video-prompt code block. Keep the matching caption for posting.
+
+STEP 6 — Generate with Seedance
+Paste the video prompt into Seedance 2.5. Generate the video using the prompt’s vertical 9:16, 30-second format.
+
+STEP 7 — Check the result & Post
+Use the matching caption. Keep the natural crowd and arena audio. No added music.`,
+        prompt: `CIRCUS ACROBATICS MASTER PROMPT — THRILLING CONTINUOUS STUNT CHAINS
+
+ROLE AND OUTPUT
+You are my creative director and prompt writer for fictional AI circus and acrobatics videos aimed at American viewers. Create ideas, complete English video-generation prompts and English captions.
+Target generator: Seedance 2.5. Default duration: 30 seconds. Format: vertical 9:16.
+Visual style: photorealistic, raw handheld spectator smartphone footage, ONE continuous take, normal real-time speed, ambient arena sound only.
+
+THE CREATIVE TARGET
+The videos must deliver a thrilling, surprising chain of DIFFERENT circus actions:
+flaming-hoop passage → trampoline rebound and aerial trick → another rebound and different aerial trick → unexpected elephant-trunk landing → elephant toss → another trampoline rebound → running-horse landing.
+
+INTERACTIVE WORKFLOW
+FIRST ACTIVATION — ASK ONLY:
+"Which type of video would you like today?
+1. Solo — one performer doing circus / acrobatics
+2. Team — multiple performers doing circus / acrobatics together
+Choose 1 or 2."
+Then STOP.
+
+STEP 2 — EXACTLY FIVE IDEAS
+After category selection, generate 5 fresh ideas with Title, Opening Hook, Ordered Action Chain, Final Unexpected Landing, and Exact Cast/Apparatus. End with: "Would you like full 30-second video prompts and captions for all five ideas? Say OK."
+
+STEP 3 — FULL OUTPUT AFTER APPROVAL
+For each approved concept, provide a 400–650 word standalone prompt with sections: VISUAL STYLE AND ENVIRONMENT, FIXED ARENA LAYOUT, CONTINUOUS ACTION — 30 SECONDS (timestamped beats), and CAMERA, AUDIO AND CONTINUITY, plus a short 8–18 word hook caption.`
+      },
+      {
+        title: "MINI PREDATOR FIGHT VIDEOS",
+        category: "Animals & Birds",
+        tools: "Claude AI • Dola AI • Sora",
+        banner: "nio_1774519813577_2c066807-951c-445d-873b-323df4945b0f_GV_100.webp",
+        images: [
+          "https://images.unsplash.com/photo-1504450874802-0ba2bcd9b5ae?auto=format&fit=crop&w=500&q=80",
+          "https://images.unsplash.com/photo-1546182990-dffeafbe841d?auto=format&fit=crop&w=500&q=80",
+          "https://images.unsplash.com/photo-1534567153574-2b12153a87f0?auto=format&fit=crop&w=500&q=80"
+        ],
+        guide: `MINI PREDATOR FIGHT VIDEOS — WORKFLOW GUIDE
+
+1. Copy the Master Prompt and paste it into Claude or ChatGPT.
+2. Choose one option from the 10 generated fight combinations, copy it, and paste it back.
+3. Take the complete 350–400 word prompt and give it to Dola / Sora to generate the video.`,
+        prompt: `You are a Dola AI video prompt specialist focused on creating viral "Mini Predator Fight Videos" content.
+NICHE: Short dramatic wildlife predator fight videos filmed inside a clear transparent acrylic rectangular box enclosure with golden sand floor.
+
+WHEN I START - DO THIS FIRST:
+Immediately generate a list of 10 epic fight combinations in this exact format:
+1. [Animal 1] 🆚 [Animal 2]
+... up to 10.
+After showing the list say: "Copy any fight combination from the list above and paste it to me - I will generate a detailed Sora prompt for it instantly."
+
+WHEN I GIVE YOU A COMBINATION:
+Generate a single clean paragraph block (350 to 400 words, NO headers, NO bullets) beginning with:
+"A dramatic slightly elevated shot, camera positioned about 1.5 to 2 feet above, looking down at approximately 75 degree angle, shooting through the open top of a clear transparent acrylic rectangular box enclosure. The box is long and narrow, clearly rectangular in shape, with four straight transparent acrylic walls and a flat bottom..."
+And ending with:
+"Camera is completely static, no movement, no pan, no tilt, no zoom, no cuts throughout the entire video. Single locked-off continuous take from start to finish. Bright even natural lighting from directly above... Photorealistic 4K cinematic wildlife footage. No camera cuts, no transitions. No music. Only natural sounds."`
+      },
+      {
+        title: "MINIATURE VEHICLE ASSEMBLY VIDEOS",
+        category: "Crafts & ASMR",
+        tools: "Claude AI • Google Flow (Omni Flash)",
+        banner: "nio_1784046017086_7429c908-b0d9-47c7-9691-904c1f0e725b_GV_100.webp",
+        images: [
+          "https://images.unsplash.com/photo-1581235720704-06d3acfcb36f?auto=format&fit=crop&w=500&q=80",
+          "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=500&q=80",
+          "https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=500&q=80"
+        ],
+        guide: `MINIATURE VEHICLE ASSEMBLY — WORKFLOW GUIDE
+
+STEP 01 — Paste the Master Prompt into Claude
+Copy the full master prompt. Go to claude.ai and open a new chat. Paste the master prompt and send it. Claude will immediately generate a list of 5 random vehicles (supercar, muscle car, luxury sedan, classic, off-road).
+
+STEP 02 — Pick Your Car
+Type the number of the car you want, or choose option 6 — Custom and type your own car model instead.
+
+STEP 03 — Get Your Video Prompt
+Claude gives you the complete video prompt filled in with your car's exact brand, model, color, and badge name. Copy the whole prompt.
+
+STEP 04 — Generate the Video in Google Flow
+Go to Google Flow → labs.google/flow → Select Text to Video.
+• Model: Omni Flash | Aspect ratio: 9:16 | Duration: 8 seconds.
+
+STEP 05 — Check & Download
+Once you have a clean clip, click Download and save.`,
+        prompt: `You are a Miniature Car ASMR Video Prompt Specialist.
+Follow this exact workflow every time this prompt is loaded.
+---
+STEP 1 — VEHICLE LIST
+Immediately generate a numbered list of 5 random vehicles from different categories (supercar, muscle car, luxury sedan, classic, off-road).
+1. [Brand + Model] — [one line: era, color suggestion, key visual feature]
+...
+6. Custom — Type your own car model if none of the above match
+Wait for the user to select a number.
+---
+STEP 2 — GENERATE PROMPT
+Once user selects a number, output the following prompt replacing the placeholders:
+
+Hyper-realistic, fast-cut ASMR macro video capturing the stop-motion assembly of a miniature [COLOR] [VEHICLE] scale model on a sleek modern white marble-top desk with a clean matte black surface mat underneath. Shot on an 85mm f/1.4 lens with ultra-shallow depth of field, clean bright overhead workshop lighting with subtle warm rim light from the left side. Hands wearing thin black nitrile gloves use precision tweezers to carefully lower a hyper-detailed miniature engine block into a bare polished metallic chassis frame — every bolt hole and casting line visible. A slim magnetic screwdriver tightens a 2mm hex screw into the engine mount with a satisfying micro-click. Chrome-spoke wheels with rubber tires snap onto axle pins one by one, followed by the suspension arms clicking cleanly into place. The steering column and rack assembly slides in with a soft metallic whisper. Body panels — hood, fenders, doors — lock seamlessly onto the frame with tactile snap sounds perfectly synced to each cut. Final shot: a soft Japanese calligraphy brush gently sweeps across the [NAME] badge on the hood, lifting the last dust particle as the camera slowly racks focus to the completed model. Fluid, perfectly timed stop-motion transitions throughout, every texture and micro-detail rendered in cinematic 4K macro clarity.`
+      },
+      {
+        title: "RECYCLE CRAFTS VIDEOS",
+        category: "Crafts & ASMR",
+        tools: "Claude AI • Google Flow / VEO • CapCut",
+        banner: "nio_1784384741093_ba5e1d9a-2e51-4d77-9ac3-c51b71165875_GV_100.webp",
+        images: [
+          "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=500&q=80",
+          "https://images.unsplash.com/photo-1452860606245-08befc0ff44b?auto=format&fit=crop&w=500&q=80",
+          "https://images.unsplash.com/photo-1584992236310-6edddc08a313?auto=format&fit=crop&w=500&q=80"
+        ],
+        guide: `RECYCLE CRAFTS VIDEOS — WORKFLOW GUIDE
+
+Step 1: Copy the Master Prompt
+Copy the entire master prompt from the Master Prompt file.
+
+Step 2: Paste into Claude
+Open a new chat on claude.ai, paste the master prompt and send. Claude will reply:
+🎨 ASMR Craft Video Prompt Generator 🎨
+1️⃣ Random Prompts — I will generate 5 completely different random prompts
+2️⃣ Your Idea — Tell me your own idea and I will build a full prompt for it
+
+Step 3: Choose an Option
+Reply "1" for 5 random prompts or "2" to describe your idea.
+
+Step 4: Generate Videos in Google Flow / VEO
+Copy each prompt one by one into Google Flow / VEO, verify background music and ASMR craft sounds are present, and download.`,
+        prompt: `You are an ASMR Craft Video Prompt Generator. You generate hyper-detailed, production-ready prompts for 10-second ASMR craft videos where adorable miniature creations are built entirely from discarded waste items on a clean white modern minimalist table.
+
+When the user pastes this prompt, respond ONLY with this message:
+"🎨 ASMR Craft Video Prompt Generator 🎨
+What do you need?
+1️⃣ Random Prompts — I will generate 5 completely different random prompts (mix of objects, scenes, events, funny, cute, creative)
+2️⃣ Your Idea — Tell me your own idea and I will build a full prompt for it
+Reply with the number 👇"
+Wait for the user to reply.
+
+ABSOLUTE PROMPT STRUCTURE RULES:
+1. Begin with: "A 10-second ASMR craft video WITH BACKGROUND MUSIC PLAYING FOR THE ENTIRE DURATION: a [MATCHING MUSIC STYLE] plays continuously from the first frame to the last frame, [MOOD], at a soft but clearly hearable volume — the music must never stop and must be present throughout the whole video. On top of the music, crisp amplified diegetic ASMR craft sounds play in the foreground, both layers audible together at all times."
+2. Follow with: "Extreme macro lens footage, micro camera level detail, shallow depth of field with rack focus pulls onto each attachment point, raw unfiltered look, no color grading. Ultra close-up on a clean white modern minimalist table with soft even lighting creating a bright airy aesthetic. A pair of female hands with neat clean nails crafts [DESCRIPTION] from discarded [SPECIFIC WASTE ITEMS]. Every single piece is attached one at a time, shown individually in sharp focus, with its real sound clearly audible over the continuous background music:"
+3. Include 5 strict timestamped steps: Step 1 (0-2s), Step 2 (2-4s), Step 3 (4-6s), Step 4 (6-8s), Step 5 (8-10s final reveal with extreme macro slow push-in/pan + gentle micro-interaction).
+4. End with the Continuity Lock paragraph.`
+      },
+      {
+        title: "SECRET CAKE RECIPE VIDEOS",
+        category: "Food & Cakes",
+        tools: "Claude AI • Google Flow • CapCut",
+        banner: "nio_1786589337892_b5c9623b-c9c0-4b75-920d-7d97bae8ac3e_GV_100.webp",
+        images: [
+          "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=500&q=80",
+          "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=500&q=80",
+          "https://images.unsplash.com/photo-1535141192574-5d4897c12636?auto=format&fit=crop&w=500&q=80"
+        ],
+        guide: `SECRET CAKE RECIPE VIDEOS — WORKFLOW GUIDE\n\nStep 1: Paste the Master Prompt into Claude.\nStep 2: Pick one of the 5 viral secret cake concepts.\nStep 3: Generate the macro glaze-pour video prompts in Google Flow.`,
+        prompt: `You are an expert Culinary AI Prompt Engineer for GROW WITH INDIW.
+Generate 5 viral SECRET CAKE RECIPE video concepts featuring a dramatic spoon glaze/syrup pour over a sliced cake. Once I select one, output a soothing ASMR voiceover script and 5 sequential macro video prompts with locked kitchen counter lighting.`
+      },
+      {
+        title: "STRING ART VIDEOS",
+        category: "Crafts & ASMR",
+        tools: "Claude AI • Google Flow • Veo",
+        banner: "nio_1786786308276_a368c583-06ee-4531-9f0c-568ca8ed503c_GV_100.webp",
+        images: [
+          "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=500&q=80",
+          "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=500&q=80",
+          "https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=500&q=80"
+        ],
+        guide: `STRING ART VIDEOS — Full Workflow Guide\n\nStep 1: Paste the Master Prompt into Claude.\nStep 2: Reply "OK" to confirm the 5 string art ideas.\nStep 3: Paste the generated prompt into Google Flow and download.`,
+        prompt: `You are an expert String Art ASMR Video Director for GROW WITH INDIW.
+Give me 5 stunning framed 3D colorful thread STRING ART ideas (Peacock, Monarch Butterfly, Hummingbird with Flower). Once I reply "OK", generate 5 complete time-lapse prompts showing pin placement, vibrant thread weaving, and hanging the finished wooden frame on a clean white wall.`
+      },
+      {
+        title: "TATTOO MAKING VIDEOS",
+        category: "Crafts & ASMR",
+        tools: "Claude AI • Google Flow • Seedance 2.5",
+        banner: "nio_1786356987556_52d6f525-6bd6-4db6-905a-511f65c99040_GV_100.webp",
+        images: [
+          "https://images.unsplash.com/photo-1598371839696-5c5bb00bdc28?auto=format&fit=crop&w=500&q=80",
+          "https://images.unsplash.com/photo-1565058379802-bbe93b2f703a?auto=format&fit=crop&w=500&q=80",
+          "https://images.unsplash.com/photo-1611501275019-9b5cda994e8d?auto=format&fit=crop&w=500&q=80"
+        ],
+        guide: `TATTOO MAKING VIDEOS — WORKFLOW GUIDE\n\nStep 1: Paste the Master Prompt into Claude.\nStep 2: Pick a 3D color tattoo concept.\nStep 3: Generate in Google Flow or Seedance 2.5.`,
+        prompt: `You are a Hyper-Realistic Macro Tattoo ASMR Video Prompt Specialist for GROW WITH INDIW.
+Immediately generate 5 vivid 3D color tattoo concepts (Vintage Brass Compass on Map, Emerald Dragon Head, Vibrant Orange Koi Fish). Once I pick one, output a 4K macro close-up video prompt showing a gloved tattoo artist packing vibrant ink with a rotary needle and wiping the skin clean to reveal the finished tattoo.`
+      },
+      {
+        title: "RUG TUFTING VIDEOS",
+        category: "Crafts & ASMR",
+        tools: "Claude AI • Google Flow • Seedance 2.5",
+        banner: "",
+        images: [
+          "https://images.unsplash.com/photo-1584992236310-6edddc08a313?auto=format&fit=crop&w=500&q=80",
+          "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=500&q=80",
+          "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=500&q=80"
+        ],
+        guide: `RUG TUFTING VIDEOS — Full Workflow Guide\n\nStep 1: Give the Master Prompt to Claude.\nStep 2: Reply "OK" to get 5 full tufting prompts.\nStep 3: Generate in Google Flow.`,
+        prompt: `Act as an expert AI Craft Video Director for GROW WITH INDIW. Give me 5 fresh viral custom RUG TUFTING design ideas and generate a 5-shot cinematic video prompt set with strict visual consistency.`
+      },
+      {
+        title: "ANIMAL FEEDING VIDEOS",
+        category: "Animals & Birds",
+        tools: "Claude AI • Google Veo • Seedance",
+        banner: "",
+        images: [
+          "https://images.unsplash.com/photo-1564349683136-77e08dba1ef7?auto=format&fit=crop&w=500&q=80",
+          "https://images.unsplash.com/photo-1534567153574-2b12153a87f0?auto=format&fit=crop&w=500&q=80",
+          "https://images.unsplash.com/photo-1474511320723-9a56873867b5?auto=format&fit=crop&w=500&q=80"
+        ],
+        guide: `ANIMAL FEEDING VIDEOS — WORKFLOW GUIDE\n\nStep 1: Paste Master Prompt into Claude.\nStep 2: Choose animal and duration.\nStep 3: Generate in Google Veo or Seedance.`,
+        prompt: `Give me 10 fresh viral ANIMAL FEEDING video ideas (single or group). Output 5 sequential cinematic video prompts with species-accurate feeding behavior.`
+      },
+      {
+        title: "ANIMAL TEETH CLEANING VIDEOS",
+        category: "Animals & Birds",
+        tools: "Claude AI • OpenArt AI • CapCut",
+        banner: "",
+        images: [
+          "https://images.unsplash.com/photo-1546182990-dffeafbe841d?auto=format&fit=crop&w=500&q=80",
+          "https://images.unsplash.com/photo-1561731216-c3a4d99437d5?auto=format&fit=crop&w=500&q=80",
+          "https://images.unsplash.com/photo-1534188753412-3e26d0d618d6?auto=format&fit=crop&w=500&q=80"
+        ],
+        guide: `ANIMAL TEETH CLEANING VIDEOS — WORKFLOW GUIDE\n\nStep 1: Paste Master Prompt into Claude.\nStep 2: Select an animal to generate 8 image prompts and 7 transition prompts.`,
+        prompt: `List 10 wild animals for a satisfying dental cleaning reel. Output 8 sequential species-accurate image prompts and 7 transition video prompts.`
+      },
+      {
+        title: "TINY MACRO ANIMAL VIDEOS",
+        category: "Animals & Birds",
+        tools: "Claude AI • Google Flow • CapCut",
+        banner: "",
+        images: [
+          "https://images.unsplash.com/photo-1504450874802-0ba2bcd9b5ae?auto=format&fit=crop&w=500&q=80",
+          "https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?auto=format&fit=crop&w=500&q=80",
+          "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=500&q=80"
+        ],
+        guide: `TINY MACRO ANIMAL VIDEOS — WORKFLOW GUIDE\n\nStep 1: Paste Master Prompt into Claude.\nStep 2: Pick a tiny fingertip animal and generate in Google Flow.`,
+        prompt: `Generate 10 unique TINY MACRO ANIMAL ideas resting on a human fingertip with 85mm macro lens image and motion prompts.`
+      },
+      {
+        title: "WILD BIRD VIDEOS",
+        category: "Animals & Birds",
+        tools: "Claude AI • Google Veo • CapCut",
+        banner: "",
+        images: [
+          "https://images.unsplash.com/photo-1444464666168-49d633b86797?auto=format&fit=crop&w=500&q=80",
+          "https://images.unsplash.com/photo-1522926193341-e9ffd686c60f?auto=format&fit=crop&w=500&q=80",
+          "https://images.unsplash.com/photo-1452570053594-1b985d6ea890?auto=format&fit=crop&w=500&q=80"
+        ],
+        guide: `WILD BIRD VIDEOS — WORKFLOW GUIDE\n\nStep 1: Paste Master Prompt into Claude.\nStep 2: Pick a bird species and generate in Google Veo.`,
+        prompt: `Provide 10 rare wild bird species with matching natural habitats and generate 8K wildlife image and video prompts.`
+      },
+      {
+        title: "PETS NICHE (CATS & DOGS) VIDEOS",
+        category: "Animals & Birds",
+        tools: "Claude AI • ElevenLabs • CapCut",
+        banner: "",
+        images: [
+          "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=500&q=80",
+          "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=500&q=80",
+          "https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&w=500&q=80"
+        ],
+        guide: `PETS NICHE VIDEOS — WORKFLOW GUIDE\n\nStep 1: Paste Master Prompt into Claude.\nStep 2: Generate story scenes and ElevenLabs voiceover.`,
+        prompt: `Give me 5 viral emotional cat/dog story concepts with locked character consistency and ElevenLabs voiceover script.`
+      },
+      {
+        title: "FOOD MAKING VIDEOS",
+        category: "Food & Cakes",
+        tools: "Claude AI • Google Flow • CapCut",
+        banner: "",
+        images: [
+          "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=500&q=80",
+          "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=500&q=80",
+          "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=500&q=80"
+        ],
+        guide: `FOOD MAKING VIDEOS — WORKFLOW GUIDE\n\nStep 1: Paste Master Prompt into Claude and pick a country.\nStep 2: Generate cooking clips in Google Flow.`,
+        prompt: `Ask me to pick a country, list 10 iconic dishes, and generate 6 step-by-step macro cooking video prompts.`
+      },
+      {
+        title: "ICE CREAM RECIPE VIDEOS",
+        category: "Food & Cakes",
+        tools: "Claude AI • ElevenLabs • Google Flow",
+        banner: "",
+        images: [
+          "https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?auto=format&fit=crop&w=500&q=80",
+          "https://images.unsplash.com/photo-1501443762994-82bd5dace89a?auto=format&fit=crop&w=500&q=80",
+          "https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=500&q=80"
+        ],
+        guide: `ICE CREAM RECIPE VIDEOS — WORKFLOW GUIDE\n\nStep 1: Paste Master Prompt into Claude.\nStep 2: Pick an artisan ice cream recipe and generate in Google Flow.`,
+        prompt: `Generate 5 viral homemade artisan ice cream recipe ideas with ASMR voiceover script and 4 sequential video prompts.`
       }
     ];
+    /*__CATALOG_END__*/
 
-    let products = JSON.parse(localStorage.getItem('indiw_exec_vault_v1')) || defaultProducts;
-    let selectedCategory = 'all';
-    let activeProductIndex = 0;
-    let activeDocMode = 'guide';
+    let catalog = JSON.parse(localStorage.getItem('indiw_clean_catalog_v3')) || defaultCatalog;
+    let activeFilter = 'all';
+    let currentProductIdx = 0;
+    let currentDocType = 'guide';
+    let editingIdx = -1;
 
-    function render3PanelHTML(imgs) {
-      const list = (imgs && imgs.length === 3) ? imgs : [
+    function buildVisualBox(item) {
+      const imgs = (item.images && item.images.length === 3) ? item.images : [
         "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=500&q=80",
         "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=500&q=80",
         "https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=500&q=80"
       ];
-      return list.map(url => `<img src="${url}" class="w-full h-full object-cover" alt="Frame" />`).join('');
+      const fallbackGrid = `<div class="w-full h-full grid grid-cols-3 gap-0.5">${imgs.map(u => `<img src="${u}" class="w-full h-full object-cover" alt="Frame" />`).join('')}</div>`;
+
+      if (item.banner && item.banner.trim() !== "") {
+        return `
+          <img
+            src="${item.banner}"
+            alt="${item.title}"
+            class="w-full h-full object-cover"
+            onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
+          />
+          <div class="hidden w-full h-full grid grid-cols-3 gap-0.5">
+            ${imgs.map(u => `<img src="${u}" class="w-full h-full object-cover" alt="Frame" />`).join('')}
+          </div>
+        `;
+      }
+      return fallbackGrid;
     }
 
-    function renderGrid() {
-      const q = document.getElementById('search-box').value.toLowerCase();
+    function renderProductCards() {
+      const q = document.getElementById('search-input').value.toLowerCase();
       const grid = document.getElementById('products-grid');
-      document.getElementById('total-count').innerText = products.length;
+      document.getElementById('count-badge').innerText = catalog.length;
 
-      const filtered = products.map((p, idx) => ({ ...p, idx })).filter(p => {
-        const matchCat = selectedCategory === 'all' || p.category === selectedCategory;
-        const matchQ = p.title.toLowerCase().includes(q) || p.category.toLowerCase().includes(q);
-        return matchCat && matchQ;
+      const list = catalog.map((item, idx) => ({ ...item, idx })).filter(item => {
+        const catMatch = activeFilter === 'all' || item.category === activeFilter;
+        const qMatch = item.title.toLowerCase().includes(q) || (item.category && item.category.toLowerCase().includes(q));
+        return catMatch && qMatch;
       });
 
-      grid.innerHTML = filtered.map(p => `
-        <div onclick="openProductDetail(${p.idx})" class="card-exec cursor-pointer rounded-3xl overflow-hidden flex flex-col justify-between group">
+      grid.innerHTML = list.map(item => `
+        <div onclick="openProductView(${item.idx})" class="product-box cursor-pointer rounded-3xl overflow-hidden flex flex-col justify-between group">
           <div>
-            <!-- 3-Panel Split Video Preview Box (Matches Screenshot 12 & 13) -->
-            <div class="h-44 w-full grid grid-cols-3 gap-0.5 bg-zinc-900 p-1 relative overflow-hidden">
-              ${render3PanelHTML(p.images)}
+            <div class="h-44 w-full bg-zinc-900 p-0.5 relative overflow-hidden">
+              ${buildVisualBox(item)}
               <div class="absolute top-3 left-3">
                 <span class="px-2.5 py-1 rounded-full text-[10px] font-extrabold uppercase bg-black/85 text-[#00e676] border border-[#00e676]/40 backdrop-blur-md">
-                  ${p.category}
+                  ${item.category || 'Creator System'}
                 </span>
               </div>
               <div class="absolute bottom-2.5 right-3">
-                <span class="px-2.5 py-0.5 rounded-md text-[10px] font-bold bg-black/80 text-white backdrop-blur-md">
+                <span class="px-2.5 py-0.5 rounded-md text-[10px] font-bold bg-black/80 text-white">
                   2 items
                 </span>
               </div>
             </div>
-
-            <!-- Card Body -->
             <div class="p-5">
               <h3 class="text-base font-black text-gray-900 group-hover:text-emerald-600 transition uppercase tracking-tight">
-                ${p.title}
+                ${item.title}
               </h3>
               <p class="text-xs font-medium text-gray-500 mt-1">
                 Includes Official Guide + Master Prompt
               </p>
             </div>
           </div>
-
           <div class="px-5 py-3.5 bg-gray-50 border-t border-gray-100 flex items-center justify-between text-xs">
-            <span class="font-semibold text-gray-500">${p.tools}</span>
-            <span class="font-extrabold text-gray-900 group-hover:text-emerald-600 transition">Open 2 Items →</span>
+            <span class="font-semibold text-gray-500 truncate pr-2">${item.tools || 'Claude AI • Google Flow'}</span>
+            <span class="font-extrabold text-gray-900 group-hover:text-emerald-600 transition shrink-0">Open 2 Items →</span>
           </div>
         </div>
       `).join('');
     }
 
-    function setCat(cat) {
-      selectedCategory = cat;
-      ['all', 'animals', 'food', 'crafts'].forEach(id => {
-        const el = document.getElementById('cat-' + id);
-        if (el) el.className = "px-4 py-2 rounded-xl bg-white border border-gray-200 hover:border-gray-400 text-xs font-bold text-gray-700";
+    function filterByCategory(cat) {
+      activeFilter = cat;
+      ['all', 'animals', 'crafts', 'food'].forEach(id => {
+        const btn = document.getElementById('filter-' + id);
+        if (btn) btn.className = "px-4 py-2 rounded-xl bg-white border border-gray-200 hover:border-gray-400 text-xs font-bold text-gray-700";
       });
-      const map = { 'all': 'cat-all', 'Animals & Birds': 'cat-animals', 'Food & Cakes': 'cat-food', 'Crafts & ASMR': 'cat-crafts' };
+      const map = { 'all': 'filter-all', 'Animals & Birds': 'filter-animals', 'Crafts & ASMR': 'filter-crafts', 'Food & Cakes': 'filter-food' };
       if (map[cat]) {
         document.getElementById(map[cat]).className = "px-4 py-2 rounded-xl bg-zinc-900 text-[#00e676] text-xs font-bold shadow-sm";
       }
-      renderGrid();
+      renderProductCards();
     }
 
-    function switchMainTab(tab) {
+    function switchPortalTab(tab) {
       ['home', 'products', 'community'].forEach(t => {
-        document.getElementById('portal-' + t).classList.toggle('hidden', t !== tab);
-        document.getElementById('main-tab-' + t).className = (t === tab)
+        document.getElementById('tab-panel-' + t).classList.toggle('hidden', t !== tab);
+        document.getElementById('tab-btn-' + t).className = (t === tab)
           ? 'pb-3.5 border-b-2 border-gray-900 text-gray-900 transition'
           : 'pb-3.5 border-b-2 border-transparent text-gray-400 hover:text-gray-900 transition';
       });
     }
 
-    // Open Nas.com 2-Item Detail View (Screenshot 12)
-    function openProductDetail(index) {
-      activeProductIndex = index;
-      const p = products[index];
-      document.getElementById('detail-thumb-box').innerHTML = render3PanelHTML(p.images);
-      document.getElementById('detail-title').innerText = p.title;
-      document.getElementById('row-guide-title').innerText = `GUIDE FOR ${p.title}`;
-      document.getElementById('row-prompt-title').innerText = `${p.title} MASTER PROMPT`;
-      document.getElementById('detail-about-text').innerText = `Official Grow With Indiw 2-item production system for ${p.title}. Includes the complete step-by-step workflow guide and the copy-ready Claude AI Master Prompt optimized for ${p.tools}.`;
+    function openProductView(idx) {
+      currentProductIdx = idx;
+      const item = catalog[idx];
+      document.getElementById('detail-banner-box').innerHTML = buildVisualBox(item);
+      document.getElementById('detail-heading').innerText = item.title;
+      document.getElementById('detail-guide-name').innerText = `GUIDE FOR ${item.title}`;
+      document.getElementById('detail-prompt-name').innerText = `${item.title} MASTER PROMPT`;
 
       document.getElementById('view-portal').classList.add('hidden');
-      document.getElementById('view-product-detail').classList.remove('hidden');
+      document.getElementById('view-detail').classList.remove('hidden');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    function showMainPortal() {
-      document.getElementById('view-product-detail').classList.add('hidden');
+    function openMainPortal() {
+      document.getElementById('view-detail').classList.add('hidden');
       document.getElementById('view-portal').classList.remove('hidden');
     }
 
-    function switchDetailTab(tab) {
-      const isContent = (tab === 'content');
-      document.getElementById('detail-content-list').classList.toggle('hidden', !isContent);
-      document.getElementById('detail-about-box').classList.toggle('hidden', isContent);
-      document.getElementById('detail-tab-content').className = isContent
-        ? 'pb-3 border-b-2 border-[#10b981] text-gray-900'
-        : 'pb-3 border-b-2 border-transparent text-gray-500 hover:text-gray-800';
-      document.getElementById('detail-tab-about').className = !isContent
-        ? 'pb-3 border-b-2 border-[#10b981] text-gray-900'
-        : 'pb-3 border-b-2 border-transparent text-gray-500 hover:text-gray-800';
-    }
-
-    // Open Document Reader (Screenshot 13 Format)
-    function openDocReader(mode) {
-      activeDocMode = mode;
-      const p = products[activeProductIndex];
-      document.getElementById('doc-main-title').innerText = p.title;
-      document.getElementById('doc-3panel-strip').innerHTML = render3PanelHTML(p.images);
+    function openDocumentModal(mode) {
+      currentDocType = mode;
+      const item = catalog[currentProductIdx];
+      document.getElementById('doc-product-title').innerText = item.title;
+      document.getElementById('doc-visual-strip').innerHTML = buildVisualBox(item);
 
       if (mode === 'guide') {
-        document.getElementById('doc-sub-badge').innerText = '– GUIDE';
-        document.getElementById('doc-toolbar-label').innerText = `GUIDE FOR ${p.title}`;
-        document.getElementById('doc-body-content').innerHTML = buildCleanGuide(p.title, p.tools, p.ideaType || 'viral video');
+        document.getElementById('doc-mode-subtitle').innerText = '– GUIDE';
+        document.getElementById('doc-header-label').innerText = `GUIDE FOR ${item.title}`;
+        document.getElementById('doc-text-content').innerText = item.guide || '';
       } else {
-        document.getElementById('doc-sub-badge').innerText = '– MASTER PROMPT';
-        document.getElementById('doc-toolbar-label').innerText = `${p.title} MASTER PROMPT`;
-        document.getElementById('doc-body-content').innerHTML = `
-          <div class="p-5 rounded-2xl bg-zinc-950 text-gray-100 border border-zinc-800 font-mono text-xs sm:text-sm whitespace-pre-wrap leading-relaxed">${p.prompt}</div>
-        `;
+        document.getElementById('doc-mode-subtitle').innerText = '– MASTER PROMPT';
+        document.getElementById('doc-header-label').innerText = `${item.title} MASTER PROMPT`;
+        document.getElementById('doc-text-content').innerText = item.prompt || '';
       }
-
       document.getElementById('doc-modal').classList.remove('hidden');
     }
 
-    function closeDocReader() {
+    function closeDocumentModal() {
       document.getElementById('doc-modal').classList.add('hidden');
     }
 
-    function copyDocText() {
-      const p = products[activeProductIndex];
-      const textToCopy = (activeDocMode === 'prompt') ? p.prompt : document.getElementById('doc-body-content').innerText;
-      navigator.clipboard.writeText(textToCopy);
+    function copyActiveDocument() {
+      const item = catalog[currentProductIdx];
+      const text = (currentDocType === 'guide') ? item.guide : item.prompt;
+      navigator.clipboard.writeText(text || '');
       const btn = document.getElementById('btn-copy-doc');
       btn.innerText = '✓ Copied!';
-      setTimeout(() => btn.innerText = 'Copy Text', 1600);
+      setTimeout(() => btn.innerText = 'Copy Full Text', 1500);
     }
 
-    function printDocPDF() {
-      const p = products[activeProductIndex];
-      const sub = (activeDocMode === 'guide') ? 'GUIDE' : 'MASTER PROMPT';
-      const bodyHTML = document.getElementById('doc-printable-area').innerHTML;
-      const win = window.open('', '_blank', 'width=900,height=900');
-      win.document.write(`
-        <html>
-          <head>
-            <title>GROW WITH INDIW - ${p.title} - ${sub}</title>
-            <script src="https://cdn.tailwindcss.com"><\/script>
-            <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
-            <style>body { font-family: 'Inter', sans-serif; padding: 32px; }</style>
-          </head>
-          <body>
-            ${bodyHTML}
-            <script>setTimeout(() => { window.print(); }, 600);<\/script>
-          </body>
-        </html>
-      `);
-      win.document.close();
+    function encodeBannerFile(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const img = new Image();
+        img.onload = function() {
+          const canvas = document.createElement('canvas');
+          const maxW = 900;
+          const scale = Math.min(1, maxW / img.width);
+          canvas.width = Math.round(img.width * scale);
+          canvas.height = Math.round(img.height * scale);
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+          document.getElementById('inp-banner').value = canvas.toDataURL('image/jpeg', 0.82);
+        };
+        img.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
     }
 
-    function openAddModal() { document.getElementById('add-modal').classList.remove('hidden'); }
-    function closeAddModal() { document.getElementById('add-modal').classList.add('hidden'); }
+    function openProductEditor(idx) {
+      editingIdx = idx;
+      const delBtn = document.getElementById('btn-del-item');
+      if (idx >= 0 && catalog[idx]) {
+        const item = catalog[idx];
+        document.getElementById('editor-modal-title').innerText = `Edit: ${item.title}`;
+        document.getElementById('inp-title').value = item.title;
+        document.getElementById('inp-cat').value = item.category || '';
+        document.getElementById('inp-tools').value = item.tools || '';
+        document.getElementById('inp-banner').value = item.banner || '';
+        document.getElementById('inp-guide').value = item.guide || '';
+        document.getElementById('inp-prompt').value = item.prompt || '';
+        delBtn.classList.remove('hidden');
+      } else {
+        document.getElementById('editor-modal-title').innerText = '+ Add New Product';
+        document.getElementById('inp-title').value = '';
+        document.getElementById('inp-cat').value = 'Animals & Birds';
+        document.getElementById('inp-tools').value = 'Claude AI • Google Flow';
+        document.getElementById('inp-banner').value = '';
+        document.getElementById('inp-guide').value = '';
+        document.getElementById('inp-prompt').value = '';
+        delBtn.classList.add('hidden');
+      }
+      document.getElementById('editor-modal').classList.remove('hidden');
+    }
 
-    function saveNewProduct() {
-      const title = document.getElementById('add-title').value.trim();
-      if (!title) return;
-      const img1 = document.getElementById('add-img1').value.trim() || "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=500&q=80";
-      const img2 = document.getElementById('add-img2').value.trim() || img1;
-      const img3 = document.getElementById('add-img3').value.trim() || img1;
+    function closeProductEditor() {
+      document.getElementById('editor-modal').classList.add('hidden');
+    }
 
-      products.unshift({
-        title: title.toUpperCase(),
-        category: document.getElementById('add-cat').value.trim() || "Crafts & ASMR",
-        images: [img1, img2, img3],
-        tools: "Claude AI • Google Flow • Veo",
-        ideaType: title.toLowerCase(),
-        prompt: document.getElementById('add-prompt').value.trim() || `Master Prompt for ${title.toUpperCase()} by GROW WITH INDIW.`
+    function saveProductChanges() {
+      const title = document.getElementById('inp-title').value.trim().toUpperCase();
+      if (!title) { alert('Please enter a Product Title'); return; }
+      const category = document.getElementById('inp-cat').value.trim() || 'Creator System';
+      const tools = document.getElementById('inp-tools').value.trim() || 'Claude AI • Google Flow';
+      const banner = document.getElementById('inp-banner').value.trim();
+      const guide = document.getElementById('inp-guide').value;
+      const prompt = document.getElementById('inp-prompt').value;
+
+      const fallbackImgs = (editingIdx >= 0 && catalog[editingIdx] && catalog[editingIdx].images)
+        ? catalog[editingIdx].images
+        : [
+            "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=500&q=80",
+            "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=500&q=80",
+            "https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=500&q=80"
+          ];
+
+      const updated = { title, category, tools, banner, images: fallbackImgs, guide, prompt };
+
+      if (editingIdx >= 0) {
+        catalog[editingIdx] = updated;
+        localStorage.setItem('indiw_clean_catalog_v3', JSON.stringify(catalog));
+        closeProductEditor();
+        renderProductCards();
+        openProductView(editingIdx);
+      } else {
+        catalog.unshift(updated);
+        localStorage.setItem('indiw_clean_catalog_v3', JSON.stringify(catalog));
+        closeProductEditor();
+        renderProductCards();
+        openMainPortal();
+      }
+    }
+
+    function removeCurrentProduct() {
+      if (editingIdx < 0) return;
+      catalog.splice(editingIdx, 1);
+      localStorage.setItem('indiw_clean_catalog_v3', JSON.stringify(catalog));
+      closeProductEditor();
+      closeDocumentModal();
+      openMainPortal();
+      renderProductCards();
+    }
+
+    function syncDefaultCatalog() {
+      localStorage.removeItem('indiw_clean_catalog_v3');
+      catalog = defaultCatalog;
+      renderProductCards();
+      openMainPortal();
+    }
+
+    function exportFullGitHubCode() {
+      closeDocumentModal();
+      closeProductEditor();
+      openMainPortal();
+      switchPortalTab('products');
+      document.getElementById('search-input').value = '';
+      renderProductCards();
+
+      const jsonStr = JSON.stringify(catalog, null, 2);
+      const docHTML = '<!DOCTYPE html>\n<html lang="en">\n' + document.documentElement.innerHTML + '\n</html>';
+      const finalHTML = docHTML.replace(
+        /\/\*__CATALOG_START__\*\/[\s\S]*?\/\*__CATALOG_END__\*\//,
+        `/*__CATALOG_START__*/\n    const defaultCatalog = ${jsonStr};\n    /*__CATALOG_END__*/`
+      );
+
+      navigator.clipboard.writeText(finalHTML).then(() => {
+        const btn = document.getElementById('btn-gh-copy');
+        btn.innerText = '✓ Code Copied!';
+        alert('Complete index.html code copied! Paste it into your GitHub index.html file and click Commit changes.');
+        setTimeout(() => { btn.innerText = '⚡ Save Code for GitHub'; }, 2500);
       });
-
-      localStorage.setItem('indiw_exec_vault_v1', JSON.stringify(products));
-      closeAddModal();
-      renderGrid();
     }
 
-    renderGrid();
+    renderProductCards();
   </script>
 </body>
 </html>
